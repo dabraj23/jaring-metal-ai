@@ -1,0 +1,11 @@
+node_modules/
+backend/node_modules/
+client/node_modules/
+backend/uploads/*
+backend/generated/*
+backend/output/*
+*.log
+.DS_Store
+!backend/uploads/.gitkeep
+!backend/generated/.gitkeep
+!backend/output/.gitkeep

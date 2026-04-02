@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaring Metal AI - Quotation Intelligence Platform</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif; background: #f8fafc; }
+    #root { min-height: 100vh; }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+    /* Loading state */
+    .loading-screen {
+      position: fixed; inset: 0; background: #0f172a;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px; z-index: 9999;
+    }
+    .loading-logo { color: #3b82f6; font-size: 24px; font-weight: 700; }
+    .loading-spinner {
+      width: 40px; height: 40px; border: 3px solid #1e3a8a;
+      border-top-color: #3b82f6; border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-logo">⬡ Jaring Metal AI</div>
+    <div class="loading-spinner"></div>
+    <div style="color:#64748b;font-size:14px;">Loading Quotation Intelligence Platform...</div>
+  </div>
+  <div id="root"></div>
+  <script src="/bundle.js"></script>
+  <script>
+    // Remove loading screen once app mounts
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loading = document.getElementById('loading-screen');
+        if (loading) loading.remove();
+      }, 500);
+    });
+  </script>
+</body>
+</html>

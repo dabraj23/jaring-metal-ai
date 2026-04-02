@@ -1,0 +1,164 @@
+JARING METAL AI - BACKEND STARTUP GUIDE
+========================================
+
+1. INSTALLATION (if not already done)
+   cd "/sessions/confident-funny-bardeen/mnt/Jaring Metal/JaringMetalAI/backend"
+   npm install
+
+2. DATABASE INITIALIZATION
+   node database/seed.js
+   
+   This will create jaringmetal.json with:
+   - 5 demo users with different roles
+   - 3 demo customers
+   - 6 material categories
+   - 3 pricing formulas
+   - 7 metal benchmarks
+   - Realistic market prices
+   - 4 sample quotations
+
+3. START THE SERVER
+   node server.js
+   
+   Server will run on: http://localhost:3000
+   
+4. TEST THE SERVER
+   
+   Health check:
+   curl http://localhost:3000/api/health
+   
+   Login with demo user:
+   curl -X POST http://localhost:3000/api/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{"email":"admin@jaringmetal.com","password":"admin123"}'
+   
+   This returns: { "token": "...", "user": {...} }
+   
+   Use the token for authenticated requests:
+   curl http://localhost:3000/api/customers \
+     -H "Authorization: Bearer TOKEN_HERE"
+
+5. DEMO CREDENTIALS
+   
+   Admin:      admin@jaringmetal.com / admin123
+   Commercial: commercial@jaringmetal.com / pass123
+   Pricing:    pricing@jaringmetal.com / pass123
+   Approver:   approver@jaringmetal.com / pass123
+   Finance:    finance@jaringmetal.com / pass123
+
+6. API ENDPOINTS AVAILABLE (60+)
+   
+   Authentication:
+   - POST   /api/auth/login
+   - POST   /api/auth/register (admin only)
+   - GET    /api/auth/me
+   
+   Quotations:
+   - GET    /api/quotations
+   - POST   /api/quotations
+   - GET    /api/quotations/:id
+   - PATCH  /api/quotations/:id
+   
+   Documents:
+   - POST   /api/quotations/:id/documents
+   - GET    /api/quotations/:id/documents
+   - DELETE /api/quotations/:id/documents/:docId
+   - POST   /api/quotations/:id/extract
+   
+   Category & Pricing:
+   - GET    /api/categories
+   - POST   /api/quotations/:id/category
+   - GET    /api/formulas
+   - POST   /api/quotations/:id/calculate
+   - GET    /api/quotations/:id/breakdown
+   
+   Market Data:
+   - GET    /api/market-data
+   - POST   /api/market-data/fetch
+   - POST   /api/market-data/override
+   
+   Workflow:
+   - POST   /api/quotations/:id/submit
+   - POST   /api/quotations/:id/approve
+   - POST   /api/quotations/:id/reject
+   - POST   /api/quotations/:id/release
+   - POST   /api/quotations/:id/generate
+   
+   Admin:
+   - GET    /api/admin/categories
+   - POST   /api/admin/categories
+   - PUT    /api/admin/categories/:id
+   - GET    /api/admin/formulas
+   - POST   /api/admin/formulas
+   - PUT    /api/admin/formulas/:id
+   - GET    /api/admin/benchmarks
+   - POST   /api/admin/benchmarks
+   - PUT    /api/admin/benchmarks/:id
+   - GET    /api/admin/users
+   - PUT    /api/admin/users/:id
+   
+   Audit:
+   - GET    /api/quotations/:id/audit
+   - GET    /api/audit
+   - GET    /api/reports/summary
+   
+   Customers:
+   - GET    /api/customers
+   - POST   /api/customers
+   
+   System:
+   - GET    /api/health
+   - GET    /api/version
+
+7. FRONTEND INTEGRATION
+   
+   The server is configured to accept requests from:
+   - http://localhost:5173 (Vite dev server)
+   
+   Connect your frontend by using:
+   - Base URL: http://localhost:3000/api
+   - Include JWT token in Authorization header
+   - All endpoints support JSON request/response
+
+8. DATABASE
+   
+   File-based JSON: database/jaringmetal.json
+   
+   For production, switch to:
+   - better-sqlite3 (already installed)
+   - PostgreSQL (requires connection string change)
+
+9. FEATURES INCLUDED
+   
+   ✓ Complete authentication & authorization
+   ✓ JWT token management
+   ✓ Role-based access control
+   ✓ Document upload & storage
+   ✓ AI document extraction (Gemini)
+   ✓ Automatic category recognition
+   ✓ Formula-based pricing engine
+   ✓ Market price integration
+   ✓ PDF quotation generation
+   ✓ Workflow management
+   ✓ Approval processes
+   ✓ Complete audit logging
+   ✓ Override tracking
+
+10. TROUBLESHOOTING
+    
+    Port already in use:
+    - Change PORT environment variable
+    - Or kill existing process: killall node
+    
+    Database errors:
+    - Delete jaringmetal.json
+    - Re-run: node database/seed.js
+    
+    Module not found:
+    - Run: npm install
+    - Ensure better-sqlite3 is optional
+    
+    Gemini API errors:
+    - Check API key in services/geminiService.js
+    - Verify internet connection
+    - Test with different document

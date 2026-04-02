@@ -1,0 +1,824 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "System Admin",
+      "email": "admin@jaringmetal.com",
+      "password_hash": "$2a$10$CWCc3o4lgAn396xg94h4oeQ4sPysIgMQ6.oQwYpC3qkzcGZ5h6sP6",
+      "role": "admin",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:37.680Z"
+    },
+    {
+      "id": 2,
+      "name": "Ahmad Razif",
+      "email": "commercial@jaringmetal.com",
+      "password_hash": "$2a$10$/LytZA4yuHH3nNQNRgC3YOjuQIE6gbPpghxI6BQZD7W0wTUvIQnym",
+      "role": "commercial",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:37.775Z"
+    },
+    {
+      "id": 3,
+      "name": "Siti Norzaharah",
+      "email": "pricing@jaringmetal.com",
+      "password_hash": "$2a$10$3yc3q1oQew5SXNl107Nx3.fw5zWWLrRqXJG2nvICT3otEk7PU0pqK",
+      "role": "pricing",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:37.856Z"
+    },
+    {
+      "id": 4,
+      "name": "Dato Hassan",
+      "email": "approver@jaringmetal.com",
+      "password_hash": "$2a$10$lbMtgCYO3i73zgkGngGB0uLs.4nc0f/aLcRBv7vFKFj02Z1ZE3rKm",
+      "role": "approver",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:37.969Z"
+    },
+    {
+      "id": 5,
+      "name": "Lim Wei Chen",
+      "email": "finance@jaringmetal.com",
+      "password_hash": "$2a$10$7teqjNz4WgxFyNIU9gOieOgOPnY76x0x/miK4IPIGKViriTxlyByG",
+      "role": "finance",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.083Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Acme Electronics Sdn Bhd",
+      "code": "ACC001",
+      "email": "procurement@acme.com.my",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.083Z"
+    },
+    {
+      "id": 2,
+      "name": "TechVision Components",
+      "code": "TVC002",
+      "email": "supply@techvision.com",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.083Z"
+    },
+    {
+      "id": 3,
+      "name": "GlobalCircuit Industries",
+      "code": "GCI003",
+      "email": "purchase@globalcircuit.com",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.083Z"
+    }
+  ],
+  "material_categories": [
+    {
+      "id": 1,
+      "code": "CU_AG",
+      "name": "Cu/Ag Mixed Scrap",
+      "description": "Copper and silver mixed scrap materials",
+      "quotation_type_compat": "Monthly Quotation,Formula Quotation",
+      "active": 1,
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 2,
+      "code": "NI_PD_AU",
+      "name": "Ni/Pd/Au/A194 Catalyst",
+      "description": "Nickel, Palladium and Gold bearing catalyst",
+      "quotation_type_compat": "Formula Quotation,Recovery Settlement",
+      "active": 1,
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 3,
+      "code": "NI_PD_AG_AU",
+      "name": "Ni/Pd/Ag/Au/A194 Mixed",
+      "description": "Multi-metal mixed catalyst bearing Ni, Pd, Ag and Au",
+      "quotation_type_compat": "Formula Quotation,Recovery Settlement",
+      "active": 1,
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 4,
+      "code": "AU_SOL",
+      "name": "Au Solution",
+      "description": "Gold bearing solution from industrial processes",
+      "quotation_type_compat": "Recovery Settlement",
+      "active": 1,
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 5,
+      "code": "PD_SOL",
+      "name": "Pd Solution",
+      "description": "Palladium bearing solution from industrial processes",
+      "quotation_type_compat": "Recovery Settlement",
+      "active": 1,
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 6,
+      "code": "AG_PASTE",
+      "name": "Silver Paste on Syringe",
+      "description": "Silver paste residue remaining on syringe",
+      "quotation_type_compat": "Monthly Quotation,Formula Quotation",
+      "active": 1,
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    }
+  ],
+  "formulas": [
+    {
+      "id": 1,
+      "name": "Cu/Ag Base Formula",
+      "category_id": 1,
+      "quotation_type": "Monthly Quotation",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 2,
+      "name": "Pd/Au Composite Formula",
+      "category_id": 2,
+      "quotation_type": "Formula Quotation",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 3,
+      "name": "Au Recovery Settlement",
+      "category_id": 4,
+      "quotation_type": "Recovery Settlement",
+      "active": 1,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    }
+  ],
+  "formula_versions": [
+    {
+      "id": 1,
+      "formula_id": 1,
+      "version": 1,
+      "expression_json": "{\"description\":\"Cu base with silver credit\",\"steps\":[{\"name\":\"Cu Recovery Value\",\"expr\":\"Cu * weight * cu_recovery_pct / 100 / 1000\"},{\"name\":\"Ag Credit Value\",\"expr\":\"Ag * weight * ag_content_pct / 100 / 32.15 * 0.9\"},{\"name\":\"Commercial Factor\",\"expr\":\"(Cu_Recovery_Value + Ag_Credit_Value) * 0.985\"},{\"name\":\"Final Value MYR\",\"expr\":\"Commercial_Factor * fx_rate\"}]}",
+      "input_variables": "[\"Cu\",\"Ag\",\"weight\",\"cu_recovery_pct\",\"ag_content_pct\",\"fx_rate\"]",
+      "output_unit": "MYR",
+      "rounding_rule": "round2",
+      "tax_rule": null,
+      "deduction_rules": "[{\"name\":\"Handling Charge\",\"amount\":50},{\"name\":\"Assay Fee\",\"amount\":150}]",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_by": 1,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 2,
+      "formula_id": 2,
+      "version": 1,
+      "expression_json": "{\"description\":\"Pd and Au composite pricing\",\"steps\":[{\"name\":\"Pd Value\",\"expr\":\"Pd * weight * pd_recovery_pct / 100 / 32.15\"},{\"name\":\"Au Value\",\"expr\":\"Au * weight * au_recovery_pct / 100 / 32.15\"},{\"name\":\"Ni Deduction\",\"expr\":\"Ni * weight * 0.001\"},{\"name\":\"Gross Value\",\"expr\":\"Pd_Value + Au_Value - Ni_Deduction\"},{\"name\":\"Final Value MYR\",\"expr\":\"Gross_Value * fx_rate\"}]}",
+      "input_variables": "[\"Pd\",\"Au\",\"Ni\",\"weight\",\"pd_recovery_pct\",\"au_recovery_pct\",\"fx_rate\"]",
+      "output_unit": "MYR",
+      "rounding_rule": "round2",
+      "tax_rule": null,
+      "deduction_rules": "[{\"name\":\"Processing Fee\",\"amount\":200},{\"name\":\"Assay Fee\",\"amount\":250}]",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "created_by": 1,
+      "created_at": "2026-04-02T07:32:38.084Z"
+    }
+  ],
+  "benchmarks": [
+    {
+      "id": 1,
+      "name": "Copper LME",
+      "metal_code": "Cu",
+      "unit": "USD/tonne",
+      "source": "LME / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 1,
+      "fallback_manual": 1,
+      "active": 1
+    },
+    {
+      "id": 2,
+      "name": "Silver Spot",
+      "metal_code": "Ag",
+      "unit": "USD/troy oz",
+      "source": "LBMA / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 1,
+      "fallback_manual": 1,
+      "active": 1
+    },
+    {
+      "id": 3,
+      "name": "Gold Spot",
+      "metal_code": "Au",
+      "unit": "USD/troy oz",
+      "source": "LBMA / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 1,
+      "fallback_manual": 1,
+      "active": 1
+    },
+    {
+      "id": 4,
+      "name": "Palladium Spot",
+      "metal_code": "Pd",
+      "unit": "USD/troy oz",
+      "source": "LBMA / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 1,
+      "fallback_manual": 1,
+      "active": 1
+    },
+    {
+      "id": 5,
+      "name": "Nickel LME",
+      "metal_code": "Ni",
+      "unit": "USD/tonne",
+      "source": "LME / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 1,
+      "fallback_manual": 1,
+      "active": 1
+    },
+    {
+      "id": 6,
+      "name": "Tin LME",
+      "metal_code": "Sn",
+      "unit": "USD/tonne",
+      "source": "LME / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 0,
+      "fallback_manual": 1,
+      "active": 1
+    },
+    {
+      "id": 7,
+      "name": "USD/MYR FX",
+      "metal_code": "FX_MYR",
+      "unit": "MYR per USD",
+      "source": "BNM / Manual",
+      "spot_applicable": 1,
+      "forward_applicable": 1,
+      "fallback_manual": 1,
+      "active": 1
+    }
+  ],
+  "benchmark_snapshots": [],
+  "quotation_requests": [
+    {
+      "id": 4,
+      "reference_no": "JM-2024-0004",
+      "customer_id": 1,
+      "customer_name": "Acme Electronics Sdn Bhd",
+      "quotation_type": "Monthly Quotation",
+      "quote_date": "2024-03-28",
+      "validity_period": 30,
+      "shipment_month": "2024-05",
+      "pricing_mode": "Forward",
+      "status": "Draft",
+      "category_id": null,
+      "category_confirmed": 0,
+      "formula_version_id": null,
+      "pricing_result_json": null,
+      "notes": "Forward pricing for May 2024",
+      "created_by": 2,
+      "created_at": "2024-03-28T14:00:00Z",
+      "updated_at": "2024-03-28T14:00:00Z"
+    },
+    {
+      "id": 3,
+      "reference_no": "JM-2024-0003",
+      "customer_id": 3,
+      "customer_name": "GlobalCircuit Industries",
+      "quotation_type": "Recovery Settlement",
+      "quote_date": "2024-03-25",
+      "validity_period": 7,
+      "shipment_month": "2024-04",
+      "pricing_mode": "Spot",
+      "status": "Extracted",
+      "category_id": null,
+      "category_confirmed": 0,
+      "formula_version_id": null,
+      "pricing_result_json": null,
+      "notes": "Au solution recovery from circuit board processing",
+      "created_by": 2,
+      "created_at": "2024-03-25T11:00:00Z",
+      "updated_at": "2024-03-25T11:30:00Z"
+    },
+    {
+      "id": 2,
+      "reference_no": "JM-2024-0002",
+      "customer_id": 2,
+      "customer_name": "TechVision Components",
+      "quotation_type": "Formula Quotation",
+      "quote_date": "2024-03-20",
+      "validity_period": 14,
+      "shipment_month": "2024-04",
+      "pricing_mode": "Spot",
+      "status": "Pending Approval",
+      "category_id": 2,
+      "category_confirmed": 1,
+      "formula_version_id": 2,
+      "pricing_result_json": "{\"final_value\":128500,\"currency\":\"MYR\",\"steps\":[{\"name\":\"Pd Value\",\"value\":22500},{\"name\":\"Au Value\",\"value\":15200},{\"name\":\"Gross Value\",\"value\":37680},{\"name\":\"Final Value MYR\",\"value\":177576}],\"deductions\":[{\"name\":\"Processing Fee\",\"amount\":200},{\"name\":\"Assay Fee\",\"amount\":250}]}",
+      "notes": "Ni/Pd/Au catalyst batch Q1 2024",
+      "created_by": 2,
+      "created_at": "2024-03-20T09:00:00Z",
+      "updated_at": "2024-03-21T10:00:00Z"
+    },
+    {
+      "id": 1,
+      "reference_no": "JM-2024-0001",
+      "customer_id": 1,
+      "customer_name": "Acme Electronics Sdn Bhd",
+      "quotation_type": "Monthly Quotation",
+      "quote_date": "2024-03-15",
+      "validity_period": 30,
+      "shipment_month": "2024-04",
+      "pricing_mode": "Spot",
+      "status": "Released",
+      "category_id": 1,
+      "category_confirmed": 1,
+      "formula_version_id": 1,
+      "pricing_result_json": "{\"final_value\":45230.5,\"currency\":\"MYR\",\"steps\":[{\"name\":\"Cu Recovery Value\",\"value\":8750.25},{\"name\":\"Ag Credit Value\",\"value\":1200.8},{\"name\":\"Commercial Factor\",\"value\":9796.18},{\"name\":\"Final Value MYR\",\"value\":45220.85}],\"deductions\":[{\"name\":\"Handling Charge\",\"amount\":50},{\"name\":\"Assay Fee\",\"amount\":150}]}",
+      "notes": "Monthly quotation for April 2024 shipment",
+      "created_by": 2,
+      "created_at": "2024-03-15T08:00:00Z",
+      "updated_at": "2024-03-16T14:30:00Z"
+    }
+  ],
+  "supporting_documents": [
+    {
+      "id": 1,
+      "quotation_request_id": 1,
+      "filename": "lab_report_acc001_mar24.pdf",
+      "original_name": "Lab Report ACC001 Mar 2024.pdf",
+      "file_path": "/uploads/lab_report_acc001_mar24.pdf",
+      "file_type": "application/pdf",
+      "file_size": 245000,
+      "status": "extracted",
+      "is_primary": 1,
+      "upload_timestamp": "2024-03-15T08:05:00Z",
+      "extraction_result": "{}"
+    },
+    {
+      "id": 2,
+      "quotation_request_id": 2,
+      "filename": "assay_tvc002_ni_pd_au.pdf",
+      "original_name": "Assay Report TVC002 Ni-Pd-Au.pdf",
+      "file_path": "/uploads/assay_tvc002_ni_pd_au.pdf",
+      "file_type": "application/pdf",
+      "file_size": 312000,
+      "status": "extracted",
+      "is_primary": 1,
+      "upload_timestamp": "2024-03-20T09:05:00Z",
+      "extraction_result": "{}"
+    },
+    {
+      "id": 3,
+      "quotation_request_id": 3,
+      "filename": "gci_au_solution_analysis.pdf",
+      "original_name": "GCI Au Solution Analysis Report.pdf",
+      "file_path": "/uploads/gci_au_solution_analysis.pdf",
+      "file_type": "application/pdf",
+      "file_size": 189000,
+      "status": "extracted",
+      "is_primary": 1,
+      "upload_timestamp": "2024-03-25T11:05:00Z",
+      "extraction_result": "{}"
+    }
+  ],
+  "extracted_fields": [
+    {
+      "id": 1,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "field_name": "document_type",
+      "field_value": "Lab Report",
+      "confidence_score": 0.99,
+      "is_edited": 0
+    },
+    {
+      "id": 2,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "field_name": "customer_name",
+      "field_value": "Acme Electronics Sdn Bhd",
+      "confidence_score": 0.98,
+      "is_edited": 0
+    },
+    {
+      "id": 3,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "field_name": "lab_ref_no",
+      "field_value": "LAB-2024-0312",
+      "confidence_score": 0.95,
+      "is_edited": 0
+    },
+    {
+      "id": 4,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "field_name": "original_weight",
+      "field_value": "100.5",
+      "confidence_score": 0.92,
+      "is_edited": 0
+    },
+    {
+      "id": 5,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "field_name": "sample_description",
+      "field_value": "Cu/Ag Mixed Scrap",
+      "confidence_score": 0.9,
+      "is_edited": 0
+    },
+    {
+      "id": 6,
+      "document_id": 2,
+      "quotation_request_id": 2,
+      "field_name": "document_type",
+      "field_value": "Assay Report",
+      "confidence_score": 0.99,
+      "is_edited": 0
+    },
+    {
+      "id": 7,
+      "document_id": 2,
+      "quotation_request_id": 2,
+      "field_name": "customer_name",
+      "field_value": "TechVision Components",
+      "confidence_score": 0.97,
+      "is_edited": 0
+    },
+    {
+      "id": 8,
+      "document_id": 2,
+      "quotation_request_id": 2,
+      "field_name": "original_weight",
+      "field_value": "45.2",
+      "confidence_score": 0.94,
+      "is_edited": 0
+    },
+    {
+      "id": 9,
+      "document_id": 3,
+      "quotation_request_id": 3,
+      "field_name": "document_type",
+      "field_value": "Analysis Report",
+      "confidence_score": 0.96,
+      "is_edited": 0
+    },
+    {
+      "id": 10,
+      "document_id": 3,
+      "quotation_request_id": 3,
+      "field_name": "customer_name",
+      "field_value": "GlobalCircuit Industries",
+      "confidence_score": 0.95,
+      "is_edited": 0
+    }
+  ],
+  "extracted_metal_results": [
+    {
+      "id": 1,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "metal_code": "Cu",
+      "value": 85.2,
+      "unit": "%",
+      "confidence_score": 0.95
+    },
+    {
+      "id": 2,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "metal_code": "Ag",
+      "value": 0.85,
+      "unit": "%",
+      "confidence_score": 0.92
+    },
+    {
+      "id": 3,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "metal_code": "Au",
+      "value": 0.02,
+      "unit": "%",
+      "confidence_score": 0.78
+    },
+    {
+      "id": 4,
+      "document_id": 1,
+      "quotation_request_id": 1,
+      "metal_code": "Pb",
+      "value": 2.1,
+      "unit": "%",
+      "confidence_score": 0.91
+    },
+    {
+      "id": 5,
+      "document_id": 2,
+      "quotation_request_id": 2,
+      "metal_code": "Ni",
+      "value": 15.3,
+      "unit": "%",
+      "confidence_score": 0.96
+    },
+    {
+      "id": 6,
+      "document_id": 2,
+      "quotation_request_id": 2,
+      "metal_code": "Pd",
+      "value": 8.7,
+      "unit": "%",
+      "confidence_score": 0.94
+    },
+    {
+      "id": 7,
+      "document_id": 2,
+      "quotation_request_id": 2,
+      "metal_code": "Au",
+      "value": 3.2,
+      "unit": "%",
+      "confidence_score": 0.93
+    },
+    {
+      "id": 8,
+      "document_id": 3,
+      "quotation_request_id": 3,
+      "metal_code": "Au",
+      "value": 4.25,
+      "unit": "g/L",
+      "confidence_score": 0.88
+    }
+  ],
+  "override_logs": [],
+  "approval_records": [
+    {
+      "id": 1,
+      "quotation_request_id": 1,
+      "action": "created",
+      "status": "Draft",
+      "comment": "Quotation created",
+      "actioned_by": 2,
+      "actioned_by_name": "Ahmad Razif",
+      "actioned_at": "2024-03-15T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "quotation_request_id": 1,
+      "action": "submitted",
+      "status": "Pending Approval",
+      "comment": "Submitted for approval",
+      "actioned_by": 2,
+      "actioned_by_name": "Ahmad Razif",
+      "actioned_at": "2024-03-15T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "quotation_request_id": 1,
+      "action": "approved",
+      "status": "Approved",
+      "comment": "Pricing verified. Approved.",
+      "actioned_by": 4,
+      "actioned_by_name": "Dato Hassan",
+      "actioned_at": "2024-03-16T09:00:00Z"
+    },
+    {
+      "id": 4,
+      "quotation_request_id": 1,
+      "action": "released",
+      "status": "Released",
+      "comment": "Released to customer",
+      "actioned_by": 4,
+      "actioned_by_name": "Dato Hassan",
+      "actioned_at": "2024-03-16T14:30:00Z"
+    },
+    {
+      "id": 5,
+      "quotation_request_id": 2,
+      "action": "created",
+      "status": "Draft",
+      "comment": "Quotation created",
+      "actioned_by": 2,
+      "actioned_by_name": "Ahmad Razif",
+      "actioned_at": "2024-03-20T09:00:00Z"
+    },
+    {
+      "id": 6,
+      "quotation_request_id": 2,
+      "action": "submitted",
+      "status": "Pending Approval",
+      "comment": "Ready for approval",
+      "actioned_by": 3,
+      "actioned_by_name": "Siti Norzaharah",
+      "actioned_at": "2024-03-21T10:00:00Z"
+    }
+  ],
+  "generated_outputs": [
+    {
+      "id": 1,
+      "quotation_request_id": 1,
+      "output_type": "quotation_pdf",
+      "filename": "JM-2024-0001_quotation.pdf",
+      "file_path": "/generated/JM-2024-0001_quotation.pdf",
+      "version": 1,
+      "created_at": "2024-03-16T14:00:00Z"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": 4,
+      "entity_type": "quotation",
+      "entity_id": 2,
+      "action": "created",
+      "description": "Quotation JM-2024-0002 created",
+      "old_value": null,
+      "new_value": "Draft",
+      "user_id": 2,
+      "user_name": "Ahmad Razif",
+      "timestamp": "2024-03-20T09:00:00Z"
+    },
+    {
+      "id": 3,
+      "entity_type": "quotation",
+      "entity_id": 1,
+      "action": "approved",
+      "description": "Quotation approved by Dato Hassan",
+      "old_value": "Pending Approval",
+      "new_value": "Approved",
+      "user_id": 4,
+      "user_name": "Dato Hassan",
+      "timestamp": "2024-03-16T09:00:00Z"
+    },
+    {
+      "id": 2,
+      "entity_type": "quotation",
+      "entity_id": 1,
+      "action": "status_change",
+      "description": "Status changed to Pending Approval",
+      "old_value": "Reviewed",
+      "new_value": "Pending Approval",
+      "user_id": 2,
+      "user_name": "Ahmad Razif",
+      "timestamp": "2024-03-15T10:00:00Z"
+    },
+    {
+      "id": 1,
+      "entity_type": "quotation",
+      "entity_id": 1,
+      "action": "created",
+      "description": "Quotation JM-2024-0001 created",
+      "old_value": null,
+      "new_value": "Draft",
+      "user_id": 2,
+      "user_name": "Ahmad Razif",
+      "timestamp": "2024-03-15T08:00:00Z"
+    },
+    {
+      "id": 5,
+      "entity_type": "user",
+      "entity_id": 1,
+      "action": "login",
+      "description": "User admin@jaringmetal.com logged in",
+      "old_value": null,
+      "new_value": null,
+      "user_id": 1,
+      "user_name": "System Admin"
+    },
+    {
+      "id": 6,
+      "entity_type": "user",
+      "entity_id": 1,
+      "action": "login",
+      "description": "User admin@jaringmetal.com logged in",
+      "old_value": null,
+      "new_value": null,
+      "user_id": 1,
+      "user_name": "System Admin"
+    },
+    {
+      "id": 7,
+      "entity_type": "user",
+      "entity_id": 4,
+      "action": "login",
+      "description": "User approver@jaringmetal.com logged in",
+      "old_value": null,
+      "new_value": null,
+      "user_id": 4,
+      "user_name": "Dato Hassan"
+    },
+    {
+      "id": 8,
+      "entity_type": "user",
+      "entity_id": 1,
+      "action": "login",
+      "description": "User admin@jaringmetal.com logged in",
+      "old_value": null,
+      "new_value": null,
+      "user_id": 1,
+      "user_name": "System Admin"
+    }
+  ],
+  "market_data": [
+    {
+      "id": 2,
+      "metal_code": "Ag",
+      "price": 30.5,
+      "currency": "USD",
+      "unit": "troy oz",
+      "source": "LBMA Spot",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 3,
+      "metal_code": "Au",
+      "price": 2280,
+      "currency": "USD",
+      "unit": "troy oz",
+      "source": "LBMA Spot",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 1,
+      "metal_code": "Cu",
+      "price": 9500,
+      "currency": "USD",
+      "unit": "tonne",
+      "source": "LME Benchmark",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 7,
+      "metal_code": "FX_MYR",
+      "price": 4.72,
+      "currency": "MYR",
+      "unit": "per USD",
+      "source": "BNM Reference",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 5,
+      "metal_code": "Ni",
+      "price": 17200,
+      "currency": "USD",
+      "unit": "tonne",
+      "source": "LME Benchmark",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 4,
+      "metal_code": "Pd",
+      "price": 1060,
+      "currency": "USD",
+      "unit": "troy oz",
+      "source": "LBMA Spot",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    },
+    {
+      "id": 6,
+      "metal_code": "Sn",
+      "price": 28500,
+      "currency": "USD",
+      "unit": "tonne",
+      "source": "LME Benchmark",
+      "is_manual": 0,
+      "manual_note": null,
+      "target_month": null,
+      "fetched_at": "2026-04-02T07:32:38.084Z"
+    }
+  ]
+}
