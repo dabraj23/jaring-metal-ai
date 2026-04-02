@@ -7820,46 +7820,6 @@
     }
   });
 
-  // node_modules/react/cjs/react-jsx-runtime.production.min.js
-  var require_react_jsx_runtime_production_min = __commonJS({
-    "node_modules/react/cjs/react-jsx-runtime.production.min.js"(exports) {
-      "use strict";
-      var f3 = require_react();
-      var k3 = Symbol.for("react.element");
-      var l2 = Symbol.for("react.fragment");
-      var m2 = Object.prototype.hasOwnProperty;
-      var n3 = f3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner;
-      var p2 = { key: true, ref: true, __self: true, __source: true };
-      function q(c3, a3, g2) {
-        var b3, d2 = {}, e3 = null, h3 = null;
-        void 0 !== g2 && (e3 = "" + g2);
-        void 0 !== a3.key && (e3 = "" + a3.key);
-        void 0 !== a3.ref && (h3 = a3.ref);
-        for (b3 in a3)
-          m2.call(a3, b3) && !p2.hasOwnProperty(b3) && (d2[b3] = a3[b3]);
-        if (c3 && c3.defaultProps)
-          for (b3 in a3 = c3.defaultProps, a3)
-            void 0 === d2[b3] && (d2[b3] = a3[b3]);
-        return { $$typeof: k3, type: c3, key: e3, ref: h3, props: d2, _owner: n3.current };
-      }
-      exports.Fragment = l2;
-      exports.jsx = q;
-      exports.jsxs = q;
-    }
-  });
-
-  // node_modules/react/jsx-runtime.js
-  var require_jsx_runtime = __commonJS({
-    "node_modules/react/jsx-runtime.js"(exports, module) {
-      "use strict";
-      if (true) {
-        module.exports = require_react_jsx_runtime_production_min();
-      } else {
-        module.exports = null;
-      }
-    }
-  });
-
   // node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js
   var require_isUnsafeProperty = __commonJS({
     "node_modules/es-toolkit/dist/_internal/isUnsafeProperty.js"(exports) {
@@ -15681,7 +15641,7 @@ to {
 
   // src/api.js
   var api = axios_default.create({
-    baseURL: "http://localhost:3001/api"
+    baseURL: "/api"
   });
   api.interceptors.request.use((config) => {
     const token = localStorage.getItem("jm_token");
@@ -15736,7 +15696,6 @@ to {
   var getCustomers = () => api.get("/customers");
 
   // src/context/AuthContext.jsx
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
   var AuthContext = (0, import_react3.createContext)(null);
   var AuthProvider = ({ children }) => {
     const [user, setUser] = (0, import_react3.useState)(null);
@@ -15779,7 +15738,7 @@ to {
       logout,
       isAuthenticated: !!user
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AuthContext.Provider, { value, children });
+    return /* @__PURE__ */ import_react3.default.createElement(AuthContext.Provider, { value }, children);
   };
   var useAuth = () => {
     const context = import_react3.default.useContext(AuthContext);
@@ -16159,7 +16118,6 @@ to {
   var X2 = createLucideIcon("x", __iconNode27);
 
   // src/components/Layout.jsx
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
   var Layout = ({ children }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -16193,87 +16151,40 @@ to {
       { path: "/admin/benchmarks", label: "Benchmarks", icon: Layers },
       { path: "/admin/users", label: "Users", icon: Users }
     ] : [];
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex h-screen bg-slate-50", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "w-64 bg-slate-900 text-slate-300 flex flex-col shadow-lg", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "p-6 border-b border-slate-700", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "w-8 h-8 bg-primary-800 rounded-lg flex items-center justify-center text-white font-bold text-lg", children: "JM" }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "font-bold text-white", children: "Jaring Metal" }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "text-xs text-slate-400", children: "AI Platform" })
-          ] })
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("nav", { className: "flex-1 p-4 overflow-y-auto", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "space-y-1 mb-6", children: navItems.map((item) => {
-            const Icon3 = item.icon;
-            return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-              "button",
-              {
-                onClick: () => navigate(item.path),
-                className: `sidebar-nav-item w-full ${isActive(item.path) ? "active" : ""}`,
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Icon3, { className: "w-5 h-5" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "flex-1 text-left", children: item.label }),
-                  item.badge > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "bg-red-600 text-white text-xs rounded-full px-2 py-0.5 font-bold", children: item.badge })
-                ]
-              },
-              item.path
-            );
-          }) }),
-          adminItems.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "border-t border-slate-700 my-4 pt-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "px-4 py-2 text-xs font-bold uppercase text-slate-400 mb-2", children: "Admin" }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "space-y-1", children: adminItems.map((item) => {
-              const Icon3 = item.icon;
-              return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-                "button",
-                {
-                  onClick: () => navigate(item.path),
-                  className: `sidebar-nav-item w-full ${isActive(item.path) ? "active" : ""}`,
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Icon3, { className: "w-5 h-5" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: item.label })
-                  ]
-                },
-                item.path
-              );
-            }) })
-          ] }) })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "border-t border-slate-700 p-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "bg-slate-800 rounded-lg p-3 mb-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "text-sm font-medium text-white truncate", children: user?.name || "User" }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "text-xs text-slate-400 capitalize", children: user?.role || "user" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-            "button",
-            {
-              onClick: handleLogout,
-              className: "sidebar-nav-item w-full justify-center",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(LogOut, { className: "w-5 h-5" }),
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: "Logout" })
-              ]
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex-1 flex flex-col overflow-hidden", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h1", { className: "text-2xl font-bold text-slate-900", children: [
-            location.pathname === "/dashboard" && "Dashboard",
-            location.pathname === "/quotations" && "Quotations",
-            location.pathname.startsWith("/quotations/") && "Quotation Details",
-            location.pathname === "/market-data" && "Market Data",
-            location.pathname === "/audit" && "Audit Log",
-            location.pathname === "/admin/categories" && "Category Master",
-            location.pathname === "/admin/formulas" && "Formula Master",
-            location.pathname === "/admin/benchmarks" && "Benchmark Settings",
-            location.pathname === "/admin/users" && "User Management"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "flex items-center gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center text-white font-bold", children: user?.name?.charAt(0).toUpperCase() || "U" }) })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "flex-1 overflow-auto p-8", children })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react7.default.createElement("div", { className: "flex h-screen bg-slate-50" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "w-64 bg-slate-900 text-slate-300 flex flex-col shadow-lg" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "p-6 border-b border-slate-700" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "w-8 h-8 bg-primary-800 rounded-lg flex items-center justify-center text-white font-bold text-lg" }, "JM"), /* @__PURE__ */ import_react7.default.createElement("div", null, /* @__PURE__ */ import_react7.default.createElement("div", { className: "font-bold text-white" }, "Jaring Metal"), /* @__PURE__ */ import_react7.default.createElement("div", { className: "text-xs text-slate-400" }, "AI Platform")))), /* @__PURE__ */ import_react7.default.createElement("nav", { className: "flex-1 p-4 overflow-y-auto" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "space-y-1 mb-6" }, navItems.map((item) => {
+      const Icon3 = item.icon;
+      return /* @__PURE__ */ import_react7.default.createElement(
+        "button",
+        {
+          key: item.path,
+          onClick: () => navigate(item.path),
+          className: `sidebar-nav-item w-full ${isActive(item.path) ? "active" : ""}`
+        },
+        /* @__PURE__ */ import_react7.default.createElement(Icon3, { className: "w-5 h-5" }),
+        /* @__PURE__ */ import_react7.default.createElement("span", { className: "flex-1 text-left" }, item.label),
+        item.badge > 0 && /* @__PURE__ */ import_react7.default.createElement("span", { className: "bg-red-600 text-white text-xs rounded-full px-2 py-0.5 font-bold" }, item.badge)
+      );
+    })), adminItems.length > 0 && /* @__PURE__ */ import_react7.default.createElement(import_react7.default.Fragment, null, /* @__PURE__ */ import_react7.default.createElement("div", { className: "border-t border-slate-700 my-4 pt-4" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "px-4 py-2 text-xs font-bold uppercase text-slate-400 mb-2" }, "Admin"), /* @__PURE__ */ import_react7.default.createElement("div", { className: "space-y-1" }, adminItems.map((item) => {
+      const Icon3 = item.icon;
+      return /* @__PURE__ */ import_react7.default.createElement(
+        "button",
+        {
+          key: item.path,
+          onClick: () => navigate(item.path),
+          className: `sidebar-nav-item w-full ${isActive(item.path) ? "active" : ""}`
+        },
+        /* @__PURE__ */ import_react7.default.createElement(Icon3, { className: "w-5 h-5" }),
+        /* @__PURE__ */ import_react7.default.createElement("span", null, item.label)
+      );
+    }))))), /* @__PURE__ */ import_react7.default.createElement("div", { className: "border-t border-slate-700 p-4" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "bg-slate-800 rounded-lg p-3 mb-3" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "text-sm font-medium text-white truncate" }, user?.name || "User"), /* @__PURE__ */ import_react7.default.createElement("div", { className: "text-xs text-slate-400 capitalize" }, user?.role || "user")), /* @__PURE__ */ import_react7.default.createElement(
+      "button",
+      {
+        onClick: handleLogout,
+        className: "sidebar-nav-item w-full justify-center"
+      },
+      /* @__PURE__ */ import_react7.default.createElement(LogOut, { className: "w-5 h-5" }),
+      /* @__PURE__ */ import_react7.default.createElement("span", null, "Logout")
+    ))), /* @__PURE__ */ import_react7.default.createElement("div", { className: "flex-1 flex flex-col overflow-hidden" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between" }, /* @__PURE__ */ import_react7.default.createElement("h1", { className: "text-2xl font-bold text-slate-900" }, location.pathname === "/dashboard" && "Dashboard", location.pathname === "/quotations" && "Quotations", location.pathname.startsWith("/quotations/") && "Quotation Details", location.pathname === "/market-data" && "Market Data", location.pathname === "/audit" && "Audit Log", location.pathname === "/admin/categories" && "Category Master", location.pathname === "/admin/formulas" && "Formula Master", location.pathname === "/admin/benchmarks" && "Benchmark Settings", location.pathname === "/admin/users" && "User Management"), /* @__PURE__ */ import_react7.default.createElement("div", { className: "flex items-center gap-4" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center text-white font-bold" }, user?.name?.charAt(0).toUpperCase() || "U"))), /* @__PURE__ */ import_react7.default.createElement("div", { className: "flex-1 overflow-auto p-8" }, children)));
   };
   var Layout_default = Layout;
 
@@ -16282,30 +16193,22 @@ to {
 
   // src/components/LoadingSpinner.jsx
   var import_react8 = __toESM(require_react());
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime());
   var LoadingSpinner = ({ message = "Loading..." }) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex flex-col items-center justify-center py-12", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "relative w-12 h-12 mb-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "absolute inset-0 border-4 border-slate-200 rounded-full" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "absolute inset-0 border-4 border-primary-800 rounded-full border-t-transparent animate-spin" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-600 font-medium", children: message })
-    ] });
+    return /* @__PURE__ */ import_react8.default.createElement("div", { className: "flex flex-col items-center justify-center py-12" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "relative w-12 h-12 mb-4" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "absolute inset-0 border-4 border-slate-200 rounded-full" }), /* @__PURE__ */ import_react8.default.createElement("div", { className: "absolute inset-0 border-4 border-primary-800 rounded-full border-t-transparent animate-spin" })), /* @__PURE__ */ import_react8.default.createElement("p", { className: "text-slate-600 font-medium" }, message));
   };
   var LoadingSpinner_default = LoadingSpinner;
 
   // src/components/ProtectedRoute.jsx
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
   var ProtectedRoute = ({ children, requiredRole = null }) => {
     const { isAuthenticated, loading, user } = useAuth();
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LoadingSpinner_default, {});
+      return /* @__PURE__ */ import_react9.default.createElement(LoadingSpinner_default, null);
     }
     if (!isAuthenticated) {
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Navigate, { to: "/login", replace: true });
+      return /* @__PURE__ */ import_react9.default.createElement(Navigate, { to: "/login", replace: true });
     }
     if (requiredRole && user?.role !== requiredRole && !["admin"].includes(requiredRole)) {
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Navigate, { to: "/dashboard", replace: true });
+      return /* @__PURE__ */ import_react9.default.createElement(Navigate, { to: "/dashboard", replace: true });
     }
     return children;
   };
@@ -18034,7 +17937,6 @@ to {
   }
 
   // src/pages/Login.jsx
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime());
   var Login = () => {
     const navigate = useNavigate();
     const { login: authLogin } = useAuth();
@@ -18058,76 +17960,41 @@ to {
         zt.error(errorMessage);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "min-h-screen bg-gradient-to-br from-primary-800 to-primary-900 flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-full max-w-md", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-center mb-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-lg", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-2xl font-bold text-primary-800", children: "JM" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { className: "text-3xl font-bold text-white mb-2", children: "Jaring Metal" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-primary-100", children: "AI Quotation Intelligence Platform" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-white rounded-lg shadow-2xl p-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("form", { onSubmit: handleSubmit(onSubmit), className: "space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "form-label", children: "Email Address" }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-              "input",
-              {
-                type: "email",
-                ...register("email", { required: "Email is required" }),
-                className: "form-input",
-                placeholder: "your@email.com",
-                defaultValue: localStorage.getItem("jm_remember_email") || ""
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "form-label", children: "Password" }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-              "input",
-              {
-                type: "password",
-                ...register("password", { required: "Password is required" }),
-                className: "form-input",
-                placeholder: "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-              "input",
-              {
-                type: "checkbox",
-                id: "rememberMe",
-                checked: rememberMe,
-                onChange: (e3) => setRememberMe(e3.target.checked),
-                className: "w-4 h-4 rounded border-slate-300 text-primary-800 cursor-pointer"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { htmlFor: "rememberMe", className: "ml-2 text-sm text-slate-600 cursor-pointer", children: "Remember my email" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-            "button",
-            {
-              type: "submit",
-              disabled: isSubmitting,
-              className: "btn-primary w-full py-2.5",
-              children: isSubmitting ? "Signing in..." : "Sign In"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-xs font-semibold text-slate-600 mb-2", children: "Demo Credentials:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "text-xs text-slate-600", children: [
-            "Email: ",
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "font-mono", children: "demo@jaring.com" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "text-xs text-slate-600", children: [
-            "Password: ",
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "font-mono", children: "password123" })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-center text-primary-100 text-sm mt-6", children: "\xA9 2026 Jaring Metal. All rights reserved." })
-    ] }) });
+    return /* @__PURE__ */ import_react11.default.createElement("div", { className: "min-h-screen bg-gradient-to-br from-primary-800 to-primary-900 flex items-center justify-center p-4" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "w-full max-w-md" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "text-center mb-8" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-lg" }, /* @__PURE__ */ import_react11.default.createElement("span", { className: "text-2xl font-bold text-primary-800" }, "JM")), /* @__PURE__ */ import_react11.default.createElement("h1", { className: "text-3xl font-bold text-white mb-2" }, "Jaring Metal"), /* @__PURE__ */ import_react11.default.createElement("p", { className: "text-primary-100" }, "AI Quotation Intelligence Platform")), /* @__PURE__ */ import_react11.default.createElement("div", { className: "bg-white rounded-lg shadow-2xl p-8" }, /* @__PURE__ */ import_react11.default.createElement("form", { onSubmit: handleSubmit(onSubmit), className: "space-y-6" }, /* @__PURE__ */ import_react11.default.createElement("div", null, /* @__PURE__ */ import_react11.default.createElement("label", { className: "form-label" }, "Email Address"), /* @__PURE__ */ import_react11.default.createElement(
+      "input",
+      {
+        type: "email",
+        ...register("email", { required: "Email is required" }),
+        className: "form-input",
+        placeholder: "your@email.com",
+        defaultValue: localStorage.getItem("jm_remember_email") || ""
+      }
+    )), /* @__PURE__ */ import_react11.default.createElement("div", null, /* @__PURE__ */ import_react11.default.createElement("label", { className: "form-label" }, "Password"), /* @__PURE__ */ import_react11.default.createElement(
+      "input",
+      {
+        type: "password",
+        ...register("password", { required: "Password is required" }),
+        className: "form-input",
+        placeholder: "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+      }
+    )), /* @__PURE__ */ import_react11.default.createElement("div", { className: "flex items-center" }, /* @__PURE__ */ import_react11.default.createElement(
+      "input",
+      {
+        type: "checkbox",
+        id: "rememberMe",
+        checked: rememberMe,
+        onChange: (e3) => setRememberMe(e3.target.checked),
+        className: "w-4 h-4 rounded border-slate-300 text-primary-800 cursor-pointer"
+      }
+    ), /* @__PURE__ */ import_react11.default.createElement("label", { htmlFor: "rememberMe", className: "ml-2 text-sm text-slate-600 cursor-pointer" }, "Remember my email")), /* @__PURE__ */ import_react11.default.createElement(
+      "button",
+      {
+        type: "submit",
+        disabled: isSubmitting,
+        className: "btn-primary w-full py-2.5"
+      },
+      isSubmitting ? "Signing in..." : "Sign In"
+    )), /* @__PURE__ */ import_react11.default.createElement("div", { className: "mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200" }, /* @__PURE__ */ import_react11.default.createElement("p", { className: "text-xs font-semibold text-slate-600 mb-2" }, "Demo Credentials:"), /* @__PURE__ */ import_react11.default.createElement("p", { className: "text-xs text-slate-600" }, "Email: ", /* @__PURE__ */ import_react11.default.createElement("span", { className: "font-mono" }, "demo@jaring.com")), /* @__PURE__ */ import_react11.default.createElement("p", { className: "text-xs text-slate-600" }, "Password: ", /* @__PURE__ */ import_react11.default.createElement("span", { className: "font-mono" }, "password123")))), /* @__PURE__ */ import_react11.default.createElement("p", { className: "text-center text-primary-100 text-sm mt-6" }, "\xA9 2026 Jaring Metal. All rights reserved.")));
   };
   var Login_default = Login;
 
@@ -42624,7 +42491,6 @@ to {
 
   // src/components/StatusBadge.jsx
   var import_react67 = __toESM(require_react());
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime());
   var statusColors = {
     draft: "bg-gray-100 text-gray-800",
     extracted: "bg-blue-100 text-blue-800",
@@ -42638,12 +42504,11 @@ to {
   var StatusBadge = ({ status }) => {
     const colorClass = statusColors[status] || "bg-gray-100 text-gray-800";
     const displayText = status.replace(/_/g, " ").charAt(0).toUpperCase() + status.replace(/_/g, " ").slice(1);
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `status-badge ${colorClass}`, children: displayText });
+    return /* @__PURE__ */ import_react67.default.createElement("span", { className: `status-badge ${colorClass}` }, displayText);
   };
   var StatusBadge_default = StatusBadge;
 
   // src/pages/Dashboard.jsx
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
   var Dashboard = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = (0, import_react68.useState)(true);
@@ -42682,128 +42547,33 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(LoadingSpinner_default, { message: "Loading dashboard..." });
+      return /* @__PURE__ */ import_react68.default.createElement(LoadingSpinner_default, { message: "Loading dashboard..." });
     }
     const statusChartData = summary?.statusDistribution || [];
     const volumeChartData = summary?.monthlyVolume || [];
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "space-y-8", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "grid grid-cols-4 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-slate-600 text-sm font-medium mb-1", children: "Total Quotations" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { className: "text-3xl font-bold text-slate-900", children: statsData.totalQuotations })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(FileText, { className: "w-8 h-8 text-primary-800 opacity-20" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-xs text-green-600 font-medium mt-4", children: "+12% from last month" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-slate-600 text-sm font-medium mb-1", children: "Pending Approval" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { className: "text-3xl font-bold text-amber-600", children: statsData.pendingApproval })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Clock, { className: "w-8 h-8 text-amber-600 opacity-20" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-xs text-slate-600 font-medium mt-4", children: "Requires immediate action" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-slate-600 text-sm font-medium mb-1", children: "Released This Month" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { className: "text-3xl font-bold text-green-600", children: statsData.releasedThisMonth })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CircleCheckBig, { className: "w-8 h-8 text-green-600 opacity-20" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-xs text-slate-600 font-medium mt-4", children: "On track" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-slate-600 text-sm font-medium mb-1", children: "Avg Processing Time" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("h3", { className: "text-3xl font-bold text-slate-900", children: [
-                statsData.avgProcessingTime,
-                " hrs"
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(TrendingUp, { className: "w-8 h-8 text-primary-800 opacity-20" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-xs text-slate-600 font-medium mt-4", children: "From creation to release" })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "grid grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Quotations by Status" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(ResponsiveContainer, { width: "100%", height: 300, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(BarChart, { data: statusChartData, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CartesianGrid, { strokeDasharray: "3 3" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(XAxis, { dataKey: "status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(YAxis, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Tooltip, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Bar, { dataKey: "count", fill: "#1e40af" })
-          ] }) })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Monthly Quotation Volume" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(ResponsiveContainer, { width: "100%", height: 300, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(LineChart, { data: volumeChartData, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CartesianGrid, { strokeDasharray: "3 3" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(XAxis, { dataKey: "month" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(YAxis, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Tooltip, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Legend, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Line, { type: "monotone", dataKey: "volume", stroke: "#1e40af", strokeWidth: 2 })
-          ] }) })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "card p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "flex items-center justify-between mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h3", { className: "text-lg font-bold text-slate-900", children: "Recent Quotations" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-            "button",
-            {
-              onClick: () => navigate("/quotations"),
-              className: "text-primary-800 hover:text-primary-900 text-sm font-medium",
-              children: "View All"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("table", { className: "w-full text-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("thead", { className: "border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("th", { className: "pb-3", children: "Reference" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("th", { className: "pb-3", children: "Customer" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("th", { className: "pb-3", children: "Type" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("th", { className: "pb-3", children: "Status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("th", { className: "pb-3", children: "Date" }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("th", { className: "pb-3" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("tbody", { children: quotations.map((q) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("tr", { className: "border-b border-slate-100 hover:bg-slate-50 cursor-pointer", onClick: () => navigate(`/quotations/${q.id}`), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("td", { className: "py-3 font-medium text-slate-900", children: q.reference }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("td", { className: "py-3 text-slate-600", children: q.customer_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("td", { className: "py-3 text-slate-600", children: q.quotation_type }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("td", { className: "py-3", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(StatusBadge_default, { status: q.status }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("td", { className: "py-3 text-slate-600", children: new Date(q.createdAt).toLocaleDateString() }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("td", { className: "py-3 text-right", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { onClick: (e3) => {
-              e3.stopPropagation();
-              navigate(`/quotations/${q.id}`);
-            }, className: "text-primary-800 hover:text-primary-900 font-medium", children: "View" }) })
-          ] }, q.id)) })
-        ] }) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "flex gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "button",
-        {
-          onClick: () => navigate("/quotations/new"),
-          className: "btn-primary",
-          children: "New Quotation"
-        }
-      ) })
-    ] });
+    return /* @__PURE__ */ import_react68.default.createElement("div", { className: "space-y-8" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "grid grid-cols-4 gap-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "flex items-start justify-between" }, /* @__PURE__ */ import_react68.default.createElement("div", null, /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-slate-600 text-sm font-medium mb-1" }, "Total Quotations"), /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-3xl font-bold text-slate-900" }, statsData.totalQuotations)), /* @__PURE__ */ import_react68.default.createElement(FileText, { className: "w-8 h-8 text-primary-800 opacity-20" })), /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-xs text-green-600 font-medium mt-4" }, "+12% from last month")), /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "flex items-start justify-between" }, /* @__PURE__ */ import_react68.default.createElement("div", null, /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-slate-600 text-sm font-medium mb-1" }, "Pending Approval"), /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-3xl font-bold text-amber-600" }, statsData.pendingApproval)), /* @__PURE__ */ import_react68.default.createElement(Clock, { className: "w-8 h-8 text-amber-600 opacity-20" })), /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-xs text-slate-600 font-medium mt-4" }, "Requires immediate action")), /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "flex items-start justify-between" }, /* @__PURE__ */ import_react68.default.createElement("div", null, /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-slate-600 text-sm font-medium mb-1" }, "Released This Month"), /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-3xl font-bold text-green-600" }, statsData.releasedThisMonth)), /* @__PURE__ */ import_react68.default.createElement(CircleCheckBig, { className: "w-8 h-8 text-green-600 opacity-20" })), /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-xs text-slate-600 font-medium mt-4" }, "On track")), /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "flex items-start justify-between" }, /* @__PURE__ */ import_react68.default.createElement("div", null, /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-slate-600 text-sm font-medium mb-1" }, "Avg Processing Time"), /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-3xl font-bold text-slate-900" }, statsData.avgProcessingTime, " hrs")), /* @__PURE__ */ import_react68.default.createElement(TrendingUp, { className: "w-8 h-8 text-primary-800 opacity-20" })), /* @__PURE__ */ import_react68.default.createElement("p", { className: "text-xs text-slate-600 font-medium mt-4" }, "From creation to release"))), /* @__PURE__ */ import_react68.default.createElement("div", { className: "grid grid-cols-2 gap-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Quotations by Status"), /* @__PURE__ */ import_react68.default.createElement(ResponsiveContainer, { width: "100%", height: 300 }, /* @__PURE__ */ import_react68.default.createElement(BarChart, { data: statusChartData }, /* @__PURE__ */ import_react68.default.createElement(CartesianGrid, { strokeDasharray: "3 3" }), /* @__PURE__ */ import_react68.default.createElement(XAxis, { dataKey: "status" }), /* @__PURE__ */ import_react68.default.createElement(YAxis, null), /* @__PURE__ */ import_react68.default.createElement(Tooltip, null), /* @__PURE__ */ import_react68.default.createElement(Bar, { dataKey: "count", fill: "#1e40af" })))), /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Monthly Quotation Volume"), /* @__PURE__ */ import_react68.default.createElement(ResponsiveContainer, { width: "100%", height: 300 }, /* @__PURE__ */ import_react68.default.createElement(LineChart, { data: volumeChartData }, /* @__PURE__ */ import_react68.default.createElement(CartesianGrid, { strokeDasharray: "3 3" }), /* @__PURE__ */ import_react68.default.createElement(XAxis, { dataKey: "month" }), /* @__PURE__ */ import_react68.default.createElement(YAxis, null), /* @__PURE__ */ import_react68.default.createElement(Tooltip, null), /* @__PURE__ */ import_react68.default.createElement(Legend, null), /* @__PURE__ */ import_react68.default.createElement(Line, { type: "monotone", dataKey: "volume", stroke: "#1e40af", strokeWidth: 2 }))))), /* @__PURE__ */ import_react68.default.createElement("div", { className: "card p-6" }, /* @__PURE__ */ import_react68.default.createElement("div", { className: "flex items-center justify-between mb-4" }, /* @__PURE__ */ import_react68.default.createElement("h3", { className: "text-lg font-bold text-slate-900" }, "Recent Quotations"), /* @__PURE__ */ import_react68.default.createElement(
+      "button",
+      {
+        onClick: () => navigate("/quotations"),
+        className: "text-primary-800 hover:text-primary-900 text-sm font-medium"
+      },
+      "View All"
+    )), /* @__PURE__ */ import_react68.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react68.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react68.default.createElement("thead", { className: "border-b border-slate-200" }, /* @__PURE__ */ import_react68.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react68.default.createElement("th", { className: "pb-3" }, "Reference"), /* @__PURE__ */ import_react68.default.createElement("th", { className: "pb-3" }, "Customer"), /* @__PURE__ */ import_react68.default.createElement("th", { className: "pb-3" }, "Type"), /* @__PURE__ */ import_react68.default.createElement("th", { className: "pb-3" }, "Status"), /* @__PURE__ */ import_react68.default.createElement("th", { className: "pb-3" }, "Date"), /* @__PURE__ */ import_react68.default.createElement("th", { className: "pb-3" }))), /* @__PURE__ */ import_react68.default.createElement("tbody", null, quotations.map((q) => /* @__PURE__ */ import_react68.default.createElement("tr", { key: q.id, className: "border-b border-slate-100 hover:bg-slate-50 cursor-pointer", onClick: () => navigate(`/quotations/${q.id}`) }, /* @__PURE__ */ import_react68.default.createElement("td", { className: "py-3 font-medium text-slate-900" }, q.reference), /* @__PURE__ */ import_react68.default.createElement("td", { className: "py-3 text-slate-600" }, q.customer_name), /* @__PURE__ */ import_react68.default.createElement("td", { className: "py-3 text-slate-600" }, q.quotation_type), /* @__PURE__ */ import_react68.default.createElement("td", { className: "py-3" }, /* @__PURE__ */ import_react68.default.createElement(StatusBadge_default, { status: q.status })), /* @__PURE__ */ import_react68.default.createElement("td", { className: "py-3 text-slate-600" }, new Date(q.createdAt).toLocaleDateString()), /* @__PURE__ */ import_react68.default.createElement("td", { className: "py-3 text-right" }, /* @__PURE__ */ import_react68.default.createElement("button", { onClick: (e3) => {
+      e3.stopPropagation();
+      navigate(`/quotations/${q.id}`);
+    }, className: "text-primary-800 hover:text-primary-900 font-medium" }, "View")))))))), /* @__PURE__ */ import_react68.default.createElement("div", { className: "flex gap-4" }, /* @__PURE__ */ import_react68.default.createElement(
+      "button",
+      {
+        onClick: () => navigate("/quotations/new"),
+        className: "btn-primary"
+      },
+      "New Quotation"
+    )));
   };
   var Dashboard_default = Dashboard;
 
   // src/pages/QuotationList.jsx
   var import_react69 = __toESM(require_react());
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
   var QuotationList = () => {
     const navigate = useNavigate();
     const [quotations, setQuotations] = (0, import_react69.useState)([]);
@@ -42844,168 +42614,99 @@ to {
       setPagination((prev) => ({ ...prev, page: 1 }));
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LoadingSpinner_default, { message: "Loading quotations..." });
+      return /* @__PURE__ */ import_react69.default.createElement(LoadingSpinner_default, { message: "Loading quotations..." });
     }
     const totalPages = Math.ceil(pagination.total / pagination.limit);
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "text-xl font-bold text-slate-900", children: "Quotations" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-          "button",
-          {
-            onClick: () => navigate("/quotations/new"),
-            className: "btn-primary flex items-center gap-2",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Plus, { className: "w-4 h-4" }),
-              "New Quotation"
-            ]
-          }
-        )
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "bg-white rounded-lg shadow p-4 space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "grid grid-cols-4 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { className: "form-label", children: "Search" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "relative", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Search, { className: "absolute left-3 top-3 w-4 h-4 text-slate-400" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-              "input",
-              {
-                type: "text",
-                value: filters.search,
-                onChange: (e3) => handleFilterChange("search", e3.target.value),
-                className: "form-input pl-10",
-                placeholder: "Reference or customer..."
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { className: "form-label", children: "Status" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-            "select",
-            {
-              value: filters.status,
-              onChange: (e3) => handleFilterChange("status", e3.target.value),
-              className: "form-input",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "", children: "All Statuses" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "draft", children: "Draft" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "extracted", children: "Extracted" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "reviewed", children: "Reviewed" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "pending_approval", children: "Pending Approval" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "approved", children: "Approved" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "rejected", children: "Rejected" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "released", children: "Released" })
-              ]
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("label", { className: "form-label", children: "Type" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-            "select",
-            {
-              value: filters.type,
-              onChange: (e3) => handleFilterChange("type", e3.target.value),
-              className: "form-input",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "", children: "All Types" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "Monthly Quotation", children: "Monthly Quotation" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "Formula Quotation", children: "Formula Quotation" }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "Recovery Settlement", children: "Recovery Settlement" })
-              ]
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "flex items-end", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-          "button",
-          {
-            onClick: () => {
-              setFilters({ status: "", type: "", search: "" });
-              setPagination((prev) => ({ ...prev, page: 1 }));
-            },
-            className: "btn-secondary w-full",
-            children: "Reset"
-          }
-        ) })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "bg-white rounded-lg shadow overflow-hidden", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("table", { className: "w-full", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("thead", { className: "bg-slate-50 border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("tr", { className: "text-left text-sm font-semibold text-slate-600", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Reference" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Customer" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Type" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Quote Date" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Pricing Mode" }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { className: "px-6 py-4", children: "Actions" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("tbody", { className: "divide-y divide-slate-200", children: quotations.map((q) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("tr", { className: "hover:bg-slate-50 cursor-pointer", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4 font-medium text-slate-900", children: q.reference }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4 text-slate-600", children: q.customer_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4 text-slate-600", children: q.quotation_type }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(StatusBadge_default, { status: q.status }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4 text-slate-600", children: new Date(q.quote_date).toLocaleDateString() }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4 text-slate-600 capitalize", children: q.pricing_mode }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-              "button",
-              {
-                onClick: () => navigate(`/quotations/${q.id}`),
-                className: "text-primary-800 hover:text-primary-900 font-medium text-sm",
-                children: "View"
-              }
-            ) })
-          ] }, q.id)) })
-        ] }) }),
-        quotations.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "text-center py-12", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "text-slate-600 font-medium", children: "No quotations found" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "px-6 py-4 border-t border-slate-200 flex items-center justify-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { className: "text-sm text-slate-600", children: [
-            "Showing ",
-            quotations.length > 0 ? (pagination.page - 1) * pagination.limit + 1 : 0,
-            " to ",
-            Math.min(pagination.page * pagination.limit, pagination.total),
-            " of ",
-            pagination.total,
-            " results"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "flex gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-              "button",
-              {
-                onClick: () => setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) })),
-                disabled: pagination.page === 1,
-                className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed",
-                children: "Previous"
-              }
-            ),
-            Array.from({ length: totalPages }, (_2, i2) => i2 + 1).map((page) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-              "button",
-              {
-                onClick: () => setPagination((prev) => ({ ...prev, page })),
-                className: `px-3 py-2 rounded-lg font-medium ${pagination.page === page ? "bg-primary-800 text-white" : "bg-slate-200 text-slate-900 hover:bg-slate-300"}`,
-                children: page
-              },
-              page
-            )),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-              "button",
-              {
-                onClick: () => setPagination((prev) => ({ ...prev, page: Math.min(totalPages, prev.page + 1) })),
-                disabled: pagination.page === totalPages,
-                className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed",
-                children: "Next"
-              }
-            )
-          ] })
-        ] })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react69.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react69.default.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ import_react69.default.createElement("h2", { className: "text-xl font-bold text-slate-900" }, "Quotations"), /* @__PURE__ */ import_react69.default.createElement(
+      "button",
+      {
+        onClick: () => navigate("/quotations/new"),
+        className: "btn-primary flex items-center gap-2"
+      },
+      /* @__PURE__ */ import_react69.default.createElement(Plus, { className: "w-4 h-4" }),
+      "New Quotation"
+    )), /* @__PURE__ */ import_react69.default.createElement("div", { className: "bg-white rounded-lg shadow p-4 space-y-4" }, /* @__PURE__ */ import_react69.default.createElement("div", { className: "grid grid-cols-4 gap-4" }, /* @__PURE__ */ import_react69.default.createElement("div", null, /* @__PURE__ */ import_react69.default.createElement("label", { className: "form-label" }, "Search"), /* @__PURE__ */ import_react69.default.createElement("div", { className: "relative" }, /* @__PURE__ */ import_react69.default.createElement(Search, { className: "absolute left-3 top-3 w-4 h-4 text-slate-400" }), /* @__PURE__ */ import_react69.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: filters.search,
+        onChange: (e3) => handleFilterChange("search", e3.target.value),
+        className: "form-input pl-10",
+        placeholder: "Reference or customer..."
+      }
+    ))), /* @__PURE__ */ import_react69.default.createElement("div", null, /* @__PURE__ */ import_react69.default.createElement("label", { className: "form-label" }, "Status"), /* @__PURE__ */ import_react69.default.createElement(
+      "select",
+      {
+        value: filters.status,
+        onChange: (e3) => handleFilterChange("status", e3.target.value),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "" }, "All Statuses"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "draft" }, "Draft"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "extracted" }, "Extracted"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "reviewed" }, "Reviewed"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "pending_approval" }, "Pending Approval"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "approved" }, "Approved"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "rejected" }, "Rejected"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "released" }, "Released")
+    )), /* @__PURE__ */ import_react69.default.createElement("div", null, /* @__PURE__ */ import_react69.default.createElement("label", { className: "form-label" }, "Type"), /* @__PURE__ */ import_react69.default.createElement(
+      "select",
+      {
+        value: filters.type,
+        onChange: (e3) => handleFilterChange("type", e3.target.value),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "" }, "All Types"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "Monthly Quotation" }, "Monthly Quotation"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "Formula Quotation" }, "Formula Quotation"),
+      /* @__PURE__ */ import_react69.default.createElement("option", { value: "Recovery Settlement" }, "Recovery Settlement")
+    )), /* @__PURE__ */ import_react69.default.createElement("div", { className: "flex items-end" }, /* @__PURE__ */ import_react69.default.createElement(
+      "button",
+      {
+        onClick: () => {
+          setFilters({ status: "", type: "", search: "" });
+          setPagination((prev) => ({ ...prev, page: 1 }));
+        },
+        className: "btn-secondary w-full"
+      },
+      "Reset"
+    )))), /* @__PURE__ */ import_react69.default.createElement("div", { className: "bg-white rounded-lg shadow overflow-hidden" }, /* @__PURE__ */ import_react69.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react69.default.createElement("table", { className: "w-full" }, /* @__PURE__ */ import_react69.default.createElement("thead", { className: "bg-slate-50 border-b border-slate-200" }, /* @__PURE__ */ import_react69.default.createElement("tr", { className: "text-left text-sm font-semibold text-slate-600" }, /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Reference"), /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Customer"), /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Type"), /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Status"), /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Quote Date"), /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Pricing Mode"), /* @__PURE__ */ import_react69.default.createElement("th", { className: "px-6 py-4" }, "Actions"))), /* @__PURE__ */ import_react69.default.createElement("tbody", { className: "divide-y divide-slate-200" }, quotations.map((q) => /* @__PURE__ */ import_react69.default.createElement("tr", { key: q.id, className: "hover:bg-slate-50 cursor-pointer" }, /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4 font-medium text-slate-900" }, q.reference), /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, q.customer_name), /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, q.quotation_type), /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react69.default.createElement(StatusBadge_default, { status: q.status })), /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, new Date(q.quote_date).toLocaleDateString()), /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4 text-slate-600 capitalize" }, q.pricing_mode), /* @__PURE__ */ import_react69.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react69.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${q.id}`),
+        className: "text-primary-800 hover:text-primary-900 font-medium text-sm"
+      },
+      "View"
+    ))))))), quotations.length === 0 && /* @__PURE__ */ import_react69.default.createElement("div", { className: "text-center py-12" }, /* @__PURE__ */ import_react69.default.createElement("p", { className: "text-slate-600 font-medium" }, "No quotations found")), /* @__PURE__ */ import_react69.default.createElement("div", { className: "px-6 py-4 border-t border-slate-200 flex items-center justify-between" }, /* @__PURE__ */ import_react69.default.createElement("p", { className: "text-sm text-slate-600" }, "Showing ", quotations.length > 0 ? (pagination.page - 1) * pagination.limit + 1 : 0, " to ", Math.min(pagination.page * pagination.limit, pagination.total), " of ", pagination.total, " results"), /* @__PURE__ */ import_react69.default.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ import_react69.default.createElement(
+      "button",
+      {
+        onClick: () => setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) })),
+        disabled: pagination.page === 1,
+        className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+      },
+      "Previous"
+    ), Array.from({ length: totalPages }, (_2, i2) => i2 + 1).map((page) => /* @__PURE__ */ import_react69.default.createElement(
+      "button",
+      {
+        key: page,
+        onClick: () => setPagination((prev) => ({ ...prev, page })),
+        className: `px-3 py-2 rounded-lg font-medium ${pagination.page === page ? "bg-primary-800 text-white" : "bg-slate-200 text-slate-900 hover:bg-slate-300"}`
+      },
+      page
+    )), /* @__PURE__ */ import_react69.default.createElement(
+      "button",
+      {
+        onClick: () => setPagination((prev) => ({ ...prev, page: Math.min(totalPages, prev.page + 1) })),
+        disabled: pagination.page === totalPages,
+        className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+      },
+      "Next"
+    )))));
   };
   var QuotationList_default = QuotationList;
 
   // src/pages/QuotationCreate.jsx
   var import_react70 = __toESM(require_react());
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
   var QuotationCreate = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, control, formState: { isSubmitting, errors } } = useForm();
@@ -43044,149 +42745,83 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LoadingSpinner_default, { message: "Loading..." });
+      return /* @__PURE__ */ import_react70.default.createElement(LoadingSpinner_default, { message: "Loading..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "max-w-2xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col items-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "w-8 h-8 bg-primary-800 text-white rounded-full flex items-center justify-center font-bold", children: "1" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "text-xs font-medium text-primary-800 mt-2", children: "Request" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex-1 h-1 bg-slate-300 mx-2" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col items-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "w-8 h-8 bg-slate-300 text-slate-600 rounded-full flex items-center justify-center font-bold", children: "2" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "text-xs font-medium text-slate-600 mt-2", children: "Documents" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex-1 h-1 bg-slate-300 mx-2" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex flex-col items-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "w-8 h-8 bg-slate-300 text-slate-600 rounded-full flex items-center justify-center font-bold", children: "3" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "text-xs font-medium text-slate-600 mt-2", children: "Extract" })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "text-xl font-bold text-slate-900 mb-6", children: "Create New Quotation" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("form", { onSubmit: handleSubmit(onSubmit), className: "space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Customer" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-              "select",
-              {
-                ...register("customer_id", { required: "Customer is required" }),
-                className: "form-input",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "", children: "Select a customer..." }),
-                  customers.map((c3) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: c3.id, children: c3.name }, c3.id))
-                ]
-              }
-            ),
-            errors.customer_id && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-red-600 text-sm mt-1", children: errors.customer_id.message })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Quotation Type" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-              "select",
-              {
-                ...register("quotation_type", { required: "Quotation type is required" }),
-                className: "form-input",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "", children: "Select type..." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "Monthly Quotation", children: "Monthly Quotation" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "Formula Quotation", children: "Formula Quotation" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "Recovery Settlement", children: "Recovery Settlement" })
-                ]
-              }
-            ),
-            errors.quotation_type && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-red-600 text-sm mt-1", children: errors.quotation_type.message })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Quote Date" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              "input",
-              {
-                type: "date",
-                ...register("quote_date", { required: "Quote date is required" }),
-                className: "form-input"
-              }
-            ),
-            errors.quote_date && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-red-600 text-sm mt-1", children: errors.quote_date.message })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Validity Period (days)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              "input",
-              {
-                type: "number",
-                ...register("validity_period", { required: "Validity period is required" }),
-                className: "form-input",
-                placeholder: "30"
-              }
-            ),
-            errors.validity_period && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-red-600 text-sm mt-1", children: errors.validity_period.message })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Shipment/Pricing Month" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              "input",
-              {
-                type: "month",
-                ...register("shipment_month", { required: "Shipment month is required" }),
-                className: "form-input"
-              }
-            ),
-            errors.shipment_month && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-red-600 text-sm mt-1", children: errors.shipment_month.message })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Pricing Mode" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-              "select",
-              {
-                ...register("pricing_mode", { required: "Pricing mode is required" }),
-                className: "form-input",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "", children: "Select mode..." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "spot", children: "Spot" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "forward", children: "Forward" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "scenario", children: "Scenario" })
-                ]
-              }
-            ),
-            errors.pricing_mode && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-red-600 text-sm mt-1", children: errors.pricing_mode.message })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "form-label", children: "Notes" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              "textarea",
-              {
-                ...register("notes"),
-                className: "form-input",
-                rows: "4",
-                placeholder: "Additional notes..."
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "flex gap-4 pt-6 border-t border-slate-200", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              "button",
-              {
-                type: "button",
-                onClick: () => navigate("/quotations"),
-                className: "btn-secondary",
-                children: "Cancel"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              "button",
-              {
-                type: "submit",
-                disabled: isSubmitting,
-                className: "btn-primary",
-                children: isSubmitting ? "Creating..." : "Create Quotation"
-              }
-            )
-          ] })
-        ] })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react70.default.createElement("div", { className: "max-w-2xl mx-auto space-y-6" }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex flex-col items-center" }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "w-8 h-8 bg-primary-800 text-white rounded-full flex items-center justify-center font-bold" }, "1"), /* @__PURE__ */ import_react70.default.createElement("span", { className: "text-xs font-medium text-primary-800 mt-2" }, "Request")), /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex-1 h-1 bg-slate-300 mx-2" }), /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex flex-col items-center" }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "w-8 h-8 bg-slate-300 text-slate-600 rounded-full flex items-center justify-center font-bold" }, "2"), /* @__PURE__ */ import_react70.default.createElement("span", { className: "text-xs font-medium text-slate-600 mt-2" }, "Documents")), /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex-1 h-1 bg-slate-300 mx-2" }), /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex flex-col items-center" }, /* @__PURE__ */ import_react70.default.createElement("div", { className: "w-8 h-8 bg-slate-300 text-slate-600 rounded-full flex items-center justify-center font-bold" }, "3"), /* @__PURE__ */ import_react70.default.createElement("span", { className: "text-xs font-medium text-slate-600 mt-2" }, "Extract")))), /* @__PURE__ */ import_react70.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react70.default.createElement("h2", { className: "text-xl font-bold text-slate-900 mb-6" }, "Create New Quotation"), /* @__PURE__ */ import_react70.default.createElement("form", { onSubmit: handleSubmit(onSubmit), className: "space-y-6" }, /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Customer"), /* @__PURE__ */ import_react70.default.createElement(
+      "select",
+      {
+        ...register("customer_id", { required: "Customer is required" }),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "" }, "Select a customer..."),
+      customers.map((c3) => /* @__PURE__ */ import_react70.default.createElement("option", { key: c3.id, value: c3.id }, c3.name))
+    ), errors.customer_id && /* @__PURE__ */ import_react70.default.createElement("p", { className: "text-red-600 text-sm mt-1" }, errors.customer_id.message)), /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Quotation Type"), /* @__PURE__ */ import_react70.default.createElement(
+      "select",
+      {
+        ...register("quotation_type", { required: "Quotation type is required" }),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "" }, "Select type..."),
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "Monthly Quotation" }, "Monthly Quotation"),
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "Formula Quotation" }, "Formula Quotation"),
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "Recovery Settlement" }, "Recovery Settlement")
+    ), errors.quotation_type && /* @__PURE__ */ import_react70.default.createElement("p", { className: "text-red-600 text-sm mt-1" }, errors.quotation_type.message)), /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Quote Date"), /* @__PURE__ */ import_react70.default.createElement(
+      "input",
+      {
+        type: "date",
+        ...register("quote_date", { required: "Quote date is required" }),
+        className: "form-input"
+      }
+    ), errors.quote_date && /* @__PURE__ */ import_react70.default.createElement("p", { className: "text-red-600 text-sm mt-1" }, errors.quote_date.message)), /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Validity Period (days)"), /* @__PURE__ */ import_react70.default.createElement(
+      "input",
+      {
+        type: "number",
+        ...register("validity_period", { required: "Validity period is required" }),
+        className: "form-input",
+        placeholder: "30"
+      }
+    ), errors.validity_period && /* @__PURE__ */ import_react70.default.createElement("p", { className: "text-red-600 text-sm mt-1" }, errors.validity_period.message)), /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Shipment/Pricing Month"), /* @__PURE__ */ import_react70.default.createElement(
+      "input",
+      {
+        type: "month",
+        ...register("shipment_month", { required: "Shipment month is required" }),
+        className: "form-input"
+      }
+    ), errors.shipment_month && /* @__PURE__ */ import_react70.default.createElement("p", { className: "text-red-600 text-sm mt-1" }, errors.shipment_month.message)), /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Pricing Mode"), /* @__PURE__ */ import_react70.default.createElement(
+      "select",
+      {
+        ...register("pricing_mode", { required: "Pricing mode is required" }),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "" }, "Select mode..."),
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "spot" }, "Spot"),
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "forward" }, "Forward"),
+      /* @__PURE__ */ import_react70.default.createElement("option", { value: "scenario" }, "Scenario")
+    ), errors.pricing_mode && /* @__PURE__ */ import_react70.default.createElement("p", { className: "text-red-600 text-sm mt-1" }, errors.pricing_mode.message)), /* @__PURE__ */ import_react70.default.createElement("div", null, /* @__PURE__ */ import_react70.default.createElement("label", { className: "form-label" }, "Notes"), /* @__PURE__ */ import_react70.default.createElement(
+      "textarea",
+      {
+        ...register("notes"),
+        className: "form-input",
+        rows: "4",
+        placeholder: "Additional notes..."
+      }
+    )), /* @__PURE__ */ import_react70.default.createElement("div", { className: "flex gap-4 pt-6 border-t border-slate-200" }, /* @__PURE__ */ import_react70.default.createElement(
+      "button",
+      {
+        type: "button",
+        onClick: () => navigate("/quotations"),
+        className: "btn-secondary"
+      },
+      "Cancel"
+    ), /* @__PURE__ */ import_react70.default.createElement(
+      "button",
+      {
+        type: "submit",
+        disabled: isSubmitting,
+        className: "btn-primary"
+      },
+      isSubmitting ? "Creating..." : "Create Quotation"
+    )))));
   };
   var QuotationCreate_default = QuotationCreate;
 
@@ -43195,7 +42830,6 @@ to {
 
   // src/components/WorkflowStepper.jsx
   var import_react71 = __toESM(require_react());
-  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
   var steps = [
     { key: "draft", label: "Request" },
     { key: "uploaded", label: "Documents" },
@@ -43207,18 +42841,11 @@ to {
   ];
   var WorkflowStepper = ({ currentStatus }) => {
     const currentStepIndex = steps.findIndex((s3) => s3.key === currentStatus);
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "bg-white rounded-lg shadow p-6 mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex items-center justify-between", children: steps.map((step, index) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_react71.default.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "flex flex-col items-center", children: [
-        index <= currentStepIndex ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(CircleCheck, { className: "w-8 h-8 text-green-600 mb-2" }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Circle, { className: "w-8 h-8 text-slate-300 mb-2" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: `text-xs font-medium ${index <= currentStepIndex ? "text-primary-800" : "text-slate-500"}`, children: step.label })
-      ] }),
-      index < steps.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: `flex-1 h-1 mx-2 mb-6 ${index < currentStepIndex ? "bg-green-600" : "bg-slate-300"}` })
-    ] }, step.key)) }) });
+    return /* @__PURE__ */ import_react71.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 mb-6" }, /* @__PURE__ */ import_react71.default.createElement("div", { className: "flex items-center justify-between" }, steps.map((step, index) => /* @__PURE__ */ import_react71.default.createElement(import_react71.default.Fragment, { key: step.key }, /* @__PURE__ */ import_react71.default.createElement("div", { className: "flex flex-col items-center" }, index <= currentStepIndex ? /* @__PURE__ */ import_react71.default.createElement(CircleCheck, { className: "w-8 h-8 text-green-600 mb-2" }) : /* @__PURE__ */ import_react71.default.createElement(Circle, { className: "w-8 h-8 text-slate-300 mb-2" }), /* @__PURE__ */ import_react71.default.createElement("span", { className: `text-xs font-medium ${index <= currentStepIndex ? "text-primary-800" : "text-slate-500"}` }, step.label)), index < steps.length - 1 && /* @__PURE__ */ import_react71.default.createElement("div", { className: `flex-1 h-1 mx-2 mb-6 ${index < currentStepIndex ? "bg-green-600" : "bg-slate-300"}` })))));
   };
   var WorkflowStepper_default = WorkflowStepper;
 
   // src/pages/DocumentUpload.jsx
-  var import_jsx_runtime11 = __toESM(require_jsx_runtime());
   var DocumentUpload = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -43300,104 +42927,46 @@ to {
       zt.info("Document deletion not yet implemented");
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LoadingSpinner_default, { message: "Loading..." });
+      return /* @__PURE__ */ import_react72.default.createElement(LoadingSpinner_default, { message: "Loading..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "max-w-4xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(WorkflowStepper_default, { currentStatus: quotation?.status || "draft" }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "grid grid-cols-4 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Type" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.quotation_type })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Status" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-900 font-bold capitalize", children: quotation?.status })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Upload Documents" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
-          "div",
-          {
-            onDragEnter: handleDragEnter,
-            onDragLeave: handleDragLeave,
-            onDrop: handleDrop,
-            className: `border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors ${dragActive ? "border-primary-800 bg-primary-50" : "border-slate-300 hover:border-primary-800"}`,
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Upload, { className: "w-12 h-12 text-slate-400 mx-auto mb-4" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h4", { className: "text-lg font-semibold text-slate-900 mb-2", children: "Drag and drop files here" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-slate-600 mb-4", children: "or click to select files" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-                  "input",
-                  {
-                    type: "file",
-                    multiple: true,
-                    accept: ".pdf,.xlsx,.xls,.csv",
-                    onChange: (e3) => handleFiles(Array.from(e3.target.files)),
-                    className: "hidden"
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "btn-primary", children: "Choose Files" })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "text-xs text-slate-500 mt-4", children: "Supported: PDF, XLSX, XLS, CSV (Max 10MB per file)" })
-            ]
-          }
-        )
-      ] }),
-      documents.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Uploaded Documents" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "space-y-3", children: documents.map((doc) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex items-center justify-between p-4 border border-slate-200 rounded-lg", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex items-center gap-4 flex-1", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "flex-1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { className: "font-medium text-slate-900", children: doc.file_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { className: "text-sm text-slate-600", children: [
-              (doc.file_size / 1024).toFixed(2),
-              " KB"
-            ] })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "flex items-center gap-4", children: doc.status === "extracted" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(CircleCheckBig, { className: "w-5 h-5 text-green-600" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-sm text-green-600 font-medium", children: "Extracted" })
-          ] }) : doc.status === "extracting" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "w-5 h-5 border-2 border-primary-800 border-t-transparent rounded-full animate-spin" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-sm text-primary-800 font-medium", children: "Extracting" })
-          ] }) : doc.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(CircleAlert, { className: "w-5 h-5 text-red-600" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-sm text-red-600 font-medium", children: "Failed" })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(CircleCheckBig, { className: "w-5 h-5 text-slate-400" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "text-sm text-slate-600", children: "Uploaded" })
-          ] }) })
-        ] }, doc.id)) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}`),
-            className: "btn-secondary",
-            children: "Back"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-          "button",
-          {
-            onClick: handleExtract,
-            disabled: documents.length === 0 || extracting,
-            className: "btn-primary",
-            children: extracting ? "Analyzing documents with Gemini AI..." : "Extract Data with AI"
-          }
-        )
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react72.default.createElement("div", { className: "max-w-4xl mx-auto space-y-6" }, /* @__PURE__ */ import_react72.default.createElement(WorkflowStepper_default, { currentStatus: quotation?.status || "draft" }), /* @__PURE__ */ import_react72.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react72.default.createElement("div", { className: "grid grid-cols-4 gap-4" }, /* @__PURE__ */ import_react72.default.createElement("div", null, /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Reference"), /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react72.default.createElement("div", null, /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Customer"), /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react72.default.createElement("div", null, /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Type"), /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.quotation_type)), /* @__PURE__ */ import_react72.default.createElement("div", null, /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Status"), /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-900 font-bold capitalize" }, quotation?.status)))), /* @__PURE__ */ import_react72.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react72.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Upload Documents"), /* @__PURE__ */ import_react72.default.createElement(
+      "div",
+      {
+        onDragEnter: handleDragEnter,
+        onDragLeave: handleDragLeave,
+        onDrop: handleDrop,
+        className: `border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors ${dragActive ? "border-primary-800 bg-primary-50" : "border-slate-300 hover:border-primary-800"}`
+      },
+      /* @__PURE__ */ import_react72.default.createElement(Upload, { className: "w-12 h-12 text-slate-400 mx-auto mb-4" }),
+      /* @__PURE__ */ import_react72.default.createElement("h4", { className: "text-lg font-semibold text-slate-900 mb-2" }, "Drag and drop files here"),
+      /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-slate-600 mb-4" }, "or click to select files"),
+      /* @__PURE__ */ import_react72.default.createElement("label", null, /* @__PURE__ */ import_react72.default.createElement(
+        "input",
+        {
+          type: "file",
+          multiple: true,
+          accept: ".pdf,.xlsx,.xls,.csv",
+          onChange: (e3) => handleFiles(Array.from(e3.target.files)),
+          className: "hidden"
+        }
+      ), /* @__PURE__ */ import_react72.default.createElement("span", { className: "btn-primary" }, "Choose Files")),
+      /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-xs text-slate-500 mt-4" }, "Supported: PDF, XLSX, XLS, CSV (Max 10MB per file)")
+    )), documents.length > 0 && /* @__PURE__ */ import_react72.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react72.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Uploaded Documents"), /* @__PURE__ */ import_react72.default.createElement("div", { className: "space-y-3" }, documents.map((doc) => /* @__PURE__ */ import_react72.default.createElement("div", { key: doc.id, className: "flex items-center justify-between p-4 border border-slate-200 rounded-lg" }, /* @__PURE__ */ import_react72.default.createElement("div", { className: "flex items-center gap-4 flex-1" }, /* @__PURE__ */ import_react72.default.createElement("div", { className: "flex-1" }, /* @__PURE__ */ import_react72.default.createElement("p", { className: "font-medium text-slate-900" }, doc.file_name), /* @__PURE__ */ import_react72.default.createElement("p", { className: "text-sm text-slate-600" }, (doc.file_size / 1024).toFixed(2), " KB"))), /* @__PURE__ */ import_react72.default.createElement("div", { className: "flex items-center gap-4" }, doc.status === "extracted" ? /* @__PURE__ */ import_react72.default.createElement(import_react72.default.Fragment, null, /* @__PURE__ */ import_react72.default.createElement(CircleCheckBig, { className: "w-5 h-5 text-green-600" }), /* @__PURE__ */ import_react72.default.createElement("span", { className: "text-sm text-green-600 font-medium" }, "Extracted")) : doc.status === "extracting" ? /* @__PURE__ */ import_react72.default.createElement(import_react72.default.Fragment, null, /* @__PURE__ */ import_react72.default.createElement("div", { className: "w-5 h-5 border-2 border-primary-800 border-t-transparent rounded-full animate-spin" }), /* @__PURE__ */ import_react72.default.createElement("span", { className: "text-sm text-primary-800 font-medium" }, "Extracting")) : doc.status === "failed" ? /* @__PURE__ */ import_react72.default.createElement(import_react72.default.Fragment, null, /* @__PURE__ */ import_react72.default.createElement(CircleAlert, { className: "w-5 h-5 text-red-600" }), /* @__PURE__ */ import_react72.default.createElement("span", { className: "text-sm text-red-600 font-medium" }, "Failed")) : /* @__PURE__ */ import_react72.default.createElement(import_react72.default.Fragment, null, /* @__PURE__ */ import_react72.default.createElement(CircleCheckBig, { className: "w-5 h-5 text-slate-400" }), /* @__PURE__ */ import_react72.default.createElement("span", { className: "text-sm text-slate-600" }, "Uploaded"))))))), /* @__PURE__ */ import_react72.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react72.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}`),
+        className: "btn-secondary"
+      },
+      "Back"
+    ), /* @__PURE__ */ import_react72.default.createElement(
+      "button",
+      {
+        onClick: handleExtract,
+        disabled: documents.length === 0 || extracting,
+        className: "btn-primary"
+      },
+      extracting ? "Analyzing documents with Gemini AI..." : "Extract Data with AI"
+    )));
   };
   var DocumentUpload_default = DocumentUpload;
 
@@ -43406,7 +42975,6 @@ to {
 
   // src/components/ConfidenceBadge.jsx
   var import_react73 = __toESM(require_react());
-  var import_jsx_runtime12 = __toESM(require_jsx_runtime());
   var ConfidenceBadge = ({ score }) => {
     let bgColor = "bg-green-100 text-green-800";
     if (score < 0.6) {
@@ -43417,24 +42985,17 @@ to {
       bgColor = "bg-blue-100 text-blue-800";
     }
     const percentage = Math.round(score * 100);
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex items-center gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "w-16 h-2 bg-slate-200 rounded-full overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "div",
-        {
-          className: `h-full transition-all ${bgColor.split(" ")[0]}`,
-          style: { width: `${percentage}%` }
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: `status-badge ${bgColor}`, children: [
-        percentage,
-        "%"
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react73.default.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ import_react73.default.createElement("div", { className: "w-16 h-2 bg-slate-200 rounded-full overflow-hidden" }, /* @__PURE__ */ import_react73.default.createElement(
+      "div",
+      {
+        className: `h-full transition-all ${bgColor.split(" ")[0]}`,
+        style: { width: `${percentage}%` }
+      }
+    )), /* @__PURE__ */ import_react73.default.createElement("span", { className: `status-badge ${bgColor}` }, percentage, "%"));
   };
   var ConfidenceBadge_default = ConfidenceBadge;
 
   // src/pages/ExtractionReview.jsx
-  var import_jsx_runtime13 = __toESM(require_jsx_runtime());
   var ExtractionReview = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -43487,144 +43048,70 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LoadingSpinner_default, { message: "Loading extraction data..." });
+      return /* @__PURE__ */ import_react74.default.createElement(LoadingSpinner_default, { message: "Loading extraction data..." });
     }
     const selectedDocData = extractedData.find((d2) => d2.document_id === selectedDoc?.id);
     const fields = selectedDocData?.fields || [];
     const metalFields = fields.filter((f3) => ["cu", "ag", "au", "pd", "ni", "sn"].includes(f3.field_name.toLowerCase()));
     const lowConfidenceFields = fields.filter((f3) => f3.confidence < 0.7);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "max-w-6xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(WorkflowStepper_default, { currentStatus: quotation?.status || "extracted" }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "grid grid-cols-4 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Documents" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-900 font-bold", children: documents.length })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Extracted Fields" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-900 font-bold", children: fields.length })
-        ] })
-      ] }) }),
-      lowConfidenceFields.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-start gap-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(CircleAlert, { className: "w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h4", { className: "font-semibold text-yellow-900", children: "Low Confidence Fields" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "text-sm text-yellow-800 mt-1", children: [
-            lowConfidenceFields.length,
-            " field(s) have confidence below 70%. Please review and correct as needed."
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "grid grid-cols-4 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "bg-white rounded-lg shadow p-4 h-fit", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { className: "font-bold text-slate-900 mb-3 text-sm", children: "Documents" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "space-y-2", children: documents.map((doc) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-            "button",
-            {
-              onClick: () => setSelectedDoc(doc),
-              className: `w-full text-left px-3 py-2 rounded text-sm font-medium transition-colors ${selectedDoc?.id === doc.id ? "bg-primary-800 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`,
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "truncate", children: doc.file_name }),
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "text-xs opacity-75", children: [
-                  (doc.file_size / 1024).toFixed(0),
-                  " KB"
-                ] })
-              ]
-            },
-            doc.id
-          )) })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "col-span-3 bg-white rounded-lg shadow p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { className: "font-bold text-slate-900 mb-4", children: "Extracted Data" }),
-          fields.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("thead", { className: "border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "pb-3", children: "Field" }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "pb-3", children: "Extracted Value" }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "pb-3", children: "Confidence" }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "pb-3", children: "Action" })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("tbody", { className: "divide-y divide-slate-100", children: fields.map((field) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("tr", { className: field.confidence < 0.7 ? "bg-yellow-50" : "", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-3 font-medium text-slate-900", children: field.field_name }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-3", children: editingField === field.id ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                "input",
-                {
-                  type: "text",
-                  value: editValue,
-                  onChange: (e3) => setEditValue(e3.target.value),
-                  className: "form-input"
-                }
-              ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-slate-700", children: field.value || "\u2014" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-3", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ConfidenceBadge_default, { score: field.confidence }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-3", children: editingField === field.id ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex gap-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                  "button",
-                  {
-                    onClick: () => handleSaveField(field.id),
-                    className: "text-green-600 hover:text-green-700 p-1",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Save, { className: "w-4 h-4" })
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                  "button",
-                  {
-                    onClick: () => setEditingField(null),
-                    className: "text-red-600 hover:text-red-700 p-1",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(X2, { className: "w-4 h-4" })
-                  }
-                )
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                "button",
-                {
-                  onClick: () => handleEditField(field.id, field.value),
-                  className: "text-primary-800 hover:text-primary-900 p-1",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Pen, { className: "w-4 h-4" })
-                }
-              ) })
-            ] }, field.id)) })
-          ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-600 text-center py-8", children: "No extracted data available" })
-        ] })
-      ] }),
-      metalFields.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { className: "font-bold text-slate-900 mb-4", children: "Metal Results" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "grid grid-cols-6 gap-4", children: metalFields.map((field) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "border border-slate-200 rounded-lg p-4 text-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "font-bold text-lg text-primary-800", children: field.field_name.toUpperCase() }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-slate-900 font-semibold my-2", children: field.value || "\u2014" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ConfidenceBadge_default, { score: field.confidence })
-        ] }, field.id)) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}/documents`),
-            className: "btn-secondary",
-            children: "Back"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}/category`),
-            className: "btn-primary",
-            children: "Confirm Data & Continue"
-          }
-        )
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react74.default.createElement("div", { className: "max-w-6xl mx-auto space-y-6" }, /* @__PURE__ */ import_react74.default.createElement(WorkflowStepper_default, { currentStatus: quotation?.status || "extracted" }), /* @__PURE__ */ import_react74.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react74.default.createElement("div", { className: "grid grid-cols-4 gap-4" }, /* @__PURE__ */ import_react74.default.createElement("div", null, /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Reference"), /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react74.default.createElement("div", null, /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Customer"), /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react74.default.createElement("div", null, /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Documents"), /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-900 font-bold" }, documents.length)), /* @__PURE__ */ import_react74.default.createElement("div", null, /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Extracted Fields"), /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-900 font-bold" }, fields.length)))), lowConfidenceFields.length > 0 && /* @__PURE__ */ import_react74.default.createElement("div", { className: "bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-start gap-3" }, /* @__PURE__ */ import_react74.default.createElement(CircleAlert, { className: "w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" }), /* @__PURE__ */ import_react74.default.createElement("div", null, /* @__PURE__ */ import_react74.default.createElement("h4", { className: "font-semibold text-yellow-900" }, "Low Confidence Fields"), /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-sm text-yellow-800 mt-1" }, lowConfidenceFields.length, " field(s) have confidence below 70%. Please review and correct as needed."))), /* @__PURE__ */ import_react74.default.createElement("div", { className: "grid grid-cols-4 gap-6" }, /* @__PURE__ */ import_react74.default.createElement("div", { className: "bg-white rounded-lg shadow p-4 h-fit" }, /* @__PURE__ */ import_react74.default.createElement("h3", { className: "font-bold text-slate-900 mb-3 text-sm" }, "Documents"), /* @__PURE__ */ import_react74.default.createElement("div", { className: "space-y-2" }, documents.map((doc) => /* @__PURE__ */ import_react74.default.createElement(
+      "button",
+      {
+        key: doc.id,
+        onClick: () => setSelectedDoc(doc),
+        className: `w-full text-left px-3 py-2 rounded text-sm font-medium transition-colors ${selectedDoc?.id === doc.id ? "bg-primary-800 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`
+      },
+      /* @__PURE__ */ import_react74.default.createElement("p", { className: "truncate" }, doc.file_name),
+      /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-xs opacity-75" }, (doc.file_size / 1024).toFixed(0), " KB")
+    )))), /* @__PURE__ */ import_react74.default.createElement("div", { className: "col-span-3 bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react74.default.createElement("h3", { className: "font-bold text-slate-900 mb-4" }, "Extracted Data"), fields.length > 0 ? /* @__PURE__ */ import_react74.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react74.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react74.default.createElement("thead", { className: "border-b border-slate-200" }, /* @__PURE__ */ import_react74.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react74.default.createElement("th", { className: "pb-3" }, "Field"), /* @__PURE__ */ import_react74.default.createElement("th", { className: "pb-3" }, "Extracted Value"), /* @__PURE__ */ import_react74.default.createElement("th", { className: "pb-3" }, "Confidence"), /* @__PURE__ */ import_react74.default.createElement("th", { className: "pb-3" }, "Action"))), /* @__PURE__ */ import_react74.default.createElement("tbody", { className: "divide-y divide-slate-100" }, fields.map((field) => /* @__PURE__ */ import_react74.default.createElement("tr", { key: field.id, className: field.confidence < 0.7 ? "bg-yellow-50" : "" }, /* @__PURE__ */ import_react74.default.createElement("td", { className: "py-3 font-medium text-slate-900" }, field.field_name), /* @__PURE__ */ import_react74.default.createElement("td", { className: "py-3" }, editingField === field.id ? /* @__PURE__ */ import_react74.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: editValue,
+        onChange: (e3) => setEditValue(e3.target.value),
+        className: "form-input"
+      }
+    ) : /* @__PURE__ */ import_react74.default.createElement("span", { className: "text-slate-700" }, field.value || "\u2014")), /* @__PURE__ */ import_react74.default.createElement("td", { className: "py-3" }, /* @__PURE__ */ import_react74.default.createElement(ConfidenceBadge_default, { score: field.confidence })), /* @__PURE__ */ import_react74.default.createElement("td", { className: "py-3" }, editingField === field.id ? /* @__PURE__ */ import_react74.default.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ import_react74.default.createElement(
+      "button",
+      {
+        onClick: () => handleSaveField(field.id),
+        className: "text-green-600 hover:text-green-700 p-1"
+      },
+      /* @__PURE__ */ import_react74.default.createElement(Save, { className: "w-4 h-4" })
+    ), /* @__PURE__ */ import_react74.default.createElement(
+      "button",
+      {
+        onClick: () => setEditingField(null),
+        className: "text-red-600 hover:text-red-700 p-1"
+      },
+      /* @__PURE__ */ import_react74.default.createElement(X2, { className: "w-4 h-4" })
+    )) : /* @__PURE__ */ import_react74.default.createElement(
+      "button",
+      {
+        onClick: () => handleEditField(field.id, field.value),
+        className: "text-primary-800 hover:text-primary-900 p-1"
+      },
+      /* @__PURE__ */ import_react74.default.createElement(Pen, { className: "w-4 h-4" })
+    ))))))) : /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-600 text-center py-8" }, "No extracted data available"))), metalFields.length > 0 && /* @__PURE__ */ import_react74.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react74.default.createElement("h3", { className: "font-bold text-slate-900 mb-4" }, "Metal Results"), /* @__PURE__ */ import_react74.default.createElement("div", { className: "grid grid-cols-6 gap-4" }, metalFields.map((field) => /* @__PURE__ */ import_react74.default.createElement("div", { key: field.id, className: "border border-slate-200 rounded-lg p-4 text-center" }, /* @__PURE__ */ import_react74.default.createElement("p", { className: "font-bold text-lg text-primary-800" }, field.field_name.toUpperCase()), /* @__PURE__ */ import_react74.default.createElement("p", { className: "text-slate-900 font-semibold my-2" }, field.value || "\u2014"), /* @__PURE__ */ import_react74.default.createElement(ConfidenceBadge_default, { score: field.confidence }))))), /* @__PURE__ */ import_react74.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react74.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}/documents`),
+        className: "btn-secondary"
+      },
+      "Back"
+    ), /* @__PURE__ */ import_react74.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}/category`),
+        className: "btn-primary"
+      },
+      "Confirm Data & Continue"
+    )));
   };
   var ExtractionReview_default = ExtractionReview;
 
   // src/pages/CategorySelection.jsx
   var import_react75 = __toESM(require_react());
-  var import_jsx_runtime14 = __toESM(require_jsx_runtime());
   var CategorySelection = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -43675,112 +43162,63 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(LoadingSpinner_default, { message: "Loading categories..." });
+      return /* @__PURE__ */ import_react75.default.createElement(LoadingSpinner_default, { message: "Loading categories..." });
     }
     const filteredCategories = categories.filter(
       (cat) => cat.name.toLowerCase().includes(search.toLowerCase()) || cat.code.toLowerCase().includes(search.toLowerCase())
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "max-w-5xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(WorkflowStepper_default, { currentStatus: quotation?.status || "reviewed" }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "grid grid-cols-3 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Type" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.quotation_type })
-        ] })
-      ] }) }),
-      aiRecommendation && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "AI Recommendation" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex items-start justify-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex-1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex items-center gap-3 mb-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "text-2xl font-bold text-primary-800", children: aiRecommendation.category.code }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "text-xl text-slate-900", children: aiRecommendation.category.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "bg-white px-3 py-1 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { className: "text-sm font-semibold text-primary-800", children: [
-                Math.round(aiRecommendation.confidence * 100),
-                "% confidence"
-              ] }) })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-slate-700", children: aiRecommendation.reasoning })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "button",
-            {
-              onClick: () => {
-                setSelectedCategory(aiRecommendation.category);
-                zt.success("AI recommendation accepted");
-              },
-              className: "btn-primary whitespace-nowrap ml-4",
-              children: "Accept Recommendation"
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Browse All Categories" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "relative", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Search, { className: "absolute left-3 top-3 w-4 h-4 text-slate-400" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "input",
-            {
-              type: "text",
-              value: search,
-              onChange: (e3) => setSearch(e3.target.value),
-              className: "form-input pl-10",
-              placeholder: "Search by code or name..."
-            }
-          )
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "grid grid-cols-2 gap-4", children: filteredCategories.map((cat) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-          "button",
-          {
-            onClick: () => setSelectedCategory(cat),
-            className: `relative p-4 border-2 rounded-lg text-left transition-all ${selectedCategory?.id === cat.id ? "border-primary-800 bg-primary-50" : "border-slate-200 hover:border-primary-800"}`,
-            children: [
-              selectedCategory?.id === cat.id && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(CircleCheckBig, { className: "absolute top-3 right-3 w-5 h-5 text-primary-800" }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "font-bold text-slate-900", children: cat.code }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "font-semibold text-slate-900 mb-2", children: cat.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-sm text-slate-600 mb-3", children: cat.description }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "flex gap-2 flex-wrap", children: cat.quotation_types?.map((type) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded", children: type }, type)) })
-            ]
-          },
-          cat.id
-        )) }),
-        filteredCategories.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-center text-slate-600 py-8", children: "No categories found" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}/extraction`),
-            className: "btn-secondary",
-            children: "Back"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-          "button",
-          {
-            onClick: handleConfirmCategory,
-            disabled: !selectedCategory,
-            className: "btn-primary disabled:opacity-50 disabled:cursor-not-allowed",
-            children: "Confirm Category"
-          }
-        )
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react75.default.createElement("div", { className: "max-w-5xl mx-auto space-y-6" }, /* @__PURE__ */ import_react75.default.createElement(WorkflowStepper_default, { currentStatus: quotation?.status || "reviewed" }), /* @__PURE__ */ import_react75.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react75.default.createElement("div", { className: "grid grid-cols-3 gap-4" }, /* @__PURE__ */ import_react75.default.createElement("div", null, /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Reference"), /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react75.default.createElement("div", null, /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Customer"), /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react75.default.createElement("div", null, /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Type"), /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.quotation_type)))), aiRecommendation && /* @__PURE__ */ import_react75.default.createElement("div", { className: "bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6" }, /* @__PURE__ */ import_react75.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "AI Recommendation"), /* @__PURE__ */ import_react75.default.createElement("div", { className: "flex items-start justify-between" }, /* @__PURE__ */ import_react75.default.createElement("div", { className: "flex-1" }, /* @__PURE__ */ import_react75.default.createElement("div", { className: "flex items-center gap-3 mb-3" }, /* @__PURE__ */ import_react75.default.createElement("span", { className: "text-2xl font-bold text-primary-800" }, aiRecommendation.category.code), /* @__PURE__ */ import_react75.default.createElement("span", { className: "text-xl text-slate-900" }, aiRecommendation.category.name), /* @__PURE__ */ import_react75.default.createElement("div", { className: "bg-white px-3 py-1 rounded-full" }, /* @__PURE__ */ import_react75.default.createElement("span", { className: "text-sm font-semibold text-primary-800" }, Math.round(aiRecommendation.confidence * 100), "% confidence"))), /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-slate-700" }, aiRecommendation.reasoning)), /* @__PURE__ */ import_react75.default.createElement(
+      "button",
+      {
+        onClick: () => {
+          setSelectedCategory(aiRecommendation.category);
+          zt.success("AI recommendation accepted");
+        },
+        className: "btn-primary whitespace-nowrap ml-4"
+      },
+      "Accept Recommendation"
+    ))), /* @__PURE__ */ import_react75.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react75.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Browse All Categories"), /* @__PURE__ */ import_react75.default.createElement("div", { className: "mb-6" }, /* @__PURE__ */ import_react75.default.createElement("div", { className: "relative" }, /* @__PURE__ */ import_react75.default.createElement(Search, { className: "absolute left-3 top-3 w-4 h-4 text-slate-400" }), /* @__PURE__ */ import_react75.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: search,
+        onChange: (e3) => setSearch(e3.target.value),
+        className: "form-input pl-10",
+        placeholder: "Search by code or name..."
+      }
+    ))), /* @__PURE__ */ import_react75.default.createElement("div", { className: "grid grid-cols-2 gap-4" }, filteredCategories.map((cat) => /* @__PURE__ */ import_react75.default.createElement(
+      "button",
+      {
+        key: cat.id,
+        onClick: () => setSelectedCategory(cat),
+        className: `relative p-4 border-2 rounded-lg text-left transition-all ${selectedCategory?.id === cat.id ? "border-primary-800 bg-primary-50" : "border-slate-200 hover:border-primary-800"}`
+      },
+      selectedCategory?.id === cat.id && /* @__PURE__ */ import_react75.default.createElement(CircleCheckBig, { className: "absolute top-3 right-3 w-5 h-5 text-primary-800" }),
+      /* @__PURE__ */ import_react75.default.createElement("p", { className: "font-bold text-slate-900" }, cat.code),
+      /* @__PURE__ */ import_react75.default.createElement("p", { className: "font-semibold text-slate-900 mb-2" }, cat.name),
+      /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-sm text-slate-600 mb-3" }, cat.description),
+      /* @__PURE__ */ import_react75.default.createElement("div", { className: "flex gap-2 flex-wrap" }, cat.quotation_types?.map((type) => /* @__PURE__ */ import_react75.default.createElement("span", { key: type, className: "text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded" }, type)))
+    ))), filteredCategories.length === 0 && /* @__PURE__ */ import_react75.default.createElement("p", { className: "text-center text-slate-600 py-8" }, "No categories found")), /* @__PURE__ */ import_react75.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react75.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}/extraction`),
+        className: "btn-secondary"
+      },
+      "Back"
+    ), /* @__PURE__ */ import_react75.default.createElement(
+      "button",
+      {
+        onClick: handleConfirmCategory,
+        disabled: !selectedCategory,
+        className: "btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+      },
+      "Confirm Category"
+    )));
   };
   var CategorySelection_default = CategorySelection;
 
   // src/pages/MarketDataReview.jsx
   var import_react76 = __toESM(require_react());
-  var import_jsx_runtime15 = __toESM(require_jsx_runtime());
   var MarketDataReview = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -43842,146 +43280,81 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LoadingSpinner_default, { message: "Loading market data..." });
+      return /* @__PURE__ */ import_react76.default.createElement(LoadingSpinner_default, { message: "Loading market data..." });
     }
     const isDataFresh = (timestamp) => {
       const diff = /* @__PURE__ */ new Date() - new Date(timestamp);
       return diff < 24 * 60 * 60 * 1e3;
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "max-w-6xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(WorkflowStepper_default, { currentStatus: quotation?.status || "reviewed" }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "grid grid-cols-4 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Pricing Mode" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-900 font-bold capitalize", children: quotation?.pricing_mode })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Shipment Month" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.shipment_month })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex items-center justify-between mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "text-lg font-bold text-slate-900", children: "Market Benchmarks" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
-            "button",
-            {
-              onClick: handleRefresh,
-              disabled: refreshing,
-              className: "flex items-center gap-2 px-3 py-2 bg-slate-200 text-slate-900 rounded hover:bg-slate-300 font-medium disabled:opacity-50",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(RefreshCw, { className: `w-4 h-4 ${refreshing ? "animate-spin" : ""}` }),
-                "Refresh"
-              ]
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("table", { className: "w-full text-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("thead", { className: "border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Metal" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Code" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Price" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Unit" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Source" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Fetched" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Basis" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "pb-3", children: "Action" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("tbody", { className: "divide-y divide-slate-100", children: benchmarks.map((bench) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("tr", { className: isDataFresh(bench.fetched_at) ? "" : "bg-yellow-50", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3 font-medium text-slate-900", children: bench.metal_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3 text-slate-600", children: bench.metal_code }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3 text-slate-900 font-semibold", children: editingBench === bench.id ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-              "input",
-              {
-                type: "number",
-                value: editValue,
-                onChange: (e3) => setEditValue(e3.target.value),
-                className: "form-input w-24"
-              }
-            ) : `${bench.spot_price}` }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3 text-slate-600", children: bench.unit }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3 text-slate-600", children: bench.source }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3 text-slate-600 text-xs", children: new Date(bench.fetched_at).toLocaleDateString() }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: `px-2 py-1 rounded text-xs font-medium ${isDataFresh(bench.fetched_at) ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}`, children: isDataFresh(bench.fetched_at) ? "Fresh" : "Older" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "py-3", children: editingBench === bench.id ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-                "button",
-                {
-                  onClick: () => handleOverride(bench.id),
-                  className: "text-green-600 hover:text-green-700 font-medium text-xs",
-                  children: "Save"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-                "button",
-                {
-                  onClick: () => setEditingBench(null),
-                  className: "text-red-600 hover:text-red-700 font-medium text-xs",
-                  children: "Cancel"
-                }
-              )
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-              "button",
-              {
-                onClick: () => {
-                  setEditingBench(bench.id);
-                  setEditValue(bench.spot_price);
-                },
-                className: "text-primary-800 hover:text-primary-900",
-                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Pen, { className: "w-4 h-4" })
-              }
-            ) })
-          ] }, bench.id)) })
-        ] }) })
-      ] }),
-      quotation?.pricing_mode === "forward" && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Forward Pricing" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("label", { className: "form-label", children: "Target Month" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-            "input",
-            {
-              type: "month",
-              value: targetMonth,
-              onChange: (e3) => setTargetMonth(e3.target.value),
-              className: "form-input max-w-xs"
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}/category`),
-            className: "btn-secondary",
-            children: "Back"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}`),
-            className: "btn-primary",
-            children: "Snapshot & Continue"
-          }
-        )
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react76.default.createElement("div", { className: "max-w-6xl mx-auto space-y-6" }, /* @__PURE__ */ import_react76.default.createElement(WorkflowStepper_default, { currentStatus: quotation?.status || "reviewed" }), /* @__PURE__ */ import_react76.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react76.default.createElement("div", { className: "grid grid-cols-4 gap-4" }, /* @__PURE__ */ import_react76.default.createElement("div", null, /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Reference"), /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react76.default.createElement("div", null, /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Customer"), /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react76.default.createElement("div", null, /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Pricing Mode"), /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-900 font-bold capitalize" }, quotation?.pricing_mode)), /* @__PURE__ */ import_react76.default.createElement("div", null, /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Shipment Month"), /* @__PURE__ */ import_react76.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.shipment_month)))), /* @__PURE__ */ import_react76.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react76.default.createElement("div", { className: "flex items-center justify-between mb-4" }, /* @__PURE__ */ import_react76.default.createElement("h3", { className: "text-lg font-bold text-slate-900" }, "Market Benchmarks"), /* @__PURE__ */ import_react76.default.createElement(
+      "button",
+      {
+        onClick: handleRefresh,
+        disabled: refreshing,
+        className: "flex items-center gap-2 px-3 py-2 bg-slate-200 text-slate-900 rounded hover:bg-slate-300 font-medium disabled:opacity-50"
+      },
+      /* @__PURE__ */ import_react76.default.createElement(RefreshCw, { className: `w-4 h-4 ${refreshing ? "animate-spin" : ""}` }),
+      "Refresh"
+    )), /* @__PURE__ */ import_react76.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react76.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react76.default.createElement("thead", { className: "border-b border-slate-200" }, /* @__PURE__ */ import_react76.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Metal"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Code"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Price"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Unit"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Source"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Fetched"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Basis"), /* @__PURE__ */ import_react76.default.createElement("th", { className: "pb-3" }, "Action"))), /* @__PURE__ */ import_react76.default.createElement("tbody", { className: "divide-y divide-slate-100" }, benchmarks.map((bench) => /* @__PURE__ */ import_react76.default.createElement("tr", { key: bench.id, className: isDataFresh(bench.fetched_at) ? "" : "bg-yellow-50" }, /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3 font-medium text-slate-900" }, bench.metal_name), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3 text-slate-600" }, bench.metal_code), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3 text-slate-900 font-semibold" }, editingBench === bench.id ? /* @__PURE__ */ import_react76.default.createElement(
+      "input",
+      {
+        type: "number",
+        value: editValue,
+        onChange: (e3) => setEditValue(e3.target.value),
+        className: "form-input w-24"
+      }
+    ) : `${bench.spot_price}`), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3 text-slate-600" }, bench.unit), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3 text-slate-600" }, bench.source), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3 text-slate-600 text-xs" }, new Date(bench.fetched_at).toLocaleDateString()), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3" }, /* @__PURE__ */ import_react76.default.createElement("span", { className: `px-2 py-1 rounded text-xs font-medium ${isDataFresh(bench.fetched_at) ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}` }, isDataFresh(bench.fetched_at) ? "Fresh" : "Older")), /* @__PURE__ */ import_react76.default.createElement("td", { className: "py-3" }, editingBench === bench.id ? /* @__PURE__ */ import_react76.default.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ import_react76.default.createElement(
+      "button",
+      {
+        onClick: () => handleOverride(bench.id),
+        className: "text-green-600 hover:text-green-700 font-medium text-xs"
+      },
+      "Save"
+    ), /* @__PURE__ */ import_react76.default.createElement(
+      "button",
+      {
+        onClick: () => setEditingBench(null),
+        className: "text-red-600 hover:text-red-700 font-medium text-xs"
+      },
+      "Cancel"
+    )) : /* @__PURE__ */ import_react76.default.createElement(
+      "button",
+      {
+        onClick: () => {
+          setEditingBench(bench.id);
+          setEditValue(bench.spot_price);
+        },
+        className: "text-primary-800 hover:text-primary-900"
+      },
+      /* @__PURE__ */ import_react76.default.createElement(Pen, { className: "w-4 h-4" })
+    )))))))), quotation?.pricing_mode === "forward" && /* @__PURE__ */ import_react76.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react76.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Forward Pricing"), /* @__PURE__ */ import_react76.default.createElement("div", null, /* @__PURE__ */ import_react76.default.createElement("label", { className: "form-label" }, "Target Month"), /* @__PURE__ */ import_react76.default.createElement(
+      "input",
+      {
+        type: "month",
+        value: targetMonth,
+        onChange: (e3) => setTargetMonth(e3.target.value),
+        className: "form-input max-w-xs"
+      }
+    ))), /* @__PURE__ */ import_react76.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react76.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}/category`),
+        className: "btn-secondary"
+      },
+      "Back"
+    ), /* @__PURE__ */ import_react76.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}`),
+        className: "btn-primary"
+      },
+      "Snapshot & Continue"
+    )));
   };
   var MarketDataReview_default = MarketDataReview;
 
   // src/pages/QuotationBreakdown.jsx
   var import_react77 = __toESM(require_react());
-  var import_jsx_runtime16 = __toESM(require_jsx_runtime());
   var QuotationBreakdown = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -44025,151 +43398,36 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(LoadingSpinner_default, { message: "Loading quotation breakdown..." });
+      return /* @__PURE__ */ import_react77.default.createElement(LoadingSpinner_default, { message: "Loading quotation breakdown..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "max-w-4xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(WorkflowStepper_default, { currentStatus: quotation?.status || "reviewed" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "bg-gradient-to-r from-primary-800 to-primary-900 rounded-lg shadow-lg p-8 text-white", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "grid grid-cols-4 gap-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-2xl font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-2xl font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Type" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-lg font-bold", children: quotation?.quotation_type })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Status" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-lg font-bold capitalize", children: quotation?.status })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("h3", { className: "text-lg font-bold text-slate-900 mb-4 flex items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(FileText, { className: "w-5 h-5" }),
-          "Documents & Extracted Data"
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "mb-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-sm font-semibold text-slate-600 mb-3", children: "Source Documents" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "space-y-2", children: documents.map((doc) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex items-center justify-between p-3 bg-slate-50 rounded", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "text-slate-900 font-medium", children: doc.file_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "text-sm text-slate-600", children: [
-              (doc.file_size / 1024).toFixed(0),
-              " KB"
-            ] })
-          ] }, doc.id)) })
-        ] }),
-        breakdown?.extracted_data && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-sm font-semibold text-slate-600 mb-3", children: "Key Values" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "grid grid-cols-2 gap-4", children: Object.entries(breakdown.extracted_data).map(([key, value]) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "p-3 bg-slate-50 rounded", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-xs text-slate-600 capitalize", children: key.replace(/_/g, " ") }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-lg font-bold text-slate-900", children: value })
-          ] }, key)) })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Market Benchmarks Used" }),
-        breakdown?.benchmarks && breakdown.benchmarks.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("table", { className: "w-full text-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("thead", { className: "border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Metal" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Price" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Unit" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Source" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Timestamp" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("tbody", { className: "divide-y divide-slate-100", children: breakdown.benchmarks.map((bench) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 font-medium text-slate-900", children: bench.metal_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 text-slate-900 font-semibold", children: bench.price }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 text-slate-600", children: bench.unit }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 text-slate-600", children: bench.source }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 text-slate-600 text-xs", children: new Date(bench.timestamp).toLocaleString() })
-          ] }, bench.id)) })
-        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-slate-600", children: "No benchmarks available" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Formula & Calculation" }),
-        breakdown?.formula && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "mb-6 p-4 bg-slate-50 rounded border border-slate-200", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-sm font-semibold text-slate-600 mb-2", children: "Formula" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("p", { className: "font-mono text-sm text-slate-900", children: [
-            breakdown.formula.name,
-            " (v",
-            breakdown.formula.version,
-            ")"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "font-mono text-xs text-slate-600 mt-2", children: breakdown.formula.expression })
-        ] }),
-        breakdown?.calculation_steps && breakdown.calculation_steps.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "mb-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-sm font-semibold text-slate-600 mb-3", children: "Calculation Breakdown" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("thead", { className: "border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Step" }),
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3", children: "Description" }),
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("th", { className: "pb-3 text-right", children: "Value" })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("tbody", { className: "divide-y divide-slate-100", children: breakdown.calculation_steps.map((step, idx) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3", children: idx + 1 }),
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 text-slate-600", children: step.description }),
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("td", { className: "py-3 text-right text-slate-900 font-semibold", children: step.value })
-            ] }, idx)) })
-          ] }) })
-        ] }),
-        breakdown?.deductions && breakdown.deductions.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "mb-6 p-4 bg-red-50 rounded border border-red-200", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-sm font-semibold text-red-900 mb-3", children: "Deductions" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "space-y-2", children: breakdown.deductions.map((ded, idx) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex justify-between text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "text-red-800", children: ded.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "text-red-900 font-semibold", children: [
-              "-",
-              ded.amount
-            ] })
-          ] }, idx)) })
-        ] }),
-        breakdown?.tax && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "mb-6 p-4 bg-orange-50 rounded border border-orange-200", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex justify-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "text-sm font-semibold text-orange-900", children: "Tax" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "text-orange-900 font-semibold", children: breakdown.tax })
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-2 border-green-300", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-sm font-semibold text-green-900 mb-2", children: "Final Price" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-5xl font-bold text-green-700", children: breakdown?.final_price || "0.00" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "text-xs text-green-800 mt-2", children: "Total amount payable" })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}/market-data`),
-            className: "btn-secondary",
-            children: "Back"
-          }
-        ),
-        quotation?.status === "reviewed" && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-          "button",
-          {
-            onClick: handleSubmitForApproval,
-            disabled: submitting,
-            className: "btn-primary",
-            children: submitting ? "Submitting..." : "Submit for Approval"
-          }
-        ),
-        quotation?.status === "pending_approval" && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}/approval`),
-            className: "btn-primary",
-            children: "Review Approval"
-          }
-        )
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react77.default.createElement("div", { className: "max-w-4xl mx-auto space-y-6" }, /* @__PURE__ */ import_react77.default.createElement(WorkflowStepper_default, { currentStatus: quotation?.status || "reviewed" }), /* @__PURE__ */ import_react77.default.createElement("div", { className: "bg-gradient-to-r from-primary-800 to-primary-900 rounded-lg shadow-lg p-8 text-white" }, /* @__PURE__ */ import_react77.default.createElement("div", { className: "grid grid-cols-4 gap-8" }, /* @__PURE__ */ import_react77.default.createElement("div", null, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Reference"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-2xl font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react77.default.createElement("div", null, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Customer"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-2xl font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react77.default.createElement("div", null, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Type"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-lg font-bold" }, quotation?.quotation_type)), /* @__PURE__ */ import_react77.default.createElement("div", null, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Status"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-lg font-bold capitalize" }, quotation?.status)))), /* @__PURE__ */ import_react77.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react77.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4 flex items-center gap-2" }, /* @__PURE__ */ import_react77.default.createElement(FileText, { className: "w-5 h-5" }), "Documents & Extracted Data"), /* @__PURE__ */ import_react77.default.createElement("div", { className: "mb-6" }, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-sm font-semibold text-slate-600 mb-3" }, "Source Documents"), /* @__PURE__ */ import_react77.default.createElement("div", { className: "space-y-2" }, documents.map((doc) => /* @__PURE__ */ import_react77.default.createElement("div", { key: doc.id, className: "flex items-center justify-between p-3 bg-slate-50 rounded" }, /* @__PURE__ */ import_react77.default.createElement("span", { className: "text-slate-900 font-medium" }, doc.file_name), /* @__PURE__ */ import_react77.default.createElement("span", { className: "text-sm text-slate-600" }, (doc.file_size / 1024).toFixed(0), " KB"))))), breakdown?.extracted_data && /* @__PURE__ */ import_react77.default.createElement("div", null, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-sm font-semibold text-slate-600 mb-3" }, "Key Values"), /* @__PURE__ */ import_react77.default.createElement("div", { className: "grid grid-cols-2 gap-4" }, Object.entries(breakdown.extracted_data).map(([key, value]) => /* @__PURE__ */ import_react77.default.createElement("div", { key, className: "p-3 bg-slate-50 rounded" }, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-xs text-slate-600 capitalize" }, key.replace(/_/g, " ")), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-lg font-bold text-slate-900" }, value)))))), /* @__PURE__ */ import_react77.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react77.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Market Benchmarks Used"), breakdown?.benchmarks && breakdown.benchmarks.length > 0 ? /* @__PURE__ */ import_react77.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react77.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react77.default.createElement("thead", { className: "border-b border-slate-200" }, /* @__PURE__ */ import_react77.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Metal"), /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Price"), /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Unit"), /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Source"), /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Timestamp"))), /* @__PURE__ */ import_react77.default.createElement("tbody", { className: "divide-y divide-slate-100" }, breakdown.benchmarks.map((bench) => /* @__PURE__ */ import_react77.default.createElement("tr", { key: bench.id }, /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 font-medium text-slate-900" }, bench.metal_name), /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 text-slate-900 font-semibold" }, bench.price), /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 text-slate-600" }, bench.unit), /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 text-slate-600" }, bench.source), /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 text-slate-600 text-xs" }, new Date(bench.timestamp).toLocaleString())))))) : /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-slate-600" }, "No benchmarks available")), /* @__PURE__ */ import_react77.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react77.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Formula & Calculation"), breakdown?.formula && /* @__PURE__ */ import_react77.default.createElement("div", { className: "mb-6 p-4 bg-slate-50 rounded border border-slate-200" }, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-sm font-semibold text-slate-600 mb-2" }, "Formula"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "font-mono text-sm text-slate-900" }, breakdown.formula.name, " (v", breakdown.formula.version, ")"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "font-mono text-xs text-slate-600 mt-2" }, breakdown.formula.expression)), breakdown?.calculation_steps && breakdown.calculation_steps.length > 0 && /* @__PURE__ */ import_react77.default.createElement("div", { className: "mb-6" }, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-sm font-semibold text-slate-600 mb-3" }, "Calculation Breakdown"), /* @__PURE__ */ import_react77.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react77.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react77.default.createElement("thead", { className: "border-b border-slate-200" }, /* @__PURE__ */ import_react77.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Step"), /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3" }, "Description"), /* @__PURE__ */ import_react77.default.createElement("th", { className: "pb-3 text-right" }, "Value"))), /* @__PURE__ */ import_react77.default.createElement("tbody", { className: "divide-y divide-slate-100" }, breakdown.calculation_steps.map((step, idx) => /* @__PURE__ */ import_react77.default.createElement("tr", { key: idx }, /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3" }, idx + 1), /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 text-slate-600" }, step.description), /* @__PURE__ */ import_react77.default.createElement("td", { className: "py-3 text-right text-slate-900 font-semibold" }, step.value))))))), breakdown?.deductions && breakdown.deductions.length > 0 && /* @__PURE__ */ import_react77.default.createElement("div", { className: "mb-6 p-4 bg-red-50 rounded border border-red-200" }, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-sm font-semibold text-red-900 mb-3" }, "Deductions"), /* @__PURE__ */ import_react77.default.createElement("div", { className: "space-y-2" }, breakdown.deductions.map((ded, idx) => /* @__PURE__ */ import_react77.default.createElement("div", { key: idx, className: "flex justify-between text-sm" }, /* @__PURE__ */ import_react77.default.createElement("span", { className: "text-red-800" }, ded.name), /* @__PURE__ */ import_react77.default.createElement("span", { className: "text-red-900 font-semibold" }, "-", ded.amount))))), breakdown?.tax && /* @__PURE__ */ import_react77.default.createElement("div", { className: "mb-6 p-4 bg-orange-50 rounded border border-orange-200" }, /* @__PURE__ */ import_react77.default.createElement("div", { className: "flex justify-between" }, /* @__PURE__ */ import_react77.default.createElement("span", { className: "text-sm font-semibold text-orange-900" }, "Tax"), /* @__PURE__ */ import_react77.default.createElement("span", { className: "text-orange-900 font-semibold" }, breakdown.tax))), /* @__PURE__ */ import_react77.default.createElement("div", { className: "p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-2 border-green-300" }, /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-sm font-semibold text-green-900 mb-2" }, "Final Price"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-5xl font-bold text-green-700" }, breakdown?.final_price || "0.00"), /* @__PURE__ */ import_react77.default.createElement("p", { className: "text-xs text-green-800 mt-2" }, "Total amount payable"))), /* @__PURE__ */ import_react77.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react77.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}/market-data`),
+        className: "btn-secondary"
+      },
+      "Back"
+    ), quotation?.status === "reviewed" && /* @__PURE__ */ import_react77.default.createElement(
+      "button",
+      {
+        onClick: handleSubmitForApproval,
+        disabled: submitting,
+        className: "btn-primary"
+      },
+      submitting ? "Submitting..." : "Submit for Approval"
+    ), quotation?.status === "pending_approval" && /* @__PURE__ */ import_react77.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}/approval`),
+        className: "btn-primary"
+      },
+      "Review Approval"
+    )));
   };
   var QuotationBreakdown_default = QuotationBreakdown;
 
   // src/pages/ApprovalScreen.jsx
   var import_react78 = __toESM(require_react());
-  var import_jsx_runtime17 = __toESM(require_jsx_runtime());
   var ApprovalScreen = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -44234,7 +43492,7 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(LoadingSpinner_default, { message: "Loading approval details..." });
+      return /* @__PURE__ */ import_react78.default.createElement(LoadingSpinner_default, { message: "Loading approval details..." });
     }
     const checklist = [
       { label: "Documents uploaded", status: !!quotation?.documents_count },
@@ -44244,155 +43502,82 @@ to {
       { label: "Formula applied", status: !!quotation?.breakdown_id }
     ];
     const allChecklistPassed = checklist.every((item) => item.status);
-    return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "max-w-4xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(WorkflowStepper_default, { currentStatus: quotation?.status || "pending_approval" }),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "bg-gradient-to-r from-primary-800 to-primary-900 rounded-lg shadow-lg p-8 text-white", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "grid grid-cols-3 gap-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-2xl font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-2xl font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-primary-100 text-sm font-medium mb-1", children: "Final Price" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-3xl font-bold", children: quotation?.final_price || "0.00" })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Approval Checklist" }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "space-y-3 mb-6", children: checklist.map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex items-center gap-3 p-3 bg-slate-50 rounded", children: [
-          item.status ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(CircleCheck, { className: "w-5 h-5 text-green-600 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(CircleAlert, { className: "w-5 h-5 text-red-600 flex-shrink-0" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { className: item.status ? "text-slate-900 font-medium" : "text-slate-600", children: item.label })
-        ] }, idx)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: `p-4 rounded-lg ${allChecklistPassed ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`, children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: allChecklistPassed ? "text-green-900 font-semibold" : "text-red-900 font-semibold", children: allChecklistPassed ? "All requirements met - ready for approval" : "Some requirements not met" }) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Activity Timeline" }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "relative", children: auditTrail.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "space-y-4", children: auditTrail.map((entry, idx) => /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex flex-col items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "w-3 h-3 bg-primary-800 rounded-full mt-2" }),
-            idx !== auditTrail.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "w-1 h-12 bg-slate-200 my-2" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "pb-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "font-semibold text-slate-900", children: entry.action }),
-            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-slate-600", children: entry.user_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-xs text-slate-500 mt-1", children: new Date(entry.created_at).toLocaleString() }),
-            entry.comment && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-slate-700 mt-2 p-2 bg-slate-50 rounded italic", children: entry.comment })
-          ] })
-        ] }, idx)) }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-slate-600", children: "No activity yet" }) })
-      ] }),
-      quotation?.status === "pending_approval" && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}`),
-            className: "btn-secondary",
-            children: "Back to Details"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-          "button",
-          {
-            onClick: () => setShowRejectModal(true),
-            className: "btn-danger",
-            children: "Reject"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-          "button",
-          {
-            onClick: () => setShowApproveModal(true),
-            disabled: !allChecklistPassed,
-            className: "btn-success disabled:opacity-50 disabled:cursor-not-allowed",
-            children: "Approve"
-          }
-        )
-      ] }),
-      showApproveModal && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-6 max-w-md", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Confirm Approval" }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "mb-4 p-4 bg-green-50 border border-green-200 rounded", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("p", { className: "text-sm text-green-900", children: [
-          "Are you sure you want to approve this quotation for customer ",
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("strong", { children: quotation?.customer_name }),
-          "?"
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("label", { className: "form-label", children: "Optional Comment" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "textarea",
-            {
-              value: approvalComment,
-              onChange: (e3) => setApprovalComment(e3.target.value),
-              className: "form-input",
-              rows: "3",
-              placeholder: "Add any comments..."
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "button",
-            {
-              onClick: () => setShowApproveModal(false),
-              className: "btn-secondary flex-1",
-              children: "Cancel"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "button",
-            {
-              onClick: handleApprove,
-              disabled: approving,
-              className: "btn-success flex-1",
-              children: approving ? "Approving..." : "Approve"
-            }
-          )
-        ] })
-      ] }) }),
-      showRejectModal && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-6 max-w-md", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Reject Quotation" }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "mb-4 p-4 bg-red-50 border border-red-200 rounded", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-red-900", children: "Please provide a reason for rejecting this quotation." }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("label", { className: "form-label", children: "Rejection Reason" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "textarea",
-            {
-              value: rejectionReason,
-              onChange: (e3) => setRejectionReason(e3.target.value),
-              className: "form-input",
-              rows: "4",
-              placeholder: "Explain why this quotation is being rejected..."
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "button",
-            {
-              onClick: () => setShowRejectModal(false),
-              className: "btn-secondary flex-1",
-              children: "Cancel"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
-            "button",
-            {
-              onClick: handleReject,
-              disabled: rejecting,
-              className: "btn-danger flex-1",
-              children: rejecting ? "Rejecting..." : "Reject"
-            }
-          )
-        ] })
-      ] }) })
-    ] });
+    return /* @__PURE__ */ import_react78.default.createElement("div", { className: "max-w-4xl mx-auto space-y-6" }, /* @__PURE__ */ import_react78.default.createElement(WorkflowStepper_default, { currentStatus: quotation?.status || "pending_approval" }), /* @__PURE__ */ import_react78.default.createElement("div", { className: "bg-gradient-to-r from-primary-800 to-primary-900 rounded-lg shadow-lg p-8 text-white" }, /* @__PURE__ */ import_react78.default.createElement("div", { className: "grid grid-cols-3 gap-8" }, /* @__PURE__ */ import_react78.default.createElement("div", null, /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Reference"), /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-2xl font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react78.default.createElement("div", null, /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Customer"), /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-2xl font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react78.default.createElement("div", null, /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-primary-100 text-sm font-medium mb-1" }, "Final Price"), /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-3xl font-bold" }, quotation?.final_price || "0.00")))), /* @__PURE__ */ import_react78.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react78.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Approval Checklist"), /* @__PURE__ */ import_react78.default.createElement("div", { className: "space-y-3 mb-6" }, checklist.map((item, idx) => /* @__PURE__ */ import_react78.default.createElement("div", { key: idx, className: "flex items-center gap-3 p-3 bg-slate-50 rounded" }, item.status ? /* @__PURE__ */ import_react78.default.createElement(CircleCheck, { className: "w-5 h-5 text-green-600 flex-shrink-0" }) : /* @__PURE__ */ import_react78.default.createElement(CircleAlert, { className: "w-5 h-5 text-red-600 flex-shrink-0" }), /* @__PURE__ */ import_react78.default.createElement("span", { className: item.status ? "text-slate-900 font-medium" : "text-slate-600" }, item.label)))), /* @__PURE__ */ import_react78.default.createElement("div", { className: `p-4 rounded-lg ${allChecklistPassed ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}` }, /* @__PURE__ */ import_react78.default.createElement("p", { className: allChecklistPassed ? "text-green-900 font-semibold" : "text-red-900 font-semibold" }, allChecklistPassed ? "All requirements met - ready for approval" : "Some requirements not met"))), /* @__PURE__ */ import_react78.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react78.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Activity Timeline"), /* @__PURE__ */ import_react78.default.createElement("div", { className: "relative" }, auditTrail.length > 0 ? /* @__PURE__ */ import_react78.default.createElement("div", { className: "space-y-4" }, auditTrail.map((entry, idx) => /* @__PURE__ */ import_react78.default.createElement("div", { key: idx, className: "flex gap-4" }, /* @__PURE__ */ import_react78.default.createElement("div", { className: "flex flex-col items-center" }, /* @__PURE__ */ import_react78.default.createElement("div", { className: "w-3 h-3 bg-primary-800 rounded-full mt-2" }), idx !== auditTrail.length - 1 && /* @__PURE__ */ import_react78.default.createElement("div", { className: "w-1 h-12 bg-slate-200 my-2" })), /* @__PURE__ */ import_react78.default.createElement("div", { className: "pb-4" }, /* @__PURE__ */ import_react78.default.createElement("p", { className: "font-semibold text-slate-900" }, entry.action), /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-sm text-slate-600" }, entry.user_name), /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-xs text-slate-500 mt-1" }, new Date(entry.created_at).toLocaleString()), entry.comment && /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-sm text-slate-700 mt-2 p-2 bg-slate-50 rounded italic" }, entry.comment))))) : /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-slate-600" }, "No activity yet"))), quotation?.status === "pending_approval" && /* @__PURE__ */ import_react78.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}`),
+        className: "btn-secondary"
+      },
+      "Back to Details"
+    ), /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: () => setShowRejectModal(true),
+        className: "btn-danger"
+      },
+      "Reject"
+    ), /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: () => setShowApproveModal(true),
+        disabled: !allChecklistPassed,
+        className: "btn-success disabled:opacity-50 disabled:cursor-not-allowed"
+      },
+      "Approve"
+    )), showApproveModal && /* @__PURE__ */ import_react78.default.createElement("div", { className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" }, /* @__PURE__ */ import_react78.default.createElement("div", { className: "bg-white rounded-lg shadow-xl p-6 max-w-md" }, /* @__PURE__ */ import_react78.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Confirm Approval"), /* @__PURE__ */ import_react78.default.createElement("div", { className: "mb-4 p-4 bg-green-50 border border-green-200 rounded" }, /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-sm text-green-900" }, "Are you sure you want to approve this quotation for customer ", /* @__PURE__ */ import_react78.default.createElement("strong", null, quotation?.customer_name), "?")), /* @__PURE__ */ import_react78.default.createElement("div", { className: "mb-4" }, /* @__PURE__ */ import_react78.default.createElement("label", { className: "form-label" }, "Optional Comment"), /* @__PURE__ */ import_react78.default.createElement(
+      "textarea",
+      {
+        value: approvalComment,
+        onChange: (e3) => setApprovalComment(e3.target.value),
+        className: "form-input",
+        rows: "3",
+        placeholder: "Add any comments..."
+      }
+    )), /* @__PURE__ */ import_react78.default.createElement("div", { className: "flex gap-4" }, /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: () => setShowApproveModal(false),
+        className: "btn-secondary flex-1"
+      },
+      "Cancel"
+    ), /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: handleApprove,
+        disabled: approving,
+        className: "btn-success flex-1"
+      },
+      approving ? "Approving..." : "Approve"
+    )))), showRejectModal && /* @__PURE__ */ import_react78.default.createElement("div", { className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" }, /* @__PURE__ */ import_react78.default.createElement("div", { className: "bg-white rounded-lg shadow-xl p-6 max-w-md" }, /* @__PURE__ */ import_react78.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Reject Quotation"), /* @__PURE__ */ import_react78.default.createElement("div", { className: "mb-4 p-4 bg-red-50 border border-red-200 rounded" }, /* @__PURE__ */ import_react78.default.createElement("p", { className: "text-sm text-red-900" }, "Please provide a reason for rejecting this quotation.")), /* @__PURE__ */ import_react78.default.createElement("div", { className: "mb-4" }, /* @__PURE__ */ import_react78.default.createElement("label", { className: "form-label" }, "Rejection Reason"), /* @__PURE__ */ import_react78.default.createElement(
+      "textarea",
+      {
+        value: rejectionReason,
+        onChange: (e3) => setRejectionReason(e3.target.value),
+        className: "form-input",
+        rows: "4",
+        placeholder: "Explain why this quotation is being rejected..."
+      }
+    )), /* @__PURE__ */ import_react78.default.createElement("div", { className: "flex gap-4" }, /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: () => setShowRejectModal(false),
+        className: "btn-secondary flex-1"
+      },
+      "Cancel"
+    ), /* @__PURE__ */ import_react78.default.createElement(
+      "button",
+      {
+        onClick: handleReject,
+        disabled: rejecting,
+        className: "btn-danger flex-1"
+      },
+      rejecting ? "Rejecting..." : "Reject"
+    )))));
   };
   var ApprovalScreen_default = ApprovalScreen;
 
   // src/pages/OutputPreview.jsx
   var import_react79 = __toESM(require_react());
-  var import_jsx_runtime18 = __toESM(require_jsx_runtime());
   var OutputPreview = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -44447,162 +43632,61 @@ to {
       zt.info(`Download as ${format2.toUpperCase()} not yet implemented`);
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(LoadingSpinner_default, { message: "Loading output preview..." });
+      return /* @__PURE__ */ import_react79.default.createElement(LoadingSpinner_default, { message: "Loading output preview..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "max-w-5xl mx-auto space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "grid grid-cols-4 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Reference" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.reference })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Customer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900 font-bold", children: quotation?.customer_name })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Status" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900 font-bold capitalize", children: quotation?.status })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-600 text-sm font-medium", children: "Final Price" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900 font-bold text-lg", children: quotation?.final_price || "0.00" })
-        ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-white rounded-lg shadow p-12 border-2 border-slate-200 min-h-[600px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "text-center mb-12 pb-8 border-b border-slate-300", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "text-sm font-bold text-slate-600 uppercase tracking-wide mb-2", children: "JARING METAL SDN BHD" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h1", { className: "text-3xl font-bold text-slate-900", children: "QUOTATION" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-600 mt-2", children: "AI Quotation Intelligence Platform" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "grid grid-cols-2 gap-8 mb-8", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-slate-600 mb-1", children: "Quotation Reference" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-lg font-bold text-slate-900", children: quotation?.reference }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1", children: "Quote Date" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900", children: quotation?.quote_date ? new Date(quotation.quote_date).toLocaleDateString() : "\u2014" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1", children: "Validity Period" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "text-slate-900", children: [
-              quotation?.validity_period,
-              " days"
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-slate-600 mb-1", children: "Customer" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-lg font-bold text-slate-900", children: quotation?.customer_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1", children: "Quotation Type" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900", children: quotation?.quotation_type }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1", children: "Pricing Mode" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-slate-900 capitalize", children: quotation?.pricing_mode })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-primary-50 border-2 border-primary-800 rounded-lg p-6 mt-12", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-xs uppercase font-bold text-primary-800 mb-2", children: "Total Amount" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-4xl font-bold text-primary-800", children: quotation?.final_price || "0.00" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mt-12 pt-8 border-t border-slate-300 text-center text-xs text-slate-600", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { children: [
-            "This quotation is valid until ",
-            quotation?.validity_period,
-            " days from the quote date."
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { children: "Generated by Jaring Metal AI Quotation Intelligence Platform" })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Download & Share" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex flex-wrap gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
-            "button",
-            {
-              onClick: () => handleDownload("pdf"),
-              className: "flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 rounded hover:bg-red-200 font-medium",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Download, { className: "w-4 h-4" }),
-                "Download PDF"
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
-            "button",
-            {
-              onClick: () => handleDownload("excel"),
-              className: "flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded hover:bg-green-200 font-medium",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Download, { className: "w-4 h-4" }),
-                "Download Excel"
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
-            "button",
-            {
-              onClick: () => zt.info("Email share not yet implemented"),
-              className: "flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 font-medium",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Share2, { className: "w-4 h-4" }),
-                "Share via Email"
-              ]
-            }
-          )
-        ] })
-      ] }),
-      outputs.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "Version History" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "space-y-3", children: outputs.map((output, idx) => /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex items-center justify-between p-4 bg-slate-50 rounded border border-slate-200", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex items-center gap-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Clock, { className: "w-4 h-4 text-slate-400" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "font-medium text-slate-900", children: [
-                "Version ",
-                outputs.length - idx
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-sm text-slate-600", children: new Date(output.created_at).toLocaleString() })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { className: "text-primary-800 hover:text-primary-900 font-medium text-sm", children: "View" }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { onClick: () => handleDownload("pdf"), className: "text-slate-600 hover:text-slate-900 font-medium text-sm", children: "Download" })
-          ] })
-        ] }, idx)) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-          "button",
-          {
-            onClick: () => navigate(`/quotations/${id}`),
-            className: "btn-secondary",
-            children: "Back"
-          }
-        ),
-        quotation?.status === "approved" && /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-            "button",
-            {
-              onClick: handleGenerate,
-              disabled: generating,
-              className: "btn-primary",
-              children: generating ? "Generating..." : "Generate Output"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-            "button",
-            {
-              onClick: handleRelease,
-              disabled: releasing,
-              className: "btn-success",
-              children: releasing ? "Releasing..." : "Release to Customer"
-            }
-          )
-        ] }),
-        quotation?.status === "released" && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "flex-1 p-4 bg-green-50 rounded border border-green-200", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-green-900 font-semibold", children: "This quotation has been released to the customer" }) })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react79.default.createElement("div", { className: "max-w-5xl mx-auto space-y-6" }, /* @__PURE__ */ import_react79.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react79.default.createElement("div", { className: "grid grid-cols-4 gap-4" }, /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Reference"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.reference)), /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Customer"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900 font-bold" }, quotation?.customer_name)), /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Status"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900 font-bold capitalize" }, quotation?.status)), /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-600 text-sm font-medium" }, "Final Price"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900 font-bold text-lg" }, quotation?.final_price || "0.00")))), /* @__PURE__ */ import_react79.default.createElement("div", { className: "bg-white rounded-lg shadow p-12 border-2 border-slate-200 min-h-[600px]" }, /* @__PURE__ */ import_react79.default.createElement("div", { className: "text-center mb-12 pb-8 border-b border-slate-300" }, /* @__PURE__ */ import_react79.default.createElement("div", { className: "text-sm font-bold text-slate-600 uppercase tracking-wide mb-2" }, "JARING METAL SDN BHD"), /* @__PURE__ */ import_react79.default.createElement("h1", { className: "text-3xl font-bold text-slate-900" }, "QUOTATION"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-600 mt-2" }, "AI Quotation Intelligence Platform")), /* @__PURE__ */ import_react79.default.createElement("div", { className: "grid grid-cols-2 gap-8 mb-8" }, /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-slate-600 mb-1" }, "Quotation Reference"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-lg font-bold text-slate-900" }, quotation?.reference), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1" }, "Quote Date"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900" }, quotation?.quote_date ? new Date(quotation.quote_date).toLocaleDateString() : "\u2014"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1" }, "Validity Period"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900" }, quotation?.validity_period, " days")), /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-slate-600 mb-1" }, "Customer"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-lg font-bold text-slate-900" }, quotation?.customer_name), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1" }, "Quotation Type"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900" }, quotation?.quotation_type), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-slate-600 mt-6 mb-1" }, "Pricing Mode"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-slate-900 capitalize" }, quotation?.pricing_mode))), /* @__PURE__ */ import_react79.default.createElement("div", { className: "bg-primary-50 border-2 border-primary-800 rounded-lg p-6 mt-12" }, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-xs uppercase font-bold text-primary-800 mb-2" }, "Total Amount"), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-4xl font-bold text-primary-800" }, quotation?.final_price || "0.00")), /* @__PURE__ */ import_react79.default.createElement("div", { className: "mt-12 pt-8 border-t border-slate-300 text-center text-xs text-slate-600" }, /* @__PURE__ */ import_react79.default.createElement("p", null, "This quotation is valid until ", quotation?.validity_period, " days from the quote date."), /* @__PURE__ */ import_react79.default.createElement("p", null, "Generated by Jaring Metal AI Quotation Intelligence Platform"))), /* @__PURE__ */ import_react79.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react79.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Download & Share"), /* @__PURE__ */ import_react79.default.createElement("div", { className: "flex flex-wrap gap-4" }, /* @__PURE__ */ import_react79.default.createElement(
+      "button",
+      {
+        onClick: () => handleDownload("pdf"),
+        className: "flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 rounded hover:bg-red-200 font-medium"
+      },
+      /* @__PURE__ */ import_react79.default.createElement(Download, { className: "w-4 h-4" }),
+      "Download PDF"
+    ), /* @__PURE__ */ import_react79.default.createElement(
+      "button",
+      {
+        onClick: () => handleDownload("excel"),
+        className: "flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded hover:bg-green-200 font-medium"
+      },
+      /* @__PURE__ */ import_react79.default.createElement(Download, { className: "w-4 h-4" }),
+      "Download Excel"
+    ), /* @__PURE__ */ import_react79.default.createElement(
+      "button",
+      {
+        onClick: () => zt.info("Email share not yet implemented"),
+        className: "flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 font-medium"
+      },
+      /* @__PURE__ */ import_react79.default.createElement(Share2, { className: "w-4 h-4" }),
+      "Share via Email"
+    ))), outputs.length > 0 && /* @__PURE__ */ import_react79.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react79.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "Version History"), /* @__PURE__ */ import_react79.default.createElement("div", { className: "space-y-3" }, outputs.map((output, idx) => /* @__PURE__ */ import_react79.default.createElement("div", { key: idx, className: "flex items-center justify-between p-4 bg-slate-50 rounded border border-slate-200" }, /* @__PURE__ */ import_react79.default.createElement("div", { className: "flex items-center gap-3" }, /* @__PURE__ */ import_react79.default.createElement(Clock, { className: "w-4 h-4 text-slate-400" }), /* @__PURE__ */ import_react79.default.createElement("div", null, /* @__PURE__ */ import_react79.default.createElement("p", { className: "font-medium text-slate-900" }, "Version ", outputs.length - idx), /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-sm text-slate-600" }, new Date(output.created_at).toLocaleString()))), /* @__PURE__ */ import_react79.default.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ import_react79.default.createElement("button", { className: "text-primary-800 hover:text-primary-900 font-medium text-sm" }, "View"), /* @__PURE__ */ import_react79.default.createElement("button", { onClick: () => handleDownload("pdf"), className: "text-slate-600 hover:text-slate-900 font-medium text-sm" }, "Download")))))), /* @__PURE__ */ import_react79.default.createElement("div", { className: "bg-white rounded-lg shadow p-6 flex gap-4" }, /* @__PURE__ */ import_react79.default.createElement(
+      "button",
+      {
+        onClick: () => navigate(`/quotations/${id}`),
+        className: "btn-secondary"
+      },
+      "Back"
+    ), quotation?.status === "approved" && /* @__PURE__ */ import_react79.default.createElement(import_react79.default.Fragment, null, /* @__PURE__ */ import_react79.default.createElement(
+      "button",
+      {
+        onClick: handleGenerate,
+        disabled: generating,
+        className: "btn-primary"
+      },
+      generating ? "Generating..." : "Generate Output"
+    ), /* @__PURE__ */ import_react79.default.createElement(
+      "button",
+      {
+        onClick: handleRelease,
+        disabled: releasing,
+        className: "btn-success"
+      },
+      releasing ? "Releasing..." : "Release to Customer"
+    )), quotation?.status === "released" && /* @__PURE__ */ import_react79.default.createElement("div", { className: "flex-1 p-4 bg-green-50 rounded border border-green-200" }, /* @__PURE__ */ import_react79.default.createElement("p", { className: "text-green-900 font-semibold" }, "This quotation has been released to the customer"))));
   };
   var OutputPreview_default = OutputPreview;
 
   // src/pages/AuditHistory.jsx
   var import_react80 = __toESM(require_react());
-  var import_jsx_runtime19 = __toESM(require_jsx_runtime());
   var AuditHistory = () => {
     const [auditTrail, setAuditTrail] = (0, import_react80.useState)([]);
     const [loading, setLoading] = (0, import_react80.useState)(true);
@@ -44657,193 +43741,111 @@ to {
       zt.info("CSV export not yet implemented");
     };
     if (loading && auditTrail.length === 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(LoadingSpinner_default, { message: "Loading audit history..." });
+      return /* @__PURE__ */ import_react80.default.createElement(LoadingSpinner_default, { message: "Loading audit history..." });
     }
     const totalPages = Math.ceil(pagination.total / pagination.limit);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("h2", { className: "text-xl font-bold text-slate-900", children: "Audit Log" }),
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
-          "button",
-          {
-            onClick: handleExportCSV,
-            className: "flex items-center gap-2 px-4 py-2 bg-slate-200 text-slate-900 rounded hover:bg-slate-300 font-medium",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Download, { className: "w-4 h-4" }),
-              "Export CSV"
-            ]
-          }
-        )
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "flex items-center justify-between mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("h3", { className: "font-semibold text-slate-900 flex items-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Funnel, { className: "w-4 h-4" }),
-            "Filters"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-            "button",
-            {
-              onClick: handleResetFilters,
-              className: "text-primary-800 hover:text-primary-900 text-sm font-medium",
-              children: "Reset"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "grid grid-cols-5 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("label", { className: "form-label", children: "Start Date" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-              "input",
-              {
-                type: "date",
-                value: filters.startDate,
-                onChange: (e3) => handleFilterChange("startDate", e3.target.value),
-                className: "form-input"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("label", { className: "form-label", children: "End Date" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-              "input",
-              {
-                type: "date",
-                value: filters.endDate,
-                onChange: (e3) => handleFilterChange("endDate", e3.target.value),
-                className: "form-input"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("label", { className: "form-label", children: "Entity Type" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
-              "select",
-              {
-                value: filters.entityType,
-                onChange: (e3) => handleFilterChange("entityType", e3.target.value),
-                className: "form-input",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "", children: "All Types" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "quotation", children: "Quotation" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "document", children: "Document" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "category", children: "Category" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "benchmark", children: "Benchmark" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "user", children: "User" })
-                ]
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("label", { className: "form-label", children: "User" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-              "input",
-              {
-                type: "text",
-                value: filters.user,
-                onChange: (e3) => handleFilterChange("user", e3.target.value),
-                className: "form-input",
-                placeholder: "User name..."
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("label", { className: "form-label", children: "Action" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
-              "select",
-              {
-                value: filters.action,
-                onChange: (e3) => handleFilterChange("action", e3.target.value),
-                className: "form-input",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "", children: "All Actions" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "create", children: "Create" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "update", children: "Update" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "delete", children: "Delete" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "approve", children: "Approve" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "reject", children: "Reject" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("option", { value: "release", children: "Release" })
-                ]
-              }
-            )
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "bg-white rounded-lg shadow overflow-hidden", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("table", { className: "w-full text-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("thead", { className: "bg-slate-50 border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "Timestamp" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "User" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "Entity Type" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "Action" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "Entity ID" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "Description" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("th", { className: "px-6 py-4", children: "Details" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("tbody", { className: "divide-y divide-slate-200", children: auditTrail.map((entry, idx) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("tr", { className: "hover:bg-slate-50", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4 text-slate-600 whitespace-nowrap", children: new Date(entry.created_at).toLocaleString() }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4 font-medium text-slate-900", children: entry.user_name }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4 text-slate-600 capitalize", children: entry.entity_type }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", { className: `px-3 py-1 rounded-full text-xs font-medium ${entry.action === "create" ? "bg-blue-100 text-blue-800" : entry.action === "update" ? "bg-indigo-100 text-indigo-800" : entry.action === "delete" ? "bg-red-100 text-red-800" : entry.action === "approve" ? "bg-green-100 text-green-800" : entry.action === "reject" ? "bg-red-100 text-red-800" : "bg-slate-100 text-slate-800"}`, children: entry.action }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4 text-slate-600 font-mono text-xs", children: entry.entity_id }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4 text-slate-700", children: entry.description }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("td", { className: "px-6 py-4 text-slate-600", children: entry.old_value && entry.new_value && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("button", { className: "text-primary-800 hover:text-primary-900 font-medium text-xs", children: "View Changes" }) })
-          ] }, idx)) })
-        ] }) }),
-        auditTrail.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "text-center py-12", children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("p", { className: "text-slate-600 font-medium", children: "No audit records found" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "px-6 py-4 border-t border-slate-200 flex items-center justify-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("p", { className: "text-sm text-slate-600", children: [
-            "Showing ",
-            auditTrail.length > 0 ? (pagination.page - 1) * pagination.limit + 1 : 0,
-            " to ",
-            Math.min(pagination.page * pagination.limit, pagination.total),
-            " of ",
-            pagination.total,
-            " results"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "flex gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-              "button",
-              {
-                onClick: () => setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) })),
-                disabled: pagination.page === 1,
-                className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed",
-                children: "Previous"
-              }
-            ),
-            Array.from({ length: Math.min(5, totalPages) }, (_2, i2) => {
-              const page = pagination.page - 2 + i2;
-              if (page < 1 || page > totalPages)
-                return null;
-              return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-                "button",
-                {
-                  onClick: () => setPagination((prev) => ({ ...prev, page })),
-                  className: `px-3 py-2 rounded-lg font-medium ${pagination.page === page ? "bg-primary-800 text-white" : "bg-slate-200 text-slate-900 hover:bg-slate-300"}`,
-                  children: page
-                },
-                page
-              );
-            }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-              "button",
-              {
-                onClick: () => setPagination((prev) => ({ ...prev, page: Math.min(totalPages, prev.page + 1) })),
-                disabled: pagination.page === totalPages,
-                className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed",
-                children: "Next"
-              }
-            )
-          ] })
-        ] })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react80.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react80.default.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ import_react80.default.createElement("h2", { className: "text-xl font-bold text-slate-900" }, "Audit Log"), /* @__PURE__ */ import_react80.default.createElement(
+      "button",
+      {
+        onClick: handleExportCSV,
+        className: "flex items-center gap-2 px-4 py-2 bg-slate-200 text-slate-900 rounded hover:bg-slate-300 font-medium"
+      },
+      /* @__PURE__ */ import_react80.default.createElement(Download, { className: "w-4 h-4" }),
+      "Export CSV"
+    )), /* @__PURE__ */ import_react80.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react80.default.createElement("div", { className: "flex items-center justify-between mb-4" }, /* @__PURE__ */ import_react80.default.createElement("h3", { className: "font-semibold text-slate-900 flex items-center gap-2" }, /* @__PURE__ */ import_react80.default.createElement(Funnel, { className: "w-4 h-4" }), "Filters"), /* @__PURE__ */ import_react80.default.createElement(
+      "button",
+      {
+        onClick: handleResetFilters,
+        className: "text-primary-800 hover:text-primary-900 text-sm font-medium"
+      },
+      "Reset"
+    )), /* @__PURE__ */ import_react80.default.createElement("div", { className: "grid grid-cols-5 gap-4" }, /* @__PURE__ */ import_react80.default.createElement("div", null, /* @__PURE__ */ import_react80.default.createElement("label", { className: "form-label" }, "Start Date"), /* @__PURE__ */ import_react80.default.createElement(
+      "input",
+      {
+        type: "date",
+        value: filters.startDate,
+        onChange: (e3) => handleFilterChange("startDate", e3.target.value),
+        className: "form-input"
+      }
+    )), /* @__PURE__ */ import_react80.default.createElement("div", null, /* @__PURE__ */ import_react80.default.createElement("label", { className: "form-label" }, "End Date"), /* @__PURE__ */ import_react80.default.createElement(
+      "input",
+      {
+        type: "date",
+        value: filters.endDate,
+        onChange: (e3) => handleFilterChange("endDate", e3.target.value),
+        className: "form-input"
+      }
+    )), /* @__PURE__ */ import_react80.default.createElement("div", null, /* @__PURE__ */ import_react80.default.createElement("label", { className: "form-label" }, "Entity Type"), /* @__PURE__ */ import_react80.default.createElement(
+      "select",
+      {
+        value: filters.entityType,
+        onChange: (e3) => handleFilterChange("entityType", e3.target.value),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "" }, "All Types"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "quotation" }, "Quotation"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "document" }, "Document"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "category" }, "Category"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "benchmark" }, "Benchmark"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "user" }, "User")
+    )), /* @__PURE__ */ import_react80.default.createElement("div", null, /* @__PURE__ */ import_react80.default.createElement("label", { className: "form-label" }, "User"), /* @__PURE__ */ import_react80.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: filters.user,
+        onChange: (e3) => handleFilterChange("user", e3.target.value),
+        className: "form-input",
+        placeholder: "User name..."
+      }
+    )), /* @__PURE__ */ import_react80.default.createElement("div", null, /* @__PURE__ */ import_react80.default.createElement("label", { className: "form-label" }, "Action"), /* @__PURE__ */ import_react80.default.createElement(
+      "select",
+      {
+        value: filters.action,
+        onChange: (e3) => handleFilterChange("action", e3.target.value),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "" }, "All Actions"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "create" }, "Create"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "update" }, "Update"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "delete" }, "Delete"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "approve" }, "Approve"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "reject" }, "Reject"),
+      /* @__PURE__ */ import_react80.default.createElement("option", { value: "release" }, "Release")
+    )))), /* @__PURE__ */ import_react80.default.createElement("div", { className: "bg-white rounded-lg shadow overflow-hidden" }, /* @__PURE__ */ import_react80.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react80.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react80.default.createElement("thead", { className: "bg-slate-50 border-b border-slate-200" }, /* @__PURE__ */ import_react80.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "Timestamp"), /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "User"), /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "Entity Type"), /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "Action"), /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "Entity ID"), /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "Description"), /* @__PURE__ */ import_react80.default.createElement("th", { className: "px-6 py-4" }, "Details"))), /* @__PURE__ */ import_react80.default.createElement("tbody", { className: "divide-y divide-slate-200" }, auditTrail.map((entry, idx) => /* @__PURE__ */ import_react80.default.createElement("tr", { key: idx, className: "hover:bg-slate-50" }, /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4 text-slate-600 whitespace-nowrap" }, new Date(entry.created_at).toLocaleString()), /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4 font-medium text-slate-900" }, entry.user_name), /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4 text-slate-600 capitalize" }, entry.entity_type), /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react80.default.createElement("span", { className: `px-3 py-1 rounded-full text-xs font-medium ${entry.action === "create" ? "bg-blue-100 text-blue-800" : entry.action === "update" ? "bg-indigo-100 text-indigo-800" : entry.action === "delete" ? "bg-red-100 text-red-800" : entry.action === "approve" ? "bg-green-100 text-green-800" : entry.action === "reject" ? "bg-red-100 text-red-800" : "bg-slate-100 text-slate-800"}` }, entry.action)), /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4 text-slate-600 font-mono text-xs" }, entry.entity_id), /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4 text-slate-700" }, entry.description), /* @__PURE__ */ import_react80.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, entry.old_value && entry.new_value && /* @__PURE__ */ import_react80.default.createElement("button", { className: "text-primary-800 hover:text-primary-900 font-medium text-xs" }, "View Changes"))))))), auditTrail.length === 0 && /* @__PURE__ */ import_react80.default.createElement("div", { className: "text-center py-12" }, /* @__PURE__ */ import_react80.default.createElement("p", { className: "text-slate-600 font-medium" }, "No audit records found")), /* @__PURE__ */ import_react80.default.createElement("div", { className: "px-6 py-4 border-t border-slate-200 flex items-center justify-between" }, /* @__PURE__ */ import_react80.default.createElement("p", { className: "text-sm text-slate-600" }, "Showing ", auditTrail.length > 0 ? (pagination.page - 1) * pagination.limit + 1 : 0, " to ", Math.min(pagination.page * pagination.limit, pagination.total), " of ", pagination.total, " results"), /* @__PURE__ */ import_react80.default.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ import_react80.default.createElement(
+      "button",
+      {
+        onClick: () => setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) })),
+        disabled: pagination.page === 1,
+        className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+      },
+      "Previous"
+    ), Array.from({ length: Math.min(5, totalPages) }, (_2, i2) => {
+      const page = pagination.page - 2 + i2;
+      if (page < 1 || page > totalPages)
+        return null;
+      return /* @__PURE__ */ import_react80.default.createElement(
+        "button",
+        {
+          key: page,
+          onClick: () => setPagination((prev) => ({ ...prev, page })),
+          className: `px-3 py-2 rounded-lg font-medium ${pagination.page === page ? "bg-primary-800 text-white" : "bg-slate-200 text-slate-900 hover:bg-slate-300"}`
+        },
+        page
+      );
+    }), /* @__PURE__ */ import_react80.default.createElement(
+      "button",
+      {
+        onClick: () => setPagination((prev) => ({ ...prev, page: Math.min(totalPages, prev.page + 1) })),
+        disabled: pagination.page === totalPages,
+        className: "btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+      },
+      "Next"
+    )))));
   };
   var AuditHistory_default = AuditHistory;
 
   // src/pages/admin/CategoryMaster.jsx
   var import_react81 = __toESM(require_react());
-  var import_jsx_runtime20 = __toESM(require_jsx_runtime());
   var CategoryMaster = () => {
     const [categories, setCategories] = (0, import_react81.useState)([]);
     const [loading, setLoading] = (0, import_react81.useState)(true);
@@ -44904,168 +43906,94 @@ to {
       setShowForm(true);
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LoadingSpinner_default, { message: "Loading categories..." });
+      return /* @__PURE__ */ import_react81.default.createElement(LoadingSpinner_default, { message: "Loading categories..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h2", { className: "text-xl font-bold text-slate-900", children: "Category Master" }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
-          "button",
-          {
-            onClick: () => {
-              setEditingId(null);
-              setFormData({
-                code: "",
-                name: "",
-                description: "",
-                quotation_types: [],
-                effective_from: "",
-                effective_to: ""
-              });
-              setShowForm(true);
-            },
-            className: "btn-primary flex items-center gap-2",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Plus, { className: "w-4 h-4" }),
-              "Add Category"
-            ]
-          }
-        )
-      ] }),
-      showForm && /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: editingId ? "Edit Category" : "New Category" }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("label", { className: "form-label", children: "Code" }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-                "input",
-                {
-                  type: "text",
-                  value: formData.code,
-                  onChange: (e3) => setFormData({ ...formData, code: e3.target.value }),
-                  className: "form-input",
-                  placeholder: "e.g., CU/AG",
-                  required: true
-                }
-              )
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("label", { className: "form-label", children: "Name" }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-                "input",
-                {
-                  type: "text",
-                  value: formData.name,
-                  onChange: (e3) => setFormData({ ...formData, name: e3.target.value }),
-                  className: "form-input",
-                  placeholder: "Category name",
-                  required: true
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("label", { className: "form-label", children: "Description" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-              "textarea",
-              {
-                value: formData.description,
-                onChange: (e3) => setFormData({ ...formData, description: e3.target.value }),
-                className: "form-input",
-                rows: "3",
-                placeholder: "Category description"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "grid grid-cols-3 gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("label", { className: "form-label", children: "Effective From" }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-                "input",
-                {
-                  type: "date",
-                  value: formData.effective_from,
-                  onChange: (e3) => setFormData({ ...formData, effective_from: e3.target.value }),
-                  className: "form-input"
-                }
-              )
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("label", { className: "form-label", children: "Effective To" }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-                "input",
-                {
-                  type: "date",
-                  value: formData.effective_to,
-                  onChange: (e3) => setFormData({ ...formData, effective_to: e3.target.value }),
-                  className: "form-input"
-                }
-              )
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("label", { className: "form-label", children: "Quotation Types" }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-                "input",
-                {
-                  type: "text",
-                  value: (formData.quotation_types || []).join(", "),
-                  onChange: (e3) => setFormData({ ...formData, quotation_types: e3.target.value.split(",").map((s3) => s3.trim()) }),
-                  className: "form-input",
-                  placeholder: "Comma separated"
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex gap-4 pt-4 border-t border-slate-200", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("button", { type: "button", onClick: () => setShowForm(false), className: "btn-secondary", children: "Cancel" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("button", { type: "submit", className: "btn-primary", children: "Save Category" })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "bg-white rounded-lg shadow overflow-hidden", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("table", { className: "w-full text-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("thead", { className: "bg-slate-50 border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Code" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Name" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Description" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Types" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Effective Period" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("th", { className: "px-6 py-4", children: "Actions" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("tbody", { className: "divide-y divide-slate-200", children: categories.map((cat) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("tr", { className: "hover:bg-slate-50", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("td", { className: "px-6 py-4 font-bold text-slate-900", children: cat.code }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("td", { className: "px-6 py-4 font-medium text-slate-900", children: cat.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("td", { className: "px-6 py-4 text-slate-600", children: cat.description }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("td", { className: "px-6 py-4 text-slate-600", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "flex gap-1 flex-wrap", children: (cat.quotation_types || []).map((type) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded", children: type }, type)) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("td", { className: "px-6 py-4 text-slate-600 text-xs", children: [
-              cat.effective_from && new Date(cat.effective_from).toLocaleDateString(),
-              cat.effective_to && ` - ${new Date(cat.effective_to).toLocaleDateString()}`
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "px-2 py-1 bg-green-100 text-green-800 text-xs rounded font-medium", children: "Active" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex gap-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
-                "button",
-                {
-                  onClick: () => handleEdit(cat),
-                  className: "text-primary-800 hover:text-primary-900",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Pen, { className: "w-4 h-4" })
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("button", { className: "text-slate-600 hover:text-slate-900", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Archive, { className: "w-4 h-4" }) })
-            ] }) })
-          ] }, cat.id)) })
-        ] }) }),
-        categories.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "text-center py-12", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "text-slate-600 font-medium", children: "No categories found" }) })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react81.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react81.default.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ import_react81.default.createElement("h2", { className: "text-xl font-bold text-slate-900" }, "Category Master"), /* @__PURE__ */ import_react81.default.createElement(
+      "button",
+      {
+        onClick: () => {
+          setEditingId(null);
+          setFormData({
+            code: "",
+            name: "",
+            description: "",
+            quotation_types: [],
+            effective_from: "",
+            effective_to: ""
+          });
+          setShowForm(true);
+        },
+        className: "btn-primary flex items-center gap-2"
+      },
+      /* @__PURE__ */ import_react81.default.createElement(Plus, { className: "w-4 h-4" }),
+      "Add Category"
+    )), showForm && /* @__PURE__ */ import_react81.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react81.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, editingId ? "Edit Category" : "New Category"), /* @__PURE__ */ import_react81.default.createElement("form", { onSubmit: handleSubmit, className: "space-y-4" }, /* @__PURE__ */ import_react81.default.createElement("div", { className: "grid grid-cols-2 gap-4" }, /* @__PURE__ */ import_react81.default.createElement("div", null, /* @__PURE__ */ import_react81.default.createElement("label", { className: "form-label" }, "Code"), /* @__PURE__ */ import_react81.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: formData.code,
+        onChange: (e3) => setFormData({ ...formData, code: e3.target.value }),
+        className: "form-input",
+        placeholder: "e.g., CU/AG",
+        required: true
+      }
+    )), /* @__PURE__ */ import_react81.default.createElement("div", null, /* @__PURE__ */ import_react81.default.createElement("label", { className: "form-label" }, "Name"), /* @__PURE__ */ import_react81.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: formData.name,
+        onChange: (e3) => setFormData({ ...formData, name: e3.target.value }),
+        className: "form-input",
+        placeholder: "Category name",
+        required: true
+      }
+    ))), /* @__PURE__ */ import_react81.default.createElement("div", null, /* @__PURE__ */ import_react81.default.createElement("label", { className: "form-label" }, "Description"), /* @__PURE__ */ import_react81.default.createElement(
+      "textarea",
+      {
+        value: formData.description,
+        onChange: (e3) => setFormData({ ...formData, description: e3.target.value }),
+        className: "form-input",
+        rows: "3",
+        placeholder: "Category description"
+      }
+    )), /* @__PURE__ */ import_react81.default.createElement("div", { className: "grid grid-cols-3 gap-4" }, /* @__PURE__ */ import_react81.default.createElement("div", null, /* @__PURE__ */ import_react81.default.createElement("label", { className: "form-label" }, "Effective From"), /* @__PURE__ */ import_react81.default.createElement(
+      "input",
+      {
+        type: "date",
+        value: formData.effective_from,
+        onChange: (e3) => setFormData({ ...formData, effective_from: e3.target.value }),
+        className: "form-input"
+      }
+    )), /* @__PURE__ */ import_react81.default.createElement("div", null, /* @__PURE__ */ import_react81.default.createElement("label", { className: "form-label" }, "Effective To"), /* @__PURE__ */ import_react81.default.createElement(
+      "input",
+      {
+        type: "date",
+        value: formData.effective_to,
+        onChange: (e3) => setFormData({ ...formData, effective_to: e3.target.value }),
+        className: "form-input"
+      }
+    )), /* @__PURE__ */ import_react81.default.createElement("div", null, /* @__PURE__ */ import_react81.default.createElement("label", { className: "form-label" }, "Quotation Types"), /* @__PURE__ */ import_react81.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: (formData.quotation_types || []).join(", "),
+        onChange: (e3) => setFormData({ ...formData, quotation_types: e3.target.value.split(",").map((s3) => s3.trim()) }),
+        className: "form-input",
+        placeholder: "Comma separated"
+      }
+    ))), /* @__PURE__ */ import_react81.default.createElement("div", { className: "flex gap-4 pt-4 border-t border-slate-200" }, /* @__PURE__ */ import_react81.default.createElement("button", { type: "button", onClick: () => setShowForm(false), className: "btn-secondary" }, "Cancel"), /* @__PURE__ */ import_react81.default.createElement("button", { type: "submit", className: "btn-primary" }, "Save Category")))), /* @__PURE__ */ import_react81.default.createElement("div", { className: "bg-white rounded-lg shadow overflow-hidden" }, /* @__PURE__ */ import_react81.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react81.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react81.default.createElement("thead", { className: "bg-slate-50 border-b border-slate-200" }, /* @__PURE__ */ import_react81.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Code"), /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Name"), /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Description"), /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Types"), /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Effective Period"), /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Status"), /* @__PURE__ */ import_react81.default.createElement("th", { className: "px-6 py-4" }, "Actions"))), /* @__PURE__ */ import_react81.default.createElement("tbody", { className: "divide-y divide-slate-200" }, categories.map((cat) => /* @__PURE__ */ import_react81.default.createElement("tr", { key: cat.id, className: "hover:bg-slate-50" }, /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4 font-bold text-slate-900" }, cat.code), /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4 font-medium text-slate-900" }, cat.name), /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, cat.description), /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, /* @__PURE__ */ import_react81.default.createElement("div", { className: "flex gap-1 flex-wrap" }, (cat.quotation_types || []).map((type) => /* @__PURE__ */ import_react81.default.createElement("span", { key: type, className: "bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded" }, type)))), /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4 text-slate-600 text-xs" }, cat.effective_from && new Date(cat.effective_from).toLocaleDateString(), cat.effective_to && ` - ${new Date(cat.effective_to).toLocaleDateString()}`), /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react81.default.createElement("span", { className: "px-2 py-1 bg-green-100 text-green-800 text-xs rounded font-medium" }, "Active")), /* @__PURE__ */ import_react81.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react81.default.createElement("div", { className: "flex gap-3" }, /* @__PURE__ */ import_react81.default.createElement(
+      "button",
+      {
+        onClick: () => handleEdit(cat),
+        className: "text-primary-800 hover:text-primary-900"
+      },
+      /* @__PURE__ */ import_react81.default.createElement(Pen, { className: "w-4 h-4" })
+    ), /* @__PURE__ */ import_react81.default.createElement("button", { className: "text-slate-600 hover:text-slate-900" }, /* @__PURE__ */ import_react81.default.createElement(Archive, { className: "w-4 h-4" }))))))))), categories.length === 0 && /* @__PURE__ */ import_react81.default.createElement("div", { className: "text-center py-12" }, /* @__PURE__ */ import_react81.default.createElement("p", { className: "text-slate-600 font-medium" }, "No categories found"))));
   };
   var CategoryMaster_default = CategoryMaster;
 
   // src/pages/admin/FormulaMaster.jsx
   var import_react82 = __toESM(require_react());
-  var import_jsx_runtime21 = __toESM(require_jsx_runtime());
   var FormulaMaster = () => {
     const [formulas, setFormulas] = (0, import_react82.useState)([]);
     const [loading, setLoading] = (0, import_react82.useState)(true);
@@ -45111,148 +44039,74 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LoadingSpinner_default, { message: "Loading formulas..." });
+      return /* @__PURE__ */ import_react82.default.createElement(LoadingSpinner_default, { message: "Loading formulas..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h2", { className: "text-xl font-bold text-slate-900", children: "Formula Master" }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
-          "button",
-          {
-            onClick: () => setShowForm(true),
-            className: "btn-primary flex items-center gap-2",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Plus, { className: "w-4 h-4" }),
-              "Add Formula"
-            ]
-          }
-        )
-      ] }),
-      showForm && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "New Formula" }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("label", { className: "form-label", children: "Formula Name" }),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-                "input",
-                {
-                  type: "text",
-                  value: formData.name,
-                  onChange: (e3) => setFormData({ ...formData, name: e3.target.value }),
-                  className: "form-input",
-                  placeholder: "e.g., Cu Recovery v1",
-                  required: true
-                }
-              )
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("label", { className: "form-label", children: "Category" }),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-                "input",
-                {
-                  type: "text",
-                  value: formData.category_id,
-                  onChange: (e3) => setFormData({ ...formData, category_id: e3.target.value }),
-                  className: "form-input",
-                  placeholder: "Category ID",
-                  required: true
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("label", { className: "form-label", children: "Expression" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-              "textarea",
-              {
-                value: formData.expression,
-                onChange: (e3) => setFormData({ ...formData, expression: e3.target.value }),
-                className: "form-input font-mono",
-                rows: "5",
-                placeholder: "e.g., (weight * purity * price) - (weight * loss_factor)",
-                required: true
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("label", { className: "form-label", children: "Description" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-              "textarea",
-              {
-                value: formData.description,
-                onChange: (e3) => setFormData({ ...formData, description: e3.target.value }),
-                className: "form-input",
-                rows: "3",
-                placeholder: "Formula description"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex gap-4 pt-4 border-t border-slate-200", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { type: "button", onClick: () => setShowForm(false), className: "btn-secondary", children: "Cancel" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { type: "submit", className: "btn-primary", children: "Save Formula" })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "space-y-4", children: formulas.map((formula) => /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "bg-white rounded-lg shadow", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
-          "button",
-          {
-            onClick: () => setExpandedId(expandedId === formula.id ? null : formula.id),
-            className: "w-full p-6 flex items-center justify-between hover:bg-slate-50 transition-colors",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex-1 text-left", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h3", { className: "font-bold text-slate-900", children: formula.name }),
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("p", { className: "text-sm text-slate-600", children: [
-                  formula.versions?.length || 0,
-                  " version(s)"
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
-                ChevronDown,
-                {
-                  className: `w-5 h-5 text-slate-400 transition-transform ${expandedId === formula.id ? "rotate-180" : ""}`
-                }
-              )
-            ]
-          }
-        ),
-        expandedId === formula.id && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "border-t border-slate-200 p-6 space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-xs font-bold text-slate-600 uppercase mb-2", children: "Current Expression" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "bg-slate-50 p-4 rounded font-mono text-sm text-slate-900 break-all", children: formula.expression })
-          ] }),
-          formula.description && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-xs font-bold text-slate-600 uppercase mb-2", children: "Description" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-slate-700", children: formula.description })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-xs font-bold text-slate-600 uppercase mb-3", children: "Version History" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "space-y-2", children: (formula.versions || []).map((v2, idx) => /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex items-center justify-between p-3 bg-slate-50 rounded", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("p", { className: "font-medium text-slate-900", children: [
-                  "Version ",
-                  v2.version_number
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-xs text-slate-600", children: new Date(v2.created_at).toLocaleDateString() })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { className: "text-primary-800 hover:text-primary-900 font-medium text-sm", children: "View" })
-            ] }, idx)) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex gap-2 pt-4 border-t border-slate-200", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { className: "btn-primary flex-1", children: "Add Version" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("button", { className: "btn-secondary flex-1", children: "Compare Versions" })
-          ] })
-        ] })
-      ] }, formula.id)) }),
-      formulas.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "bg-white rounded-lg shadow p-12 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-slate-600 font-medium", children: "No formulas found" }) })
-    ] });
+    return /* @__PURE__ */ import_react82.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react82.default.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ import_react82.default.createElement("h2", { className: "text-xl font-bold text-slate-900" }, "Formula Master"), /* @__PURE__ */ import_react82.default.createElement(
+      "button",
+      {
+        onClick: () => setShowForm(true),
+        className: "btn-primary flex items-center gap-2"
+      },
+      /* @__PURE__ */ import_react82.default.createElement(Plus, { className: "w-4 h-4" }),
+      "Add Formula"
+    )), showForm && /* @__PURE__ */ import_react82.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react82.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "New Formula"), /* @__PURE__ */ import_react82.default.createElement("form", { onSubmit: handleSubmit, className: "space-y-4" }, /* @__PURE__ */ import_react82.default.createElement("div", { className: "grid grid-cols-2 gap-4" }, /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("label", { className: "form-label" }, "Formula Name"), /* @__PURE__ */ import_react82.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: formData.name,
+        onChange: (e3) => setFormData({ ...formData, name: e3.target.value }),
+        className: "form-input",
+        placeholder: "e.g., Cu Recovery v1",
+        required: true
+      }
+    )), /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("label", { className: "form-label" }, "Category"), /* @__PURE__ */ import_react82.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: formData.category_id,
+        onChange: (e3) => setFormData({ ...formData, category_id: e3.target.value }),
+        className: "form-input",
+        placeholder: "Category ID",
+        required: true
+      }
+    ))), /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("label", { className: "form-label" }, "Expression"), /* @__PURE__ */ import_react82.default.createElement(
+      "textarea",
+      {
+        value: formData.expression,
+        onChange: (e3) => setFormData({ ...formData, expression: e3.target.value }),
+        className: "form-input font-mono",
+        rows: "5",
+        placeholder: "e.g., (weight * purity * price) - (weight * loss_factor)",
+        required: true
+      }
+    )), /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("label", { className: "form-label" }, "Description"), /* @__PURE__ */ import_react82.default.createElement(
+      "textarea",
+      {
+        value: formData.description,
+        onChange: (e3) => setFormData({ ...formData, description: e3.target.value }),
+        className: "form-input",
+        rows: "3",
+        placeholder: "Formula description"
+      }
+    )), /* @__PURE__ */ import_react82.default.createElement("div", { className: "flex gap-4 pt-4 border-t border-slate-200" }, /* @__PURE__ */ import_react82.default.createElement("button", { type: "button", onClick: () => setShowForm(false), className: "btn-secondary" }, "Cancel"), /* @__PURE__ */ import_react82.default.createElement("button", { type: "submit", className: "btn-primary" }, "Save Formula")))), /* @__PURE__ */ import_react82.default.createElement("div", { className: "space-y-4" }, formulas.map((formula) => /* @__PURE__ */ import_react82.default.createElement("div", { key: formula.id, className: "bg-white rounded-lg shadow" }, /* @__PURE__ */ import_react82.default.createElement(
+      "button",
+      {
+        onClick: () => setExpandedId(expandedId === formula.id ? null : formula.id),
+        className: "w-full p-6 flex items-center justify-between hover:bg-slate-50 transition-colors"
+      },
+      /* @__PURE__ */ import_react82.default.createElement("div", { className: "flex-1 text-left" }, /* @__PURE__ */ import_react82.default.createElement("h3", { className: "font-bold text-slate-900" }, formula.name), /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-sm text-slate-600" }, formula.versions?.length || 0, " version(s)")),
+      /* @__PURE__ */ import_react82.default.createElement(
+        ChevronDown,
+        {
+          className: `w-5 h-5 text-slate-400 transition-transform ${expandedId === formula.id ? "rotate-180" : ""}`
+        }
+      )
+    ), expandedId === formula.id && /* @__PURE__ */ import_react82.default.createElement("div", { className: "border-t border-slate-200 p-6 space-y-4" }, /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-xs font-bold text-slate-600 uppercase mb-2" }, "Current Expression"), /* @__PURE__ */ import_react82.default.createElement("div", { className: "bg-slate-50 p-4 rounded font-mono text-sm text-slate-900 break-all" }, formula.expression)), formula.description && /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-xs font-bold text-slate-600 uppercase mb-2" }, "Description"), /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-slate-700" }, formula.description)), /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-xs font-bold text-slate-600 uppercase mb-3" }, "Version History"), /* @__PURE__ */ import_react82.default.createElement("div", { className: "space-y-2" }, (formula.versions || []).map((v2, idx) => /* @__PURE__ */ import_react82.default.createElement("div", { key: idx, className: "flex items-center justify-between p-3 bg-slate-50 rounded" }, /* @__PURE__ */ import_react82.default.createElement("div", null, /* @__PURE__ */ import_react82.default.createElement("p", { className: "font-medium text-slate-900" }, "Version ", v2.version_number), /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-xs text-slate-600" }, new Date(v2.created_at).toLocaleDateString())), /* @__PURE__ */ import_react82.default.createElement("button", { className: "text-primary-800 hover:text-primary-900 font-medium text-sm" }, "View"))))), /* @__PURE__ */ import_react82.default.createElement("div", { className: "flex gap-2 pt-4 border-t border-slate-200" }, /* @__PURE__ */ import_react82.default.createElement("button", { className: "btn-primary flex-1" }, "Add Version"), /* @__PURE__ */ import_react82.default.createElement("button", { className: "btn-secondary flex-1" }, "Compare Versions")))))), formulas.length === 0 && /* @__PURE__ */ import_react82.default.createElement("div", { className: "bg-white rounded-lg shadow p-12 text-center" }, /* @__PURE__ */ import_react82.default.createElement("p", { className: "text-slate-600 font-medium" }, "No formulas found")));
   };
   var FormulaMaster_default = FormulaMaster;
 
   // src/pages/admin/BenchmarkSettings.jsx
   var import_react83 = __toESM(require_react());
-  var import_jsx_runtime22 = __toESM(require_jsx_runtime());
   var BenchmarkSettings = () => {
     const [benchmarks, setBenchmarks] = (0, import_react83.useState)([]);
     const [loading, setLoading] = (0, import_react83.useState)(true);
@@ -45293,138 +44147,71 @@ to {
       zt.info(`Testing connection to ${source}...`);
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LoadingSpinner_default, { message: "Loading benchmarks..." });
+      return /* @__PURE__ */ import_react83.default.createElement(LoadingSpinner_default, { message: "Loading benchmarks..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "text-xl font-bold text-slate-900", children: "Benchmark Settings" }),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "grid grid-cols-3 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "bg-white rounded-lg shadow overflow-hidden", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("table", { className: "w-full text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("thead", { className: "bg-slate-50 border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Metal" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Code" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Unit" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Spot Price" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Source" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Fallback" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Status" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { className: "px-6 py-4", children: "Action" })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("tbody", { className: "divide-y divide-slate-200", children: benchmarks.map((bench) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("tr", { className: "hover:bg-slate-50", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4 font-medium text-slate-900", children: bench.metal_name }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4 text-slate-600 font-mono", children: bench.metal_code }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4 text-slate-600", children: bench.unit }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4 font-semibold text-slate-900", children: editingId === bench.id ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                "input",
-                {
-                  type: "number",
-                  value: editValue,
-                  onChange: (e3) => setEditValue(e3.target.value),
-                  className: "form-input w-24"
-                }
-              ) : bench.spot_price }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4 text-slate-600", children: bench.source }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4 text-slate-600", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded", children: bench.manual_fallback || "N/A" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "px-2 py-1 bg-green-100 text-green-800 text-xs rounded font-medium", children: "Active" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "px-6 py-4", children: editingId === bench.id ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex gap-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                  "button",
-                  {
-                    onClick: () => handleSaveEdit(bench.id),
-                    className: "text-green-600 hover:text-green-700 font-medium text-xs",
-                    children: "Save"
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                  "button",
-                  {
-                    onClick: () => setEditingId(null),
-                    className: "text-red-600 hover:text-red-700 font-medium text-xs",
-                    children: "Cancel"
-                  }
-                )
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                "button",
-                {
-                  onClick: () => {
-                    setEditingId(bench.id);
-                    setEditValue(bench.spot_price);
-                  },
-                  className: "text-primary-800 hover:text-primary-900",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Pen, { className: "w-4 h-4" })
-                }
-              ) })
-            ] }, bench.id)) })
-          ] }) }),
-          benchmarks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-center py-12", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-slate-600 font-medium", children: "No benchmarks configured" }) })
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "font-bold text-slate-900 mb-4", children: "Manual Price Entry" }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("label", { className: "form-label", children: "Metal" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("select", { value: manualInput.metal, onChange: (e3) => setManualInput({ ...manualInput, metal: e3.target.value }), className: "form-input", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("option", { value: "", children: "Select metal..." }),
-                  benchmarks.map((b3) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("option", { value: b3.metal_code, children: b3.metal_name }, b3.id))
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("label", { className: "form-label", children: "Price" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                  "input",
-                  {
-                    type: "number",
-                    value: manualInput.price,
-                    onChange: (e3) => setManualInput({ ...manualInput, price: e3.target.value }),
-                    className: "form-input",
-                    placeholder: "0.00"
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("label", { className: "form-label", children: "Note" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                  "textarea",
-                  {
-                    value: manualInput.note,
-                    onChange: (e3) => setManualInput({ ...manualInput, note: e3.target.value }),
-                    className: "form-input",
-                    rows: "3",
-                    placeholder: "Reason for override..."
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("button", { className: "btn-primary w-full", children: "Override Price" })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "font-bold text-slate-900 mb-4", children: "Data Sources" }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "space-y-3", children: ["LME", "SHFE", "NYMEX", "Local Supplier"].map((source) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex items-center justify-between p-3 bg-slate-50 rounded", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "font-medium text-slate-900", children: source }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-xs text-slate-600", children: "Last update: 2 hours ago" })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
-                "button",
-                {
-                  onClick: () => handleTestConnection(source),
-                  className: "text-primary-800 hover:text-primary-900",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(RefreshCw, { className: "w-4 h-4" })
-                }
-              )
-            ] }, source)) }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("button", { className: "btn-secondary w-full mt-4", children: "Configure Sources" })
-          ] })
-        ] })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react83.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react83.default.createElement("h2", { className: "text-xl font-bold text-slate-900" }, "Benchmark Settings"), /* @__PURE__ */ import_react83.default.createElement("div", { className: "grid grid-cols-3 gap-6" }, /* @__PURE__ */ import_react83.default.createElement("div", { className: "col-span-2" }, /* @__PURE__ */ import_react83.default.createElement("div", { className: "bg-white rounded-lg shadow overflow-hidden" }, /* @__PURE__ */ import_react83.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react83.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react83.default.createElement("thead", { className: "bg-slate-50 border-b border-slate-200" }, /* @__PURE__ */ import_react83.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Metal"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Code"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Unit"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Spot Price"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Source"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Fallback"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Status"), /* @__PURE__ */ import_react83.default.createElement("th", { className: "px-6 py-4" }, "Action"))), /* @__PURE__ */ import_react83.default.createElement("tbody", { className: "divide-y divide-slate-200" }, benchmarks.map((bench) => /* @__PURE__ */ import_react83.default.createElement("tr", { key: bench.id, className: "hover:bg-slate-50" }, /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4 font-medium text-slate-900" }, bench.metal_name), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4 text-slate-600 font-mono" }, bench.metal_code), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, bench.unit), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4 font-semibold text-slate-900" }, editingId === bench.id ? /* @__PURE__ */ import_react83.default.createElement(
+      "input",
+      {
+        type: "number",
+        value: editValue,
+        onChange: (e3) => setEditValue(e3.target.value),
+        className: "form-input w-24"
+      }
+    ) : bench.spot_price), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, bench.source), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, /* @__PURE__ */ import_react83.default.createElement("span", { className: "text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded" }, bench.manual_fallback || "N/A")), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react83.default.createElement("span", { className: "px-2 py-1 bg-green-100 text-green-800 text-xs rounded font-medium" }, "Active")), /* @__PURE__ */ import_react83.default.createElement("td", { className: "px-6 py-4" }, editingId === bench.id ? /* @__PURE__ */ import_react83.default.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ import_react83.default.createElement(
+      "button",
+      {
+        onClick: () => handleSaveEdit(bench.id),
+        className: "text-green-600 hover:text-green-700 font-medium text-xs"
+      },
+      "Save"
+    ), /* @__PURE__ */ import_react83.default.createElement(
+      "button",
+      {
+        onClick: () => setEditingId(null),
+        className: "text-red-600 hover:text-red-700 font-medium text-xs"
+      },
+      "Cancel"
+    )) : /* @__PURE__ */ import_react83.default.createElement(
+      "button",
+      {
+        onClick: () => {
+          setEditingId(bench.id);
+          setEditValue(bench.spot_price);
+        },
+        className: "text-primary-800 hover:text-primary-900"
+      },
+      /* @__PURE__ */ import_react83.default.createElement(Pen, { className: "w-4 h-4" })
+    ))))))), benchmarks.length === 0 && /* @__PURE__ */ import_react83.default.createElement("div", { className: "text-center py-12" }, /* @__PURE__ */ import_react83.default.createElement("p", { className: "text-slate-600 font-medium" }, "No benchmarks configured")))), /* @__PURE__ */ import_react83.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react83.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react83.default.createElement("h3", { className: "font-bold text-slate-900 mb-4" }, "Manual Price Entry"), /* @__PURE__ */ import_react83.default.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ import_react83.default.createElement("div", null, /* @__PURE__ */ import_react83.default.createElement("label", { className: "form-label" }, "Metal"), /* @__PURE__ */ import_react83.default.createElement("select", { value: manualInput.metal, onChange: (e3) => setManualInput({ ...manualInput, metal: e3.target.value }), className: "form-input" }, /* @__PURE__ */ import_react83.default.createElement("option", { value: "" }, "Select metal..."), benchmarks.map((b3) => /* @__PURE__ */ import_react83.default.createElement("option", { key: b3.id, value: b3.metal_code }, b3.metal_name)))), /* @__PURE__ */ import_react83.default.createElement("div", null, /* @__PURE__ */ import_react83.default.createElement("label", { className: "form-label" }, "Price"), /* @__PURE__ */ import_react83.default.createElement(
+      "input",
+      {
+        type: "number",
+        value: manualInput.price,
+        onChange: (e3) => setManualInput({ ...manualInput, price: e3.target.value }),
+        className: "form-input",
+        placeholder: "0.00"
+      }
+    )), /* @__PURE__ */ import_react83.default.createElement("div", null, /* @__PURE__ */ import_react83.default.createElement("label", { className: "form-label" }, "Note"), /* @__PURE__ */ import_react83.default.createElement(
+      "textarea",
+      {
+        value: manualInput.note,
+        onChange: (e3) => setManualInput({ ...manualInput, note: e3.target.value }),
+        className: "form-input",
+        rows: "3",
+        placeholder: "Reason for override..."
+      }
+    )), /* @__PURE__ */ import_react83.default.createElement("button", { className: "btn-primary w-full" }, "Override Price"))), /* @__PURE__ */ import_react83.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react83.default.createElement("h3", { className: "font-bold text-slate-900 mb-4" }, "Data Sources"), /* @__PURE__ */ import_react83.default.createElement("div", { className: "space-y-3" }, ["LME", "SHFE", "NYMEX", "Local Supplier"].map((source) => /* @__PURE__ */ import_react83.default.createElement("div", { key: source, className: "flex items-center justify-between p-3 bg-slate-50 rounded" }, /* @__PURE__ */ import_react83.default.createElement("div", null, /* @__PURE__ */ import_react83.default.createElement("p", { className: "font-medium text-slate-900" }, source), /* @__PURE__ */ import_react83.default.createElement("p", { className: "text-xs text-slate-600" }, "Last update: 2 hours ago")), /* @__PURE__ */ import_react83.default.createElement(
+      "button",
+      {
+        onClick: () => handleTestConnection(source),
+        className: "text-primary-800 hover:text-primary-900"
+      },
+      /* @__PURE__ */ import_react83.default.createElement(RefreshCw, { className: "w-4 h-4" })
+    )))), /* @__PURE__ */ import_react83.default.createElement("button", { className: "btn-secondary w-full mt-4" }, "Configure Sources")))));
   };
   var BenchmarkSettings_default = BenchmarkSettings;
 
   // src/pages/admin/UserManagement.jsx
   var import_react84 = __toESM(require_react());
-  var import_jsx_runtime23 = __toESM(require_jsx_runtime());
   var roleColors = {
     admin: "bg-purple-100 text-purple-800",
     commercial: "bg-blue-100 text-blue-800",
@@ -45496,183 +44283,97 @@ to {
       }
     };
     if (loading) {
-      return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LoadingSpinner_default, { message: "Loading users..." });
+      return /* @__PURE__ */ import_react84.default.createElement(LoadingSpinner_default, { message: "Loading users..." });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("h2", { className: "text-xl font-bold text-slate-900", children: "User Management" }),
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
-          "button",
-          {
-            onClick: () => setShowForm(true),
-            className: "btn-primary flex items-center gap-2",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Plus, { className: "w-4 h-4" }),
-              "Add User"
-            ]
-          }
-        )
-      ] }),
-      showForm && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "bg-white rounded-lg shadow p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("h3", { className: "text-lg font-bold text-slate-900 mb-4", children: "New User" }),
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("form", { onSubmit: handleSubmit, className: "grid grid-cols-2 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("label", { className: "form-label", children: "Name" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-              "input",
-              {
-                type: "text",
-                value: formData.name,
-                onChange: (e3) => setFormData({ ...formData, name: e3.target.value }),
-                className: "form-input",
-                placeholder: "Full name",
-                required: true
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("label", { className: "form-label", children: "Email" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-              "input",
-              {
-                type: "email",
-                value: formData.email,
-                onChange: (e3) => setFormData({ ...formData, email: e3.target.value }),
-                className: "form-input",
-                placeholder: "user@example.com",
-                required: true
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("label", { className: "form-label", children: "Password" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-              "input",
-              {
-                type: "password",
-                value: formData.password,
-                onChange: (e3) => setFormData({ ...formData, password: e3.target.value }),
-                className: "form-input",
-                placeholder: "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
-                required: true
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("label", { className: "form-label", children: "Role" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
-              "select",
-              {
-                value: formData.role,
-                onChange: (e3) => setFormData({ ...formData, role: e3.target.value }),
-                className: "form-input",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "commercial", children: "Commercial" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "pricing", children: "Pricing" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "approver", children: "Approver" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "finance", children: "Finance" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "admin", children: "Admin" })
-                ]
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "col-span-2 flex gap-4 pt-4 border-t border-slate-200", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("button", { type: "button", onClick: () => setShowForm(false), className: "btn-secondary", children: "Cancel" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("button", { type: "submit", className: "btn-primary", children: "Create User" })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "bg-white rounded-lg shadow overflow-hidden", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("table", { className: "w-full text-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("thead", { className: "bg-slate-50 border-b border-slate-200", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("tr", { className: "text-left text-slate-600 font-semibold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("th", { className: "px-6 py-4", children: "Name" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("th", { className: "px-6 py-4", children: "Email" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("th", { className: "px-6 py-4", children: "Role" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("th", { className: "px-6 py-4", children: "Status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("th", { className: "px-6 py-4", children: "Last Active" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("th", { className: "px-6 py-4", children: "Actions" })
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("tbody", { className: "divide-y divide-slate-200", children: users.map((user) => /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("tr", { className: "hover:bg-slate-50", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("td", { className: "px-6 py-4 font-medium text-slate-900", children: user.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("td", { className: "px-6 py-4 text-slate-600", children: user.email }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
-              "select",
-              {
-                value: user.role,
-                onChange: (e3) => handleRoleChange(user.id, e3.target.value),
-                className: `px-3 py-1 rounded text-xs font-medium cursor-pointer ${roleColors[user.role] || roleColors.commercial}`,
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "commercial", children: "Commercial" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "pricing", children: "Pricing" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "approver", children: "Approver" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "finance", children: "Finance" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("option", { value: "admin", children: "Admin" })
-                ]
-              }
-            ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: `px-2 py-1 text-xs rounded font-medium ${user.is_active ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`, children: user.is_active ? "Active" : "Inactive" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("td", { className: "px-6 py-4 text-slate-600 text-xs", children: user.last_active ? new Date(user.last_active).toLocaleString() : "Never" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("td", { className: "px-6 py-4", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
-              "button",
-              {
-                onClick: () => handleToggleStatus(user.id, user.is_active),
-                className: `flex items-center gap-1 px-3 py-1 rounded text-sm font-medium ${user.is_active ? "bg-red-100 text-red-700 hover:bg-red-200" : "bg-green-100 text-green-700 hover:bg-green-200"}`,
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(ToggleLeft, { className: "w-4 h-4" }),
-                  user.is_active ? "Deactivate" : "Activate"
-                ]
-              }
-            ) })
-          ] }, user.id)) })
-        ] }) }),
-        users.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "text-center py-12", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "text-slate-600 font-medium", children: "No users found" }) })
-      ] })
-    ] });
+    return /* @__PURE__ */ import_react84.default.createElement("div", { className: "space-y-6" }, /* @__PURE__ */ import_react84.default.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ import_react84.default.createElement("h2", { className: "text-xl font-bold text-slate-900" }, "User Management"), /* @__PURE__ */ import_react84.default.createElement(
+      "button",
+      {
+        onClick: () => setShowForm(true),
+        className: "btn-primary flex items-center gap-2"
+      },
+      /* @__PURE__ */ import_react84.default.createElement(Plus, { className: "w-4 h-4" }),
+      "Add User"
+    )), showForm && /* @__PURE__ */ import_react84.default.createElement("div", { className: "bg-white rounded-lg shadow p-6" }, /* @__PURE__ */ import_react84.default.createElement("h3", { className: "text-lg font-bold text-slate-900 mb-4" }, "New User"), /* @__PURE__ */ import_react84.default.createElement("form", { onSubmit: handleSubmit, className: "grid grid-cols-2 gap-4" }, /* @__PURE__ */ import_react84.default.createElement("div", null, /* @__PURE__ */ import_react84.default.createElement("label", { className: "form-label" }, "Name"), /* @__PURE__ */ import_react84.default.createElement(
+      "input",
+      {
+        type: "text",
+        value: formData.name,
+        onChange: (e3) => setFormData({ ...formData, name: e3.target.value }),
+        className: "form-input",
+        placeholder: "Full name",
+        required: true
+      }
+    )), /* @__PURE__ */ import_react84.default.createElement("div", null, /* @__PURE__ */ import_react84.default.createElement("label", { className: "form-label" }, "Email"), /* @__PURE__ */ import_react84.default.createElement(
+      "input",
+      {
+        type: "email",
+        value: formData.email,
+        onChange: (e3) => setFormData({ ...formData, email: e3.target.value }),
+        className: "form-input",
+        placeholder: "user@example.com",
+        required: true
+      }
+    )), /* @__PURE__ */ import_react84.default.createElement("div", null, /* @__PURE__ */ import_react84.default.createElement("label", { className: "form-label" }, "Password"), /* @__PURE__ */ import_react84.default.createElement(
+      "input",
+      {
+        type: "password",
+        value: formData.password,
+        onChange: (e3) => setFormData({ ...formData, password: e3.target.value }),
+        className: "form-input",
+        placeholder: "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+        required: true
+      }
+    )), /* @__PURE__ */ import_react84.default.createElement("div", null, /* @__PURE__ */ import_react84.default.createElement("label", { className: "form-label" }, "Role"), /* @__PURE__ */ import_react84.default.createElement(
+      "select",
+      {
+        value: formData.role,
+        onChange: (e3) => setFormData({ ...formData, role: e3.target.value }),
+        className: "form-input"
+      },
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "commercial" }, "Commercial"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "pricing" }, "Pricing"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "approver" }, "Approver"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "finance" }, "Finance"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "admin" }, "Admin")
+    )), /* @__PURE__ */ import_react84.default.createElement("div", { className: "col-span-2 flex gap-4 pt-4 border-t border-slate-200" }, /* @__PURE__ */ import_react84.default.createElement("button", { type: "button", onClick: () => setShowForm(false), className: "btn-secondary" }, "Cancel"), /* @__PURE__ */ import_react84.default.createElement("button", { type: "submit", className: "btn-primary" }, "Create User")))), /* @__PURE__ */ import_react84.default.createElement("div", { className: "bg-white rounded-lg shadow overflow-hidden" }, /* @__PURE__ */ import_react84.default.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ import_react84.default.createElement("table", { className: "w-full text-sm" }, /* @__PURE__ */ import_react84.default.createElement("thead", { className: "bg-slate-50 border-b border-slate-200" }, /* @__PURE__ */ import_react84.default.createElement("tr", { className: "text-left text-slate-600 font-semibold" }, /* @__PURE__ */ import_react84.default.createElement("th", { className: "px-6 py-4" }, "Name"), /* @__PURE__ */ import_react84.default.createElement("th", { className: "px-6 py-4" }, "Email"), /* @__PURE__ */ import_react84.default.createElement("th", { className: "px-6 py-4" }, "Role"), /* @__PURE__ */ import_react84.default.createElement("th", { className: "px-6 py-4" }, "Status"), /* @__PURE__ */ import_react84.default.createElement("th", { className: "px-6 py-4" }, "Last Active"), /* @__PURE__ */ import_react84.default.createElement("th", { className: "px-6 py-4" }, "Actions"))), /* @__PURE__ */ import_react84.default.createElement("tbody", { className: "divide-y divide-slate-200" }, users.map((user) => /* @__PURE__ */ import_react84.default.createElement("tr", { key: user.id, className: "hover:bg-slate-50" }, /* @__PURE__ */ import_react84.default.createElement("td", { className: "px-6 py-4 font-medium text-slate-900" }, user.name), /* @__PURE__ */ import_react84.default.createElement("td", { className: "px-6 py-4 text-slate-600" }, user.email), /* @__PURE__ */ import_react84.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react84.default.createElement(
+      "select",
+      {
+        value: user.role,
+        onChange: (e3) => handleRoleChange(user.id, e3.target.value),
+        className: `px-3 py-1 rounded text-xs font-medium cursor-pointer ${roleColors[user.role] || roleColors.commercial}`
+      },
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "commercial" }, "Commercial"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "pricing" }, "Pricing"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "approver" }, "Approver"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "finance" }, "Finance"),
+      /* @__PURE__ */ import_react84.default.createElement("option", { value: "admin" }, "Admin")
+    )), /* @__PURE__ */ import_react84.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react84.default.createElement("span", { className: `px-2 py-1 text-xs rounded font-medium ${user.is_active ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}` }, user.is_active ? "Active" : "Inactive")), /* @__PURE__ */ import_react84.default.createElement("td", { className: "px-6 py-4 text-slate-600 text-xs" }, user.last_active ? new Date(user.last_active).toLocaleString() : "Never"), /* @__PURE__ */ import_react84.default.createElement("td", { className: "px-6 py-4" }, /* @__PURE__ */ import_react84.default.createElement(
+      "button",
+      {
+        onClick: () => handleToggleStatus(user.id, user.is_active),
+        className: `flex items-center gap-1 px-3 py-1 rounded text-sm font-medium ${user.is_active ? "bg-red-100 text-red-700 hover:bg-red-200" : "bg-green-100 text-green-700 hover:bg-green-200"}`
+      },
+      /* @__PURE__ */ import_react84.default.createElement(ToggleLeft, { className: "w-4 h-4" }),
+      user.is_active ? "Deactivate" : "Activate"
+    ))))))), users.length === 0 && /* @__PURE__ */ import_react84.default.createElement("div", { className: "text-center py-12" }, /* @__PURE__ */ import_react84.default.createElement("p", { className: "text-slate-600 font-medium" }, "No users found"))));
   };
   var UserManagement_default = UserManagement;
 
   // src/App.jsx
-  var import_jsx_runtime24 = __toESM(require_jsx_runtime());
   var AppRoutes = () => {
     const { isAuthenticated } = useAuth();
     if (!isAuthenticated) {
-      return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Routes, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/login", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Login_default, {}) }),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "*", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Navigate, { to: "/login", replace: true }) })
-      ] });
+      return /* @__PURE__ */ import_react85.default.createElement(Routes, null, /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/login", element: /* @__PURE__ */ import_react85.default.createElement(Login_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "*", element: /* @__PURE__ */ import_react85.default.createElement(Navigate, { to: "/login", replace: true }) }));
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Layout_default, { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Routes, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Navigate, { to: "/dashboard", replace: true }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/dashboard", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Dashboard_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(QuotationList_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/new", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(QuotationCreate_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(QuotationBreakdown_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id/documents", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DocumentUpload_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id/extraction", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ExtractionReview_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id/category", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CategorySelection_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id/market-data", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(MarketDataReview_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id/approval", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ApprovalScreen_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/quotations/:id/output", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(OutputPreview_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/audit", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(AuditHistory_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/market-data", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(MarketDataReview_default, {}) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/admin/categories", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ProtectedRoute_default, { requiredRole: "admin", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CategoryMaster_default, {}) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/admin/formulas", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ProtectedRoute_default, { requiredRole: "admin", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(FormulaMaster_default, {}) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/admin/benchmarks", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ProtectedRoute_default, { requiredRole: "admin", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BenchmarkSettings_default, {}) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "/admin/users", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ProtectedRoute_default, { requiredRole: "admin", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(UserManagement_default, {}) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Route, { path: "*", element: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Navigate, { to: "/dashboard", replace: true }) })
-    ] }) });
+    return /* @__PURE__ */ import_react85.default.createElement(Layout_default, null, /* @__PURE__ */ import_react85.default.createElement(Routes, null, /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react85.default.createElement(Navigate, { to: "/dashboard", replace: true }) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/dashboard", element: /* @__PURE__ */ import_react85.default.createElement(Dashboard_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations", element: /* @__PURE__ */ import_react85.default.createElement(QuotationList_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/new", element: /* @__PURE__ */ import_react85.default.createElement(QuotationCreate_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id", element: /* @__PURE__ */ import_react85.default.createElement(QuotationBreakdown_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id/documents", element: /* @__PURE__ */ import_react85.default.createElement(DocumentUpload_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id/extraction", element: /* @__PURE__ */ import_react85.default.createElement(ExtractionReview_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id/category", element: /* @__PURE__ */ import_react85.default.createElement(CategorySelection_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id/market-data", element: /* @__PURE__ */ import_react85.default.createElement(MarketDataReview_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id/approval", element: /* @__PURE__ */ import_react85.default.createElement(ApprovalScreen_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/quotations/:id/output", element: /* @__PURE__ */ import_react85.default.createElement(OutputPreview_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/audit", element: /* @__PURE__ */ import_react85.default.createElement(AuditHistory_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/market-data", element: /* @__PURE__ */ import_react85.default.createElement(MarketDataReview_default, null) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/admin/categories", element: /* @__PURE__ */ import_react85.default.createElement(ProtectedRoute_default, { requiredRole: "admin" }, /* @__PURE__ */ import_react85.default.createElement(CategoryMaster_default, null)) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/admin/formulas", element: /* @__PURE__ */ import_react85.default.createElement(ProtectedRoute_default, { requiredRole: "admin" }, /* @__PURE__ */ import_react85.default.createElement(FormulaMaster_default, null)) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/admin/benchmarks", element: /* @__PURE__ */ import_react85.default.createElement(ProtectedRoute_default, { requiredRole: "admin" }, /* @__PURE__ */ import_react85.default.createElement(BenchmarkSettings_default, null)) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "/admin/users", element: /* @__PURE__ */ import_react85.default.createElement(ProtectedRoute_default, { requiredRole: "admin" }, /* @__PURE__ */ import_react85.default.createElement(UserManagement_default, null)) }), /* @__PURE__ */ import_react85.default.createElement(Route, { path: "*", element: /* @__PURE__ */ import_react85.default.createElement(Navigate, { to: "/dashboard", replace: true }) })));
   };
   function App() {
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BrowserRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(AuthProvider, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(AppRoutes, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Fe, { position: "top-right" })
-    ] }) });
+    return /* @__PURE__ */ import_react85.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react85.default.createElement(AuthProvider, null, /* @__PURE__ */ import_react85.default.createElement(AppRoutes, null), /* @__PURE__ */ import_react85.default.createElement(Fe, { position: "top-right" })));
   }
 
   // src/main.jsx
-  var import_jsx_runtime25 = __toESM(require_jsx_runtime());
   import_client.default.createRoot(document.getElementById("root")).render(
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_react86.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(App, {}) })
+    /* @__PURE__ */ import_react86.default.createElement(import_react86.default.StrictMode, null, /* @__PURE__ */ import_react86.default.createElement(App, null))
   );
 })();
 /*! Bundled license information:
@@ -45703,17 +44404,6 @@ react-dom/cjs/react-dom.production.min.js:
   (**
    * @license React
    * react-dom.production.min.js
-   *
-   * Copyright (c) Facebook, Inc. and its affiliates.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   *)
-
-react/cjs/react-jsx-runtime.production.min.js:
-  (**
-   * @license React
-   * react-jsx-runtime.production.min.js
    *
    * Copyright (c) Facebook, Inc. and its affiliates.
    *
