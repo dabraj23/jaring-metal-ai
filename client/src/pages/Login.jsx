@@ -29,7 +29,7 @@ export const Login = () => {
       toast.success('Login successful');
       navigate('/dashboard');
     } catch (err) {
-      const errorMessage = err.response?.data?.message || 'Login failed. Please check your credentials.';
+      const errorMessage = err.response?.data?.error || 'Login failed. Please check your credentials.';
       toast.error(errorMessage);
     }
   };
@@ -99,8 +99,8 @@ export const Login = () => {
           {/* Demo Credentials */}
           <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
             <p className="text-xs font-semibold text-slate-600 mb-2">Demo Credentials:</p>
-            <p className="text-xs text-slate-600">Email: <span className="font-mono">demo@jaring.com</span></p>
-            <p className="text-xs text-slate-600">Password: <span className="font-mono">password123</span></p>
+            <p className="text-xs text-slate-600">Email: <span className="font-mono">admin@jaringmetal.com</span></p>
+            <p className="text-xs text-slate-600">Password: <span className="font-mono">admin123</span></p>
           </div>
         </div>
 
