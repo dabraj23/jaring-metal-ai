@@ -79,15 +79,21 @@ export const DocumentUpload = () => {
   };
 
   const handleExtract = async () => {
+    if (!documents || documents.length === 0) {
+      toast.error('Please upload at least one document before extracting');
+      return;
+    }
     try {
       setExtracting(true);
-      await extractData(id);
+      const docId = documents[0].id;
+      await extractData(id, docId);
       toast.success('Data extraction complete');
       setTimeout(() => {
         navigate(`/quotations/${id}/extraction`);
       }, 1000);
     } catch (err) {
-      toast.error('Extraction failed');
+      const msg = err.response?.data?.error || 'Extraction failed';
+      toast.error(msg);
       console.error(err);
     } finally {
       setExtracting(false);
