@@ -35,9 +35,9 @@ export const Dashboard = () => {
       setSummary(summaryData);
 
       setStatsData({
-        totalQuotations: summaryData.totalQuotations || 0,
-        pendingApproval: summaryData.pendingApproval || 0,
-        releasedThisMonth: summaryData.releasedThisMonth || 0,
+              totalQuotations: summaryData.quotations?.total || 0,
+              pendingApproval: summaryData.quotations?.pendingApproval || 0,
+              releasedThisMonth: summaryData.quotations?.released || 0,
         avgProcessingTime: summaryData.avgProcessingTime || 0
       });
 
@@ -70,7 +70,7 @@ export const Dashboard = () => {
             </div>
             <FileText className="w-8 h-8 text-primary-800 opacity-20" />
           </div>
-          <p className="text-xs text-green-600 font-medium mt-4">+12% from last month</p>
+          <p className="text-xs text-green-600 font-medium mt-4">All time</p>
         </div>
 
         {/* Pending Approval */}
