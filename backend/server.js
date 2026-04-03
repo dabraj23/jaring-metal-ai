@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
-
+// v1.0.1 - frontend bug fixes
 const { db, initializeSchema, logAudit } = require('./database/db');
 const { generateToken, authMiddleware, requireRole } = require('./middleware/auth');
 const { extractDocumentData, recommendCategory } = require('./services/geminiService');
