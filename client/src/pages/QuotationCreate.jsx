@@ -18,7 +18,7 @@ export const QuotationCreate = () => {
   const fetchCustomers = async () => {
     try {
       const res = await getCustomers();
-      setCustomers(res.data?.data || []);
+      setCustomers(Array.isArray(res.data) ? res.data : (res.data?.data || []));
     } catch (err) {
       toast.error('Failed to load customers');
       console.error(err);
